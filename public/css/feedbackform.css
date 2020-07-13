@@ -1,0 +1,48 @@
+        
+        body{
+		background-color: #EADECE;
+	}
+	.contact{
+		padding: 4%;
+        padding-bottom: 50%;
+		height: 400px;
+	}
+	.col-md-5{
+		background-image: url("http://cdn.litlepups.net/2018/08/09/smart-dog-desktop-background-hd-2048x1395-deskbg-com.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+		padding: 4%;
+	}
+    
+    .edit_profile_bg{
+		background-image: url("http://images6.fanpop.com/image/photos/37900000/Happy-Dog-dogs-37981487-500-334.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+		padding: 4%;
+	}
+
+	.contact-info{
+		margin-top:10%;
+	}
+	.contact-info img{
+		margin-bottom: 15%;
+	}
+	.contact-info h2{
+		margin-bottom: 10%;
+	}
+	.col-md-7{
+		background: #fff;
+		padding: 3%;
+	}
+	.contact-form label{
+		font-weight:600;
+	}
+	.contact-form button{
+		background: #25274d;
+		color: #fff;
+		font-weight: 600;
+		width: 25%;
+	}
+	.contact-form button:focus{
+		box-shadow:none;
+	}

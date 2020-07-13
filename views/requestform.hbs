@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+    
+<!--  title details    -->
+  <title>PAWSter Care - Request form</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png" />
+    
+<!-- Alertify CDN  -->  
+ <script src="js/alertify.min.js"></script>    
+
+<!-- CSS -->
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/bootstrap.min.css"/>
+
+     <!-- for sweet alert boxes (replacement for norm js pop up) -->
+    <script src="../js/sweetalert2.all.min.js"></script>
+    
+<!-- RTL version -->
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.rtl.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.rtl.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/semantic.rtl.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/bootstrap.rtl.min.css"/>
+    
+<!-- BootstrapCDN -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+<!-- Custom fonts for this template -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    
+<!-- The layout of the navbar and the footer changes
+
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+<!-- The adoption and profile icon dropdown doesn't work if this is used.
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>-->
+    
+<!------ Footer ---------->
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+<!-- custom CSS -->
+<link href="../css/PAWSter%20Care.css" rel="stylesheet">
+<link href="../css/requestform.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/alertify.css"/>
+    
+<!-- custom js + slider -->
+<script src="../js/jssor.slider-27.5.0.min.js" type="text/javascript"></script>
+<script src="../js/PAWSter%20Care.js" type="text/javascript"></script>
+<script src="../js/requestform.js"></script>
+</head>
+    
+<body>
+<!-- Navigation -->
+{{> navbar}}
+    <script>HighlightTab("profile")</script><br><br><br>
+    
+<div class="container">
+    <br>
+	<div class="col-lg-12 paper-bg" id="source-html">
+        <h1 class="well text-center">Request for Adoption Form</h1><br>
+        <img class="clip" src="../img/clip.png"/>
+	<div class="row">
+				<form method="post" action="request">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-3 form-group">
+								<label>First Name </label>
+								<input type="text" placeholder="Enter First Name Here.." class="form-control" name="reqfirst" required oninvalid="alert('You must fill out first name!')">
+							</div>
+                            <div class="col-sm-3 form-group">
+								<label>Middle Name </label>
+								<input type="text" placeholder="Enter Middle Name Here.." class="form-control" name="reqmiddle" required oninvalid="alert('You must fill out middle name!')">
+							</div>
+							<div class="col-sm-3 form-group">
+								<label>Last Name </label>
+								<input type="text" placeholder="Enter Last Name Here.." class="form-control" name="reqlast" required oninvalid="alert('You must fill out last name!')">
+							</div>
+						</div>					
+						<div class="form-group">
+							<label>Address </label>
+							<textarea placeholder="Enter Address Here.." rows="3" class="form-control" name="reqaddress" required oninvalid="alert('You must fill out address!')"></textarea>
+						</div>	
+						<div class="row">
+							<div class="col-sm-4 form-group">
+								<label>City </label>
+								<input type="text" placeholder="Enter City Name Here.." class="form-control" name="reqcity" required oninvalid="alert('You must fill out city!')">
+							</div>	
+							<div class="col-sm-2 form-group">
+								<label>Zip </label>
+								<input type="text" placeholder="Enter Zip Code Here.." class="form-control" name="reqzip" required oninvalid="alert('You must fill out Zip Code!')">
+							</div>
+                            <div class="col-sm-2 form-group">
+								<label>Household Type </label>
+								<select type="text" placeholder="Choose a household type.." class="form-control" name="reqhouse" required oninvalid="alert('You must fill out household type!')">
+                                      <option value="house">House</option>
+                                      <option value="townhouse">Townhouse</option>
+                                      <option value="condo">Condo</option>
+                                      <option value="apartment">Apartment</option>
+                                      <option value="duplex">Duplex</option>
+                                      <option value="other">Other</option>
+                                </select>
+							</div>		
+						</div>
+						<div class="row">
+							<div class="col-sm-2 form-group">
+								<label>Age </label>
+								<input type="text" placeholder="Enter Age Here.." class="form-control" name="reqage" required oninvalid="alert('You must fill out age!')">
+							</div>
+                            <div class="col-sm-2 form-group">
+								<label>Gender </label>
+								<input type="text" placeholder="Gender Here.." class="form-control" name="reqgender" required oninvalid="alert('You must fill out gender!')">
+							</div>
+							<div class="col-sm-2 form-group">
+								<label>Occupation </label>
+								<input type="text" placeholder="Occupation Here.." class="form-control" name="reqoccupation" required oninvalid="alert('You must fill out occupation!')">
+							</div>
+                            <div class="col-sm-2 form-group">
+                                <label>Phone Number </label>
+                                <input type="text" placeholder="Phone Number.." class="form-control" name="reqnum" required oninvalid="alert('You must fill out phone number!')">
+                            </div>
+                             <div class="col-sm-4 form-group">
+                                <label>Email Address </label>
+                                <input type="text" placeholder="Enter Email Address Here.." class="form-control" name="reqemail" value="{{email}}" required oninvalid="alert('You must fill out the email address!')" readonly="readonly">
+                            </div>	
+						</div><br><hr>
+                        <div class="chosen_dog">
+                            <input type="hidden" name="reqdogpic" value="{{dog.image}}">
+                            <img style="height: 300px; width: 500px" src= "../uploads/{{dog.image}}"/>
+                        </div>
+                            <br><br>
+                        <div class="row">
+                            <div class="col-sm-4 form-group">
+								<label>Name of Dog </label>
+								<input type="text" placeholder="Dog Name.." class="form-control" value="{{dog.name}}" name="reqdog" required oninvalid="alert('You must fill out the dog's name!')" readonly="readonly">
+							</div>
+                            <div class="col-sm-3 form-group">
+								<label>Experience with Dogs </label>
+								<select type="text" placeholder="Choose experience type.." class="form-control" name="reqexp" required oninvalid="alert('You must fill out experience type!')">
+                                      <option value="none">None</option>
+                                      <option value="little">Little</option>
+                                      <option value="some">Some</option>
+                                      <option value="experienced">Experienced</option>
+                                </select>
+							</div>
+                            <div class="col-sm-12 form-group">
+								<label>Expectation or Preferences </label>
+								<input type="text" placeholder="I expect.. / I prefer.." class="form-control">
+							</div>
+						</div>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <label>Why would you want to adopt? </label>
+                                <textarea placeholder="Enter Reason Here.." rows="4" class="form-control" name="reqreason" required oninvalid="alert('You must fill out all details!')"></textarea> 
+                            </div>		    
+                        </div>	
+					</div>
+                        <label>&nbsp;&nbsp;Terms and Conditions</label>
+                        <p style="padding-left: 10px">
+                            By sending this electronically, I agree to the terms and conditions listed under <a href="protocols">PROTOCOLS</a>.<br><br>
+                    &nbsp;
+                    <input type="submit" class="btn btn-lg btn-info" value="Submit Request" onCLick="myFunction()">
+                    &nbsp;&nbsp;&nbsp;
+                        <button id="btn-export" class="btn btn-lg btn-success" onclick="exportHTML()">Download blank template</button>
+				</form> 
+				</div>
+	   </div>
+    </div>
+    <br><br>
+{{> footer}}
+</body>
+</html>
