@@ -1,13 +1,12 @@
-const $ = require('../public/js/jquery');
-const { clearFilter } = require('../public/js/meet_the_dogs');
-
-jest.mock('../public/js/meet_the_dogs');
+global.jQuery = require('../public/js/jquery');
+global.$ = global.jQuery;
+const clearFilter = require('../public/js/meet_the_dogs');
+//const searchFilter = require('../public/js/meet_the_dogs');
 
 describe('Filter search results', () => {
-  test('clear search', () => {
-	  // Arrange
-	  document.body.innerHTML =
-        '<input id="search-box" value="search"/>' +
+  document.body.innerHTML =
+        '<form id="search-form" action="" method="POST" enctype="multipart/form-data">' +
+        '<input id="search-box" value=""/>' +
         '<button id = "reset-filter"/>' +
         '<div>' +
         '<div>' +
@@ -34,21 +33,34 @@ describe('Filter search results', () => {
         '<option value="easy">Easy</option>' +
         '</select>' +
         '</div>' +
-        '</div>'; 
-      $(".filter-breed").val("Beagle").change();
-      $(".filter-gender").val("male").change();
-      $(".filter-energy_level").val("high").change();
-      $(".filter-ease_of_training").val("easy").change();
+        '</div>' + 
+        '<span data-name = "Benny" data-breed = "Beagle" data-gender = "male" data-energy_level = "high" data-ease_of_training = "easy" class="product">'; 
+    
+    test('clear search', () => {
+	  // Arrange
+      $('.filter-breed').val("Beagle");
+      $('.filter-gender').val("male");
+      $('.filter-energy_level').val("high");
+      $('.filter-ease_of_training').val("easy");
+      $('#search-box').val("search for dogs");
 
 	  // Act
-      $("#reset-filter").click();
+      clearFilter();
       
 	  // Assert
-	  expect(clearFilter).toBeCalled();
       expect($(".filter-breed").val()).toEqual("");
       expect($(".filter-gender").val()).toEqual("");
       expect($(".filter-energy_level").val()).toEqual("");
       expect($(".filter-ease_of_training").val()).toEqual("");
       expect($("#search-box").val()).toEqual("");
+  })
+    
+  test('search bar filter', () => {
+	  // Arrange
+       
+	  // Act
+      //searchFilter();
+	  // Assert
+      
   })
 });

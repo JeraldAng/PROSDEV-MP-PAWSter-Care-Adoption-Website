@@ -1,6 +1,3 @@
-// for jest testing
-const $ = require('./jquery');
-
 var products = "";
 var breeds = "";
 var genders = "";
@@ -44,9 +41,7 @@ $(".filter").on("change",function () {
 });
 
 //on search form submit
-
-$("#search-form").submit(function(e) {
-	e.preventDefault();
+function searchFilter() {
 	var query = $("#search-form input").val().toLowerCase();
 	$(".product").hide();
 	$(".product").each(function() {
@@ -59,11 +54,15 @@ $("#search-form").submit(function(e) {
 		if (name.indexOf(query) > -1 || breed.indexOf(query) > -1 || gender.indexOf(query) > -1 || energy_level.indexOf(query) > -1 || ease_of_training.indexOf(query) > -1) {
 			$(this).show();
 		}
-	});
+	});  
+}
+
+$("#search-form").submit(function(e) {
+    e.preventDefault();
+	searchFilter();
 });
 
-$("#reset-filter").click(function(){
-    clearFilter:()=>{
+function clearFilter() {
      $(".filter-breed").val("")                      
      $(".filter-gender").val("")                      
      $(".filter-energy_level").val("")                      
@@ -71,7 +70,10 @@ $("#reset-filter").click(function(){
      $("#search-box").val("")  
 
      $(".filter").change();
-    }
+}
+
+$("#reset-filter").click(function(){
+     clearFilter();
 })
 
 $(document).ready(function() {
@@ -92,7 +94,6 @@ $(document).ready(function() {
 			filters += "[data-"+key+"='"+filtersObject[key]+"']";
 	 	 }
 	}
-
 	
 	if (filters == "") {
 		$(".product").show();
@@ -102,3 +103,8 @@ $(document).ready(function() {
 	}
 
 });
+
+module.exports = clearFilter;
+//module.exports = searchFilter;
+
+
