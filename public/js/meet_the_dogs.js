@@ -1,3 +1,6 @@
+// for jest testing
+const $ = require('./jquery');
+
 var products = "";
 var breeds = "";
 var genders = "";
@@ -60,13 +63,15 @@ $("#search-form").submit(function(e) {
 });
 
 $("#reset-filter").click(function(){
+    clearFilter:()=>{
      $(".filter-breed").val("")                      
      $(".filter-gender").val("")                      
      $(".filter-energy_level").val("")                      
      $(".filter-ease_of_training").val("")  
      $("#search-box").val("")  
-    
+
      $(".filter").change();
+    }
 })
 
 $(document).ready(function() {
