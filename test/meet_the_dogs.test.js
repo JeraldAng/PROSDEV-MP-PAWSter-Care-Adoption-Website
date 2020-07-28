@@ -1,10 +1,15 @@
+// import jQuery to test so that it will recognize jQuery commands
 global.jQuery = require('../public/js/jquery');
 global.$ = global.jQuery;
-const clearFilter = require('../public/js/meet_the_dogs');
-//const searchFilter = require('../public/js/meet_the_dogs');
+
+// dogFunc will contain all exported functions 
+const dogFunc = require('../public/js/meet_the_dogs');
 
 describe('Filter search results', () => {
-  document.body.innerHTML =
+    
+    // simulate the html, since majority of the functions rely on changing html properties
+    // use this for the entire test
+    document.body.innerHTML =
         '<form id="search-form" action="" method="POST" enctype="multipart/form-data">' +
         '<input id="search-box" value=""/>' +
         '<button id = "reset-filter"/>' +
@@ -36,6 +41,7 @@ describe('Filter search results', () => {
         '</div>' + 
         '<span data-name = "Benny" data-breed = "Beagle" data-gender = "male" data-energy_level = "high" data-ease_of_training = "easy" class="product">'; 
     
+    // selected option should return to default
     test('clear search', () => {
 	  // Arrange
       $('.filter-breed').val("Beagle");
@@ -45,7 +51,7 @@ describe('Filter search results', () => {
       $('#search-box').val("search for dogs");
 
 	  // Act
-      clearFilter();
+      dogFunc.clearFilter();
       
 	  // Assert
       expect($(".filter-breed").val()).toEqual("");
@@ -59,7 +65,8 @@ describe('Filter search results', () => {
 	  // Arrange
        
 	  // Act
-      //searchFilter();
+      //dogFunc.searchFilter();
+      
 	  // Assert
       
   })
