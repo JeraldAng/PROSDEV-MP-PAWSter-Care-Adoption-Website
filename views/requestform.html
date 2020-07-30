@@ -87,55 +87,16 @@
 						<div class="row">
 							<div class="col-sm-3 form-group">
 								<label>First Name </label>
-								<input type="text" placeholder="Enter First Name Here.." class="form-control" name="reqfirst" required oninvalid="alert('You must fill out first name!')">
-							</div>
-                            <div class="col-sm-3 form-group">
-								<label>Middle Name </label>
-								<input type="text" placeholder="Enter Middle Name Here.." class="form-control" name="reqmiddle" required oninvalid="alert('You must fill out middle name!')">
-							</div>
+								<input type="text" placeholder="First Name" class="form-control" name="reqfirst" required oninvalid="alert('You must fill out first name!')">
+                            </div>
+                            
 							<div class="col-sm-3 form-group">
 								<label>Last Name </label>
-								<input type="text" placeholder="Enter Last Name Here.." class="form-control" name="reqlast" required oninvalid="alert('You must fill out last name!')">
+								<input type="text" placeholder="Last Name" class="form-control" name="reqlast" required oninvalid="alert('You must fill out last name!')">
 							</div>
-						</div>					
-						<div class="form-group">
-							<label>Address </label>
-							<textarea placeholder="Enter Address Here.." rows="3" class="form-control" name="reqaddress" required oninvalid="alert('You must fill out address!')"></textarea>
-						</div>	
-						<div class="row">
-							<div class="col-sm-4 form-group">
-								<label>City </label>
-								<input type="text" placeholder="Enter City Name Here.." class="form-control" name="reqcity" required oninvalid="alert('You must fill out city!')">
-							</div>	
-							<div class="col-sm-2 form-group">
-								<label>Zip </label>
-								<input type="text" placeholder="Enter Zip Code Here.." class="form-control" name="reqzip" required oninvalid="alert('You must fill out Zip Code!')">
-							</div>
-                            <div class="col-sm-2 form-group">
-								<label>Household Type </label>
-								<select type="text" placeholder="Choose a household type.." class="form-control" name="reqhouse" required oninvalid="alert('You must fill out household type!')">
-                                      <option value="house">House</option>
-                                      <option value="townhouse">Townhouse</option>
-                                      <option value="condo">Condo</option>
-                                      <option value="apartment">Apartment</option>
-                                      <option value="duplex">Duplex</option>
-                                      <option value="other">Other</option>
-                                </select>
-							</div>		
-						</div>
-						<div class="row">
-							<div class="col-sm-2 form-group">
-								<label>Age </label>
-								<input type="text" placeholder="Enter Age Here.." class="form-control" name="reqage" required oninvalid="alert('You must fill out age!')">
-							</div>
-                            <div class="col-sm-2 form-group">
-								<label>Gender </label>
-								<input type="text" placeholder="Gender Here.." class="form-control" name="reqgender" required oninvalid="alert('You must fill out gender!')">
-							</div>
-							<div class="col-sm-2 form-group">
-								<label>Occupation </label>
-								<input type="text" placeholder="Occupation Here.." class="form-control" name="reqoccupation" required oninvalid="alert('You must fill out occupation!')">
-							</div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-sm-2 form-group">
                                 <label>Phone Number </label>
                                 <input type="text" placeholder="Phone Number.." class="form-control" name="reqnum" required oninvalid="alert('You must fill out phone number!')">
@@ -144,11 +105,19 @@
                                 <label>Email Address </label>
                                 <input type="text" placeholder="Enter Email Address Here.." class="form-control" name="reqemail" value="{{email}}" required oninvalid="alert('You must fill out the email address!')" readonly="readonly">
                             </div>	
-						</div><br><hr>
+                        </div>
+                        
+						<div class="form-group">
+							<label>Address </label>
+							<textarea placeholder="Address" rows="3" class="form-control" name="reqaddress" required oninvalid="alert('You must fill out address!')"></textarea>
+                        </div>	
+                        
+						<br><hr>
                         <div class="chosen_dog">
                             <input type="hidden" name="reqdogpic" value="{{dog.image}}">
                             <img style="height: 300px; width: 500px" src= "../uploads/{{dog.image}}"/>
                         </div>
+                        
                             <br><br>
                         <div class="row">
                             <div class="col-sm-4 form-group">
