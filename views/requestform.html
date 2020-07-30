@@ -79,7 +79,7 @@
 <div class="container">
     <br>
 	<div class="col-lg-12 paper-bg" id="source-html">
-        <h1 class="well text-center">Request for Adoption Form</h1><br>
+        <h1 class="well text-center">Dog Adoption Form</h1><br>
         <img class="clip" src="../img/clip.png"/>
 	<div class="row">
 				<form method="post" action="request">
@@ -103,55 +103,24 @@
                             </div>
                              <div class="col-sm-4 form-group">
                                 <label>Email Address </label>
-                                <input type="text" placeholder="Enter Email Address Here.." class="form-control" name="reqemail" value="{{email}}" required oninvalid="alert('You must fill out the email address!')" readonly="readonly">
+                                <input type="text" placeholder="Email Address" class="form-control" name="reqemail" value="{{email}}" required oninvalid="alert('You must fill out the email address!')" readonly="readonly">
                             </div>	
                         </div>
                         
 						<div class="form-group">
 							<label>Address </label>
-							<textarea placeholder="Address" rows="3" class="form-control" name="reqaddress" required oninvalid="alert('You must fill out address!')"></textarea>
-                        </div>	
-                        
-						<br><hr>
-                        <div class="chosen_dog">
-                            <input type="hidden" name="reqdogpic" value="{{dog.image}}">
-                            <img style="height: 300px; width: 500px" src= "../uploads/{{dog.image}}"/>
-                        </div>
-                        
-                            <br><br>
-                        <div class="row">
+                            <textarea placeholder="Address" rows="3" class="form-control" name="reqaddress" required></textarea>
+                            
                             <div class="col-sm-4 form-group">
-								<label>Name of Dog </label>
-								<input type="text" placeholder="Dog Name.." class="form-control" value="{{dog.name}}" name="reqdog" required oninvalid="alert('You must fill out the dog's name!')" readonly="readonly">
+                                <input type="text" placeholder="Dog Name.." class="form-control" value="{{dog.name}}" name="reqdog" required readonly="readonly">
 							</div>
-                            <div class="col-sm-3 form-group">
-								<label>Experience with Dogs </label>
-								<select type="text" placeholder="Choose experience type.." class="form-control" name="reqexp" required oninvalid="alert('You must fill out experience type!')">
-                                      <option value="none">None</option>
-                                      <option value="little">Little</option>
-                                      <option value="some">Some</option>
-                                      <option value="experienced">Experienced</option>
-                                </select>
-							</div>
-                            <div class="col-sm-12 form-group">
-								<label>Expectation or Preferences </label>
-								<input type="text" placeholder="I expect.. / I prefer.." class="form-control">
-							</div>
-						</div>
-                        <div class="row">
-                            <div class="col-sm-12 form-group">
-                                <label>Why would you want to adopt? </label>
-                                <textarea placeholder="Enter Reason Here.." rows="4" class="form-control" name="reqreason" required oninvalid="alert('You must fill out all details!')"></textarea> 
-                            </div>		    
-                        </div>	
+                        </div>
 					</div>
                         <label>&nbsp;&nbsp;Terms and Conditions</label>
                         <p style="padding-left: 10px">
                             By sending this electronically, I agree to the terms and conditions listed under <a href="protocols">PROTOCOLS</a>.<br><br>
                     &nbsp;
                     <input type="submit" class="btn btn-lg btn-info" value="Submit Request" onCLick="myFunction()">
-                    &nbsp;&nbsp;&nbsp;
-                        <button id="btn-export" class="btn btn-lg btn-success" onclick="exportHTML()">Download blank template</button>
 				</form> 
 				</div>
 	   </div>
