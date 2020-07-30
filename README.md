@@ -17,23 +17,23 @@ Users may also fill up feedback forms about the services, as well as about the d
 ### Types of users
 1. Administrator/Manager
 
-        The administrator is in charge of managing all information about the dogs. They may add a new dog for adoption, as well as edit an existing dog's information. Admin/s also have access to the info of registered users. 
+    The administrator is in charge of managing all information about the dogs. They may add a new dog for adoption, as well as edit an existing dog's information. Admin/s also have access to the info of registered users. 
 
-        The admin is responsible for **approving** or **rejecting** all pending adoption requests. An **adopted** dog is no longer viewable by other users, but a dog with a pending request is still viewable. 
+    The admin is responsible for **approving** or **rejecting** all pending adoption requests. An **adopted** dog is no longer viewable by other users, but a dog with a pending request is still viewable. 
 
 *COMMENT: Can an admin have several accounts (i.e. many admins) or can there be only one?*
 
-        As of now, the admin can log in using a pre-made administrator account. 
+    As of now, the admin can log in using a pre-made administrator account. 
 
 2. User
 
-        A user is a registered account. Once logged in, users have the ability to request a dog up for adoption. They may also view their account profile, within which they may also view all of their pending adoption requests (if there are).
+    A user is a registered account. Once logged in, users have the ability to request a dog up for adoption. They may also view their account profile, within which they may also view all of their pending adoption requests (if there are).
 
 3. Guest/Visitor
 
-        A guest is an anonymous user that is not logged in. They may access the website and view the dogs that have not been adopted yet. They may also look at the FAQs, policies administered by PAWSter, as well as the guidelines and steps on how to adopt a dog from PAWSter Care.
+    A guest is an anonymous user that is not logged in. They may access the website and view the dogs that have not been adopted yet. They may also look at the FAQs, policies administered by PAWSter, as well as the guidelines and steps on how to adopt a dog from PAWSter Care.
 
-        That is as much as they can do. To access the other user-related features of the website, they must register an account and log in. Guests register with their first and last name, a valid email address, and a password.
+    That is as much as they can do. To access the other user-related features of the website, they must register an account and log in. Guests register with their first and last name, a valid email address, and a password.
 
 ## Setting Up
 *to follow.*
