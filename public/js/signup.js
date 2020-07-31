@@ -4,23 +4,33 @@
 $(document).ready(function(){    
     // password and confirm password matcher
     
-    $('#password, #confirm-password').on('keyup', function () {
-      var password = document.getElementById('password').value;
-      var confirm = document.getElementById('confirm-password').value;    
-        
-        if (password == confirm && password && confirm) {
+    var username = document.getElementById("username");
+    var password = document.getElementById("password");
+    var email = document.getElementById("email-address");
+    var confirm = document.getElementById('confirm-password');
+    
+    $('#password, #confirm-password').on('keyup', function () {    
+        if (password.value == confirm.value && password.value && confirm.value && password.checkValidity()) {
         $('#invalid-confirm-password').html('match!').css('color', 'green');
         document.getElementById('confirm-password').setCustomValidity("");    
-      } else{ 
-        $('#invalid-confirm-password').html('mismatch').css('color', 'red');
+      }
+        else if (!password.checkValidity()){    // don't say matched if password is invalid
+        $('#invalid-confirm-password').html('password not valid').css('color', 'red');
+        document.getElementById('confirm-password').setCustomValidity("Password is not valid.");
+        }
+        else{ 
+        $('#invalid-confirm-password').html('mismatch!').css('color', 'red');
         document.getElementById('confirm-password').setCustomValidity("Passwords don't match.");
       }
     });
     
     // inputs cannot be all whitespaces
     
-    var username = document.getElementById("username");
-    var password = document.getElementById("password");
+    email.onkeyup = function(){
+        if(!email.checkValidity()){
+            $('#invalid-email').html("Email must follow the format: name@site.com").css('color', 'red');  
+        }
+    }
     
     username.onkeyup = function() {   
       var inputName = username.value;
@@ -99,7 +109,7 @@ $(document).ready(function(){
       }
         
       // Validate special character
-      var specials = /[!#$^*]/;    
+      var specials = /[$&+,:;=?@#|'<>.^*()%!-]/;    
       if(password.value.match(specials)) {
         special.classList.remove("invalid");
         special.classList.add("valid");
