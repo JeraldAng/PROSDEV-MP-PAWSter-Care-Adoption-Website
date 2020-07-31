@@ -46,17 +46,17 @@ app.get("/error", (req,res)=>{
 })
 
 app.get(["/", "/home", "homepage"], (req, res)=>{
-    if(!req.session.username){                                      // default would be the login page (no account yet)
+    if(!req.session.username){                              // default would be the login page (no account yet)
         res.sendFile(__dirname + "/public/index.html")
     }
-    else{                                                           // remember the user who logged in
+    else{                                                   // remember the user who logged in
         res.render("homepage.hbs", {
             username: req.session.username
         })
     }
 })
 
-app.get("/dogs", (req, res)=>{
+app.get("/dogs", (req, res)=>{  
         Dog.find({
         
         }, (err, doc)=>{
@@ -127,6 +127,10 @@ app.get("/contact", (req, res)=>{
 })
 
 app.get("/feedbackform", (req, res)=>{
+    if(!req.session.username){                              // if not logged in, go to login page
+        res.sendFile(__dirname + "/public/index.html")
+    }  
+    
     res.render("feedbackform.hbs", {
         username: req.session.username
     })
@@ -337,7 +341,6 @@ app.post("/login", urlencoder, (req, res)=>{
                 res.send(err)
             }
             else if(doc){
-                console.log(doc)
                 req.session.username = doc.username
                 if (doc.username == 'admin')
                 res.redirect("/admin_main")
@@ -345,7 +348,7 @@ app.post("/login", urlencoder, (req, res)=>{
                 res.redirect("/home")
             }
             else{
-                res.redirect("/error")
+                res.redirect("/login?error=" + encodeURIComponent('Incorrect_Credential'));
             }
         })
 })
