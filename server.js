@@ -20,8 +20,38 @@ const urlencoder = bodyparser.urlencoded({
 
 mongoose.Promise = global.Promise
 mongoose.connect("mongodb://localhost:27017/PAWSter_Care_db", {
-    useNewUrlParser: true
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+}).then(() => {
+console.log("Connected to Database");
+}).catch((err) => {
+console.log("Not Connected to Database ERROR! ", err);
+});
+
+
+User.findOne({
+         username: "admin"
+         }, (err, doc)=>{
+            if(err){
+                res.send(err)
+            }
+            else if(doc){
+            }
+            else{
+                var user = {
+                username: "admin",
+                password: CryptoJS.MD5("1234").toString(),
+                email: "admin@admin.com",
+            }
+
+            User.create(user, function(e) {
+                if (e) {
+                    throw e;
+                }
+            });
+            }
 })
+
 
 app.use(express.static(__dirname + "/public"))
 app.use(session({
@@ -337,7 +367,6 @@ app.post("/login", urlencoder, (req, res)=>{
                 res.send(err)
             }
             else if(doc){
-                console.log(doc)
                 req.session.username = doc.username
                 if (doc.username == 'admin')
                 res.redirect("/admin_main")
@@ -345,7 +374,7 @@ app.post("/login", urlencoder, (req, res)=>{
                 res.redirect("/home")
             }
             else{
-                res.redirect("/error")
+                res.redirect("/login?error=" + encodeURIComponent('Incorrect_Credential'));
             }
         })
 })
@@ -358,15 +387,30 @@ app.post("/signup", urlencoder, (req, res)=>{
     let user = new User({
          username, password: CryptoJS.MD5(password).toString(), email
     })
-
-    user.save().then((doc)=>{
-        console.log(doc)                                            // print the user details if successfully saved
-        req.session.username = doc.username
-        res.render("homepage.hbs", {
-            username: doc.username                                  // get the username to display in the 
-        })
-    },(err)=>{
-        res.send(err)
+    
+    User.findOne({
+        $or: [ 
+            {username: username},
+            {email: email},    
+        ]
+         }, (err, doc)=>{
+            if(err){
+                res.send(err)
+            }
+            else if(doc){
+                res.redirect("/signup?error=" + encodeURIComponent('credentials_taken'));
+            }
+            else{
+                user.save().then((doc)=>{
+                console.log(doc)                                            // print the user details if successfully saved
+                req.session.username = doc.username
+                res.render("homepage.hbs", {
+                    username: doc.username                                  // get the username to display in the 
+                })
+            },(err)=>{
+                res.send(err)
+            }) 
+            }
     })
 })
 

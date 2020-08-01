@@ -1,7 +1,16 @@
 // setCustomValidity("") will make the form true/valid
 // setCustomValidity("any text here") will make the form false/invalid 
 
-$(document).ready(function(){    
+$(document).ready(function(){
+    // check if username is already taken 
+    $('#signupAlert').hide();
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('error');
+    if(myParam == "credentials_taken") {
+        $('#signupAlert').show();
+    }   
+    
     // password and confirm password matcher
     
     var username = document.getElementById("username");
@@ -35,11 +44,14 @@ $(document).ready(function(){
     username.onkeyup = function() {   
       var inputName = username.value;
       inputName = inputName.replace(/^\s+/, '').replace(/\s+$/, '');
-        console.log(inputName);
       if(inputName.length == 0) {
         document.getElementById('username').setCustomValidity("Invalid field.");
         $('#invalid-username').html("Username cannot be empty or whitespace.").css('color', 'red');          
       } 
+      else if (inputName.toLowerCase() == "admin"){
+        document.getElementById('username').setCustomValidity("Invalid field.");
+        $('#invalid-username').html("Username cannot be admin.").css('color', 'red');   
+      }
       else{
         document.getElementById('username').setCustomValidity("");    
       }    
@@ -109,7 +121,8 @@ $(document).ready(function(){
       }
         
       // Validate special character
-      var specials = /[$&+,:;=?@#|'<>.^*()%!-]/;    
+      var specials = /[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/;    
+
       if(password.value.match(specials)) {
         special.classList.remove("invalid");
         special.classList.add("valid");
