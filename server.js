@@ -210,8 +210,13 @@ app.get("/aboutus", (req, res)=>{
 })
 
 app.get("/editprofile", (req, res)=>{
-    console.log(req.session._id)
     res.render("edit_profile.hbs", {
+        username: req.session.username
+    })
+})
+
+app.get("/profile", (req, res)=>{
+    res.render("profile.hbs", {
         username: req.session.username
     })
 })

@@ -34,15 +34,14 @@
  <script src="js/alertify.min.js"></script> 
     
     <!-- for sweet alert boxes (replacement for norm js pop up) -->
-    <script src="/public/js/sweetalert2.all.min.js"></script>
-    <script src="/public/js/editprofile.js"></script>
-
+    <script src="../js/sweetalert2.all.min.js"></script>
+    <script src="../js/editprofile.js"></script>
 <!-- custom CSS -->
-<link href="/public/css/paw_care.css" rel="stylesheet">
-<link href="/public/css/feedbackform.css" rel="stylesheet">
+  <link href="../css/paw_care.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/feedbackform.css">
     
 <!-- custom js -->
-  <script src="/public/js/paw_care.js"></script>
+<script src="../js/paw_care.js" type="text/javascript"></script>
 
    </head>
       
@@ -50,48 +49,17 @@
     
 <!-- Navigation -->
   {{> navbar}}
-    <script>HighlightTab("profile")</script><br><br><br><br>
 
- <h1 class="text-center" >Edit your profile, {{username}}!</h1>
-        
-<!--Main Content-->
-  <div class="container contact">
-    <div class="row">
-         <div class="edit_profile_bg col-md-5">
-      <div class="contact-info">
-      </div>
+    <div class="container contact">
+        <li class="nav-item ml-1">
+            <a class="nav-link" id="editprofile" href="editprofile">Edit Profile</a>
+        </li>
+
+        <li class="nav-item ml-1">
+            <a class="nav-link" id="faq" href="requests">Requests</a>
+        </li>
     </div>
-      <div class="col-md-7">            
-          <div class="card-body">
-            <form class="form-signin" method="post" action="edit_profile">
-              <div class="form-label-group">
-                  <label for="inputUserame">Username</label>
-                <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus name="uname" value="{{username}}">
-              </div><br>
 
-              <div class="form-label-group">
-                  <label for="inputEmail">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required value="{{user.email}}" name="email">
-              </div>
-              <label>Warning: When you choose to replace your email address, you will lose all of your track records from your requests page. Please keep in mind that this is irreversible.</label>
-              <hr>
-
-              <div class="form-label-group">
-                  <label for="inputPassword">Change Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name ="pass">
-                </div><br>
-
-              <button class="btn btn-primary text-uppercase" type="submit" onCLick="myFunction()">Save Changes</button>
-              <hr class="my-4">
-                <p id="demo"></p>
-              
-            </form>
-          </div>
-      </div>
-    </div>
-      
-  </div>
-
-{{> footer}}
+  {{> footer}}
     </body> 
 </html>
