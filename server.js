@@ -398,7 +398,10 @@ app.post("/signup", urlencoder, (req, res)=>{
                 res.send(err)
             }
             else if(doc){
-                res.redirect("/signup?error=" + encodeURIComponent('credentials_taken'));
+                if(doc.username == user.username)
+                    res.redirect("/signup?error=" + encodeURIComponent('username_taken'));
+                else if(doc.email == user.email)
+                    res.redirect("/signup?error=" + encodeURIComponent('emailaddress_taken'));
             }
             else{
                 user.save().then((doc)=>{
