@@ -34,5 +34,12 @@ Users may also fill up feedback forms about the services, as well as about the d
     That is as much as they can do. To access the other user-related features of the website, they must register an account and log in. Guests register with their first and last name, a valid email address, and a password.
 
 ## Setting Up
-### Requirements
-You must have MongoDB installed on your system. 
+### Installation and Setting Up
+1. Run 'npm install jest' to install Jest for unit testing.
+2. Run 'npm install mongoose' to install Mongoose.
+3. Ensure that you have MongoDB installed and set up on your system. 
+
+#### Setting Up MongoDB
+1. In the *C:\Program Files\MongoDB\Server\//(version)\bin* directory, run 'mongod.exe'. Alternatively, open the command prompt in the same directory and run the command 'mongod'.
+
+2. Run 'mongo.exe' afterwards. Alternatively, run the command 'mongo' in a separate command prompt. 
