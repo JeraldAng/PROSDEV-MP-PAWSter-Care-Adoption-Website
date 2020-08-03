@@ -7,9 +7,16 @@ $(document).ready(function(){
     
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('error');
-    if(myParam == "credentials_taken") {
+    
+    // myParam determines whether it is username or email that's taken
+    if(myParam == "username_taken") {
+        $('#signupAlert').html("Username already taken.").css('text-align', 'center');
         $('#signupAlert').show();
-    }   
+    }
+    else if (myParam == "emailaddress_taken"){
+        $('#signupAlert').html("Email address already taken.").css('text-align', 'center');
+        $('#signupAlert').show();
+    }
     
     // password and confirm password matcher
     
@@ -41,6 +48,8 @@ $(document).ready(function(){
         }
     }
     
+    var specials = /[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/;    
+    
     username.onkeyup = function() {   
       var inputName = username.value;
       inputName = inputName.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -52,6 +61,10 @@ $(document).ready(function(){
         document.getElementById('username').setCustomValidity("Invalid field.");
         $('#invalid-username').html("Username cannot be admin.").css('color', 'red');   
       }
+      else if (username.value.match(specials)){
+        document.getElementById('username').setCustomValidity("Invalid field.");
+        $('#invalid-username').html("No special characters allowed.").css('color', 'red');   
+      }    
       else{
         document.getElementById('username').setCustomValidity("");    
       }    
@@ -121,8 +134,7 @@ $(document).ready(function(){
       }
         
       // Validate special character
-      var specials = /[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/;    
-
+        
       if(password.value.match(specials)) {
         special.classList.remove("invalid");
         special.classList.add("valid");

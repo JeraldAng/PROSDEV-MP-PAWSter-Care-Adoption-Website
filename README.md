@@ -2,7 +2,7 @@
 This is the major course requirement for the subject PROSDEV. 
 
 ## Group Members
-1. (**Project Manager**) Marjorie Lua
+1. [Project Manager] Marjorie Lua
 2. Jeremy Coronia
 3. Jerald Ang
 4. Dyonne Macalino
