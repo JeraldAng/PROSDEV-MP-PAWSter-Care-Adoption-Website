@@ -21,9 +21,7 @@ Users may also fill up feedback forms about the services, as well as about the d
 
     The admin is responsible for **approving** or **rejecting** all pending adoption requests. An **adopted** dog is no longer viewable by other users, but a dog with a pending request is still viewable. 
 
-*COMMENT: Can an admin have several accounts (i.e. many admins) or can there be only one?*
-
-    As of now, the admin can log in using a pre-made administrator account. 
+    The admin can log in using a pre-made administrator account. 
 
 2. User
 
