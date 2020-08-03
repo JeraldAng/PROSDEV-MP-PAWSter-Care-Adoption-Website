@@ -39,7 +39,7 @@ Users may also fill up feedback forms about the services, as well as about the d
 2. Run `npm install mongoose` to install Mongoose.
 3. Ensure that you have MongoDB installed and set up on your system. 
 
-#### Setting Up MongoDB
+### Setting Up MongoDB
 1. In the *C:\Program Files\MongoDB\Server\ (version)\bin* directory, run 'mongod.exe'. Alternatively, open the command prompt in the same directory and run the command `mongod`.
 
 2. Run 'mongo.exe' afterwards. Alternatively, run the command `mongo` in a separate command prompt. 
