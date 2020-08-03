@@ -36,4 +36,5 @@ Users may also fill up feedback forms about the services, as well as about the d
     That is as much as they can do. To access the other user-related features of the website, they must register an account and log in. Guests register with their first and last name, a valid email address, and a password.
 
 ## Setting Up
-*to follow.*
+### Requirements
+You must have MongoDB installed on your system. 
