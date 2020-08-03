@@ -1,3 +1,13 @@
+var fname = "";
+var lname = "";
+var phone = "";
+var email = "";
+var addr = "";
+var dog = "";
+
+
+
+
 function exportHTML(){
        var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' "+
             "xmlns:w='urn:schemas-microsoft-com:office:word' "+
