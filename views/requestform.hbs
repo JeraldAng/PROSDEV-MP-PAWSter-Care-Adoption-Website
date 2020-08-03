@@ -76,54 +76,61 @@
 <!-- Navigation -->
 {{> navbar}}
     <script>HighlightTab("profile")</script><br><br><br>
-    
 <div class="container">
-    <br>
 	<div class="col-lg-12 paper-bg" id="source-html">
-        <h1 class="well text-center">Dog Adoption Form</h1><br>
-        <img class="clip" src="../img/clip.png"/>
-	<div class="row">
-				<form method="post" action="request">
-					<div class="col-sm-12">
-						<div class="row">
-							<div class="col-sm-3 form-group">
-								<label>First Name </label>
-								<input type="text" placeholder="First Name" class="form-control" name="reqfirst" required oninvalid="alert('You must fill out first name!')">
+    <h1 class="well text-center">Dog Adoption Form</h1>
+    <img class="clip" src="../img/clip.png"/>
+    <form method="post" action="request" class="needs-validation" novalidate>
+
+                        {{!-- NAME --}}
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>First Name<span style="color:red">*</span></label>
+                                <input type="text" placeholder="First Name" class="form-control" id="reqFirst" name="reqfirst" required>
+                                <div class="invalid-feedback" id="invalid-fname">You need to fill up this field.</div>
                             </div>
-                            
-							<div class="col-sm-3 form-group">
-								<label>Last Name </label>
-								<input type="text" placeholder="Last Name" class="form-control" name="reqlast" required oninvalid="alert('You must fill out last name!')">
-							</div>
+                            <div class="form-group col-md-6">
+                                <label>Last Name<span style="color:red">*</span></label>
+                                <input type="text" placeholder="Last Name" class="form-control" id="reqLast" name="reqlast" required>
+                                <div class="invalid-feedback" id="invalid-lname">You need to fill up this field.</div>
+                            </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-2 form-group">
-                                <label>Phone Number </label>
-                                <input type="text" placeholder="Phone Number.." class="form-control" name="reqnum" required oninvalid="alert('You must fill out phone number!')">
+                        {{!-- CONTACT DETAIL --}}
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Phone Number<span style="color:red">*</span></label>
+                                <input type="tel" placeholder="Mobile Phone Number.." class="form-control" id="reqNum"  name="reqNum" required onchange="validateNumber()">
+                                <div class="invalid-feedback" id="invalid-phone">Please choose a valid phone number.</div>
                             </div>
-                             <div class="col-sm-4 form-group">
-                                <label>Email Address </label>
-                                <input type="text" placeholder="Email Address" class="form-control" name="reqemail" value="{{email}}" required oninvalid="alert('You must fill out the email address!')" readonly="readonly">
-                            </div>	
+                            <div class="form-group col-md-6">
+                                <label>Email Address<span style="color:red">*</span></label>
+                                <input type="email" placeholder="Email Address" class="form-control" id="reqEmail" name="reqEmail" value="{{email}}" required onkeyup="validateEmail()">
+                                <div class="invalid-feedback" id="invalid-email">Please choose a valid email address.</div>
+                            </div>
                         </div>
                         
-						<div class="form-group">
-							<label>Address </label>
-                            <textarea placeholder="Address" rows="3" class="form-control" name="reqaddress" required></textarea>
-                            
-                            <div class="col-sm-4 form-group">
-                                <input type="text" placeholder="Dog Name.." class="form-control" value="{{dog.name}}" name="reqdog" required readonly="readonly">
-							</div>
+                        {{!-- ADDRESS and DOG --}}
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Address<span style="color:red">*</span></label>
+                                <textarea placeholder="Address" rows="3" class="form-control" id="reqAddress"  name="reqAddress" required></textarea>
+                                <div class="invalid-feedback">You need to fill up this field.</div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Your Pupper</label>
+                                <input type="text" placeholder="Dog Name.." class="form-control" value="{{dog.name}}" id="reqDog" name="reqDog" required readonly="readonly">
+                            </div>
                         </div>
-					</div>
-                        <label>&nbsp;&nbsp;Terms and Conditions</label>
-                        <p style="padding-left: 10px">
-                            By sending this electronically, I agree to the terms and conditions listed under <a href="protocols">PROTOCOLS</a>.<br><br>
+                        <hr>
+                        <div>
+                            <label>Terms and Conditions</label>
+                            <p>By sending this electronically, I agree to the terms and conditions listed under <a href="protocols">Protocols</a>.
+                        </div>
                     &nbsp;
-                    <input type="submit" class="btn btn-lg btn-info" value="Submit Request" onCLick="myFunction()">
-				</form> 
-				</div>
+                    <input type="submit" class="btn btn-lg btn-primary" value="Submit Request">
+                    <a type="button" class="btn btn-lg btn-secondary" value="Cancel Adoption" href="dogs">Cancel Adoption</a>
+                </form> 
 	   </div>
     </div>
     <br><br>

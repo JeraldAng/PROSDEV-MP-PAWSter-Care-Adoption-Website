@@ -450,7 +450,7 @@ app.post("/request", urlencoder, (req, res)=>{
     var reqDogPic = req.body.reqdogpic
     var reqStatus = "pending"
          
-    console.log(req.body.reqdogpic.filename)
+    // console.log(req.body.reqdogpic.filename)
     let request = new Request({
          reqName, reqEmail, reqDog, reqDogPic, reqStatus
     })
