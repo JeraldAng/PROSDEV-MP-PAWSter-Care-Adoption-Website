@@ -10,7 +10,7 @@
 
     
          <!--  title details    -->
-  <title>PAWSter Care - Edit Your Profile</title>
+  <title>PAWSter Care - Profile</title>
   <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
         
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -38,6 +38,7 @@
     <script src="../js/editprofile.js"></script>
 <!-- custom CSS -->
   <link href="../css/paw_care.css" rel="stylesheet">
+  <link href="../css/profile.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/feedbackform.css">
     
 <!-- custom js -->
@@ -49,12 +50,87 @@
     
 <!-- Navigation -->
   {{> navbar}}
-    <div class="container contact">
-            <a class="btn btn-outline-primary" id="editprofile" href="editprofile">Edit Profile</a>
 
-            <a class="btn btn-outline-primary" id="faq" href="requests">Requests</a>
-    </div>
-
-  {{> footer}}
+  <div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="/public/img/bbGolden.png" alt="user golden icon"/>
+                            <div class="file btn btn-lg btn-primary">
+                                Change Photo
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        [NAME GOES HERE]
+                                    </h5>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                      <a class="btn btn-outline-primary" id="faq" href="requests">My Requests</a>
+                      <a class="btn btn-outline-secondary" id="editprofile" href="editprofile">Edit Profile</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>User Id</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Kshiti123</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Kshiti Ghelani</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>kshitighelani@gmail.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>123 456 7890</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Profession</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Web Developer and Designer</p>
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+        {{> footer}}
     </body> 
 </html>
