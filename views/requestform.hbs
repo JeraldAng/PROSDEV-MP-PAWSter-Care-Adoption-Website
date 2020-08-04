@@ -79,6 +79,7 @@
 <div class="container">
 	<div class="col-lg-12 paper-bg" id="source-html">
     <h1 class="well text-center">Dog Adoption Form</h1>
+    <p><span style="color:red">*</span> - Required fields</p>
     <img class="clip" src="../img/clip.png"/>
     <form method="post" action="request" class="needs-validation" novalidate>
 
@@ -99,13 +100,12 @@
                         {{!-- CONTACT DETAIL --}}
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label>Phone Number<span style="color:red">*</span></label>
-                                <input type="tel" placeholder="Mobile Phone Number.." class="form-control" id="reqNum"  name="reqNum" required onchange="validateNumber()">
-                                <div class="invalid-feedback" id="invalid-phone">Please choose a valid phone number.</div>
+                                <label>Mobile Phone Number</label>
+                                <input type="text" placeholder="Phone Number" class="form-control" id="reqNum"  name="reqNum">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Email Address<span style="color:red">*</span></label>
-                                <input type="email" placeholder="Email Address" class="form-control" id="reqEmail" name="reqEmail" value="{{email}}" required onkeyup="validateEmail()">
+                                <input type="email" placeholder="Email Address" class="form-control" id="reqEmail" name="reqEmail" value="{{email}}" required>
                                 <div class="invalid-feedback" id="invalid-email">Please choose a valid email address.</div>
                             </div>
                         </div>
