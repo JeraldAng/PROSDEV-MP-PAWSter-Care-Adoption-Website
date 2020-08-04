@@ -86,5 +86,3 @@ $(document).ready(function() {
 
 // export functions for testing
 module.exports = {clearFilter, searchFilter};
-
-
