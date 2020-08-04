@@ -1,12 +1,10 @@
-// for jest testing
-const $ = require('./jquery');
-
 var products = "";
 var breeds = "";
 var genders = "";
 var energy_levels = "";
 var ease_of_trainings = "";
 
+// create all options for drop down based on the database data
 $(".filter-breed").append(breeds);
 $(".filter-gender").append(genders);
 $(".filter-energy_level").append(energy_levels);
@@ -14,10 +12,49 @@ $(".filter-ease_of_training").append(ease_of_trainings);
 
 var filtersObject = {};
 
-//on filter change
+// on search form submit
+function searchFilter() {    
+    // make search not case sensitive
+    var query = $("#search-form input").val().toLowerCase();
+	
+    // hide all tiles, then show only those that matched the keywords
+    $(".product").hide();
+	$(".product").each(function() {
+		var name = $(this).data("name").toLowerCase(),
+            breed = $(this).data("breed").toLowerCase(),
+			gender = $(this).data("gender").toLowerCase(),
+			energy_level = $(this).data("energy_level").toLowerCase(),
+			ease_of_training = $(this).data("ease_of_training").toLowerCase();
+
+		if (name.indexOf(query) > -1 || breed.indexOf(query) > -1 || gender.indexOf(query) > -1 || energy_level.indexOf(query) > -1 || ease_of_training.indexOf(query) > -1) {
+			$(this).show();
+		}
+	});  
+}
+
+// upon clicking clear filter button to reset all filters
+function clearFilter() {
+     $(".filter-breed").val("")                      
+     $(".filter-gender").val("")                      
+     $(".filter-energy_level").val("")                      
+     $(".filter-ease_of_training").val("")  
+     $("#search-box").val("")  
+
+     $(".filter").change();
+}
+
+// action listeners 
+$("#reset-filter").click(function(){
+     clearFilter();
+})
+
+$("#search-form").submit(function(e) {
+    e.preventDefault();
+	searchFilter();
+});
+
 $(".filter").on("change",function () {
-    console.log("change")
-	var filterName = $(this).data("filter"),
+    var filterName = $(this).data("filter"),
 		filterVal = $(this).val();
 	
 	if (filterVal == "") {
@@ -34,7 +71,7 @@ $(".filter").on("change",function () {
 	 	 }
 	}
 
-	
+	// show all tiles that match filter, hide the rest
 	if (filters == "") {
 		$(".product").show();
 	} else {
@@ -42,63 +79,10 @@ $(".filter").on("change",function () {
 		$(".product").hide().filter(filters).show();
 	}
 });
-
-//on search form submit
-
-$("#search-form").submit(function(e) {
-	e.preventDefault();
-	var query = $("#search-form input").val().toLowerCase();
-	$(".product").hide();
-	$(".product").each(function() {
-		var name = $(this).data("name").toLowerCase(),
-            breed = $(this).data("breed").toLowerCase(),
-			gender = $(this).data("gender").toLowerCase(),
-			energy_level = $(this).data("energy_level").toLowerCase(),
-			ease_of_training = $(this).data("ease_of_training").toLowerCase();
-
-		if (name.indexOf(query) > -1 || breed.indexOf(query) > -1 || gender.indexOf(query) > -1 || energy_level.indexOf(query) > -1 || ease_of_training.indexOf(query) > -1) {
-			$(this).show();
-		}
-	});
-});
-
-$("#reset-filter").click(function(){
-    clearFilter:()=>{
-     $(".filter-breed").val("")                      
-     $(".filter-gender").val("")                      
-     $(".filter-energy_level").val("")                      
-     $(".filter-ease_of_training").val("")  
-     $("#search-box").val("")  
-
-     $(".filter").change();
-    }
-})
 
 $(document).ready(function() {
-    
-	var filterName = $(".filter").data("filter"),
-		filterVal = $(".filter").val();
-	
-	if (filterVal == "") {
-		delete filtersObject[filterName];
-	} else {
-		filtersObject[filterName] = filterVal;
-	}
-	
-	var filters = "";
-	
-	for (var key in filtersObject) {
-	  	if (filtersObject.hasOwnProperty(key)) {
-			filters += "[data-"+key+"='"+filtersObject[key]+"']";
-	 	 }
-	}
-
-	
-	if (filters == "") {
-		$(".product").show();
-	} else {
-		$(".product").hide();
-		$(".product").hide().filter(filters).show();
-	}
-
+    $(".filter").change();
 });
+
+// export functions for testing
+module.exports = {clearFilter, searchFilter};
