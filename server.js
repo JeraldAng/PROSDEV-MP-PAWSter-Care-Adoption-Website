@@ -241,8 +241,19 @@ app.get("/aboutus", (req, res)=>{
 
 app.get("/editprofile", (req, res)=>{
     console.log(req.session._id)
-    res.render("edit_profile.hbs", {
+
+    User.findOne({
         username: req.session.username
+    }, (err, doc)=>{
+        if(err){
+            res.send(err)
+        }
+        else{
+            res.render("edit_profile.hbs", {
+                username: req.session.username,        
+                email: doc.email
+            })
+        }
     })
 })
 
