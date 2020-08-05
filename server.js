@@ -246,6 +246,11 @@ app.get("/editprofile", (req, res)=>{
     })
 })
 
+app.get("/profile", (req, res)=>{
+    res.render("profile.hbs", {
+        username: req.session.username
+    })
+})
 
 app.get("/admin_main", (req, res)=>{
     res.render("admin_main.hbs", {
