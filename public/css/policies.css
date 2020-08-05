@@ -1,51 +1,82 @@
-/*********************** Demo - 6 *******************/
-.box6{
-    background:rgba(0,0,0,.7);
-    position:relative;
-    border-radius: 8px;
-    height: 88%;
-    width: 100%;
+/* css for tiles part */
+html { height: 100%; }
+body {height: 100%; }
+
+.background{
+    background: url(../img/Policies_BG.png) no-repeat top;
+    background-size: contain;
+    background-color: #C2CE48;
 }
 
-.box6:after{
-    background:rgba(0,0,0,.7);
-    position:absolute;
-    top:0;
-    left:-30%;
-    bottom:0;
-    right:70%;
-    transform:skew(20deg) 
-    translateX(-75%);
-    height: 88%;
-    width: 100%;}
-.box6:hover:after{transform:skew(20deg) translateX(0)}
-.box6 img{width:100%;height:97%;}
-.box6:hover img{
-    opacity:.5;}
-.box6 .box-content{padding:20px;text-align:right;position:absolute;top:0;right:0;z-index:1}
-.box6 .icon,.box7 .icon{padding:0;list-style:none}
-.box10 .icon li a,.box11,.box12,.box13,.box14,.box6 .icon li a,.box7,.box7 .icon li a,.box8,.box8 .icon li a{text-align:center}
-.box6 .title{font-size:20px;font-weight:900;color:#fff;margin:0 0 10px;transform:scale(0)}
-.box6:hover .title{transform:scale(1)}
-.box6 .icon li,.box6 .post{opacity:0;transform:translateX(40px);transition:all .35s ease 0s}
-.box6 .post{display:block;font-size:14px;color:#fff;margin-bottom:5px}
-.box6 .icon{display:inline-block;margin:0}
-.box6:hover .icon li,.box6:hover .post{opacity:1;transform:translateX(0)}
-.box6:hover .icon li:first-child{transition-delay:.1s}
-.box6:hover .icon li:nth-child(2){transition-delay:.2s}
-.box6 .icon li a{display:block;width:35px;height:35px;line-height:35px;background:#fff;font-size:18px;color:#605f5f;margin-bottom:5px;transition:all .35s ease}
-.box6 .icon li a:hover{background:#605f5f;color:#fff}
-@media only screen and (max-width:990px){.box6{margin-bottom:30px}
+.policies-header{
+    padding: 10% 0%;
+    color: white;
+    text-align: left;
 }
 
-.text_style{
+.circle-tile {
+    margin: 5px 25px;
+    text-align: center;
+    height: 75%;
+}
+.circle-tile-heading {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100%;
+    color: #FFFFFF;
+    height: 150px;
+    margin: 0 auto -75px;
+    position: relative;
+    transition: all 0.3s ease-in-out 0s;
+    width: 150px;
+    vertical-align:middle;
+}
+
+.circle-tile-content {
+    padding: 50px 20px 20px 20px;
     color: black;
-    margin-top: 5px;
-    margin-left:42%;
-    font-size: 20px;
+    border-radius: 5%;
+    height: 100%;
 }
 
-.reqicon{
-    height: 60px;
-    width: 70px;
+.circle-tile-heading h1{
+    font-size: 80px;
 }
+
+.circle-tile-number {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 5px 0 15px;
+}
+
+.white {
+    background-color: #FFFFFF;
+}
+.pink {
+    background-color: #F42267;
+}
+.blue {
+    background-color: #40BDC8;
+}
+.green {
+    background-color: #60990F;
+}
+.yellow {
+    background-color: #F2CA47;
+}
+.purple {
+    background-color: #A36EB9;
+}
+.orange {
+    background-color: #F87D04;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
