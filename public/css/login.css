@@ -1,5 +1,13 @@
 /* login basically uses the same css as signup, overwrite or add here */
 
+html{
+    height: 100%;
+}
+
+body{
+    min-height: 100%;
+}
+
 .wrapper--w680 {
     max-width: 480px;
 }

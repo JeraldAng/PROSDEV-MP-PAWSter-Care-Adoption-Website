@@ -169,6 +169,7 @@ padding-right: 1.1rem;
 /* footer css */
 footer{
     background-color: #475E6C;
+    position: static;
 }
 
 .category{
