@@ -76,17 +76,17 @@ app.get("/error", (req,res)=>{
 })
 
 app.get(["/", "/home", "homepage"], (req, res)=>{
-    if(!req.session.username){                              // default would be the login page (no account yet)
+    if(!req.session.username){                                      // default would be the login page (no account yet)
         res.sendFile(__dirname + "/public/index.html")
     }
-    else{                                                   // remember the user who logged in
+    else{                                                           // remember the user who logged in
         res.render("homepage.hbs", {
             username: req.session.username
         })
     }
 })
 
-app.get("/dogs", (req, res)=>{  
+app.get("/dogs", (req, res)=>{
         Dog.find({
         
         }, (err, doc)=>{
@@ -157,10 +157,6 @@ app.get("/contact", (req, res)=>{
 })
 
 app.get("/feedbackform", (req, res)=>{
-    if(!req.session.username){                              // if not logged in, go to login page
-        res.sendFile(__dirname + "/public/index.html")
-    }  
-    
     res.render("feedbackform.hbs", {
         username: req.session.username
     })
@@ -244,13 +240,8 @@ app.get("/aboutus", (req, res)=>{
 })
 
 app.get("/editprofile", (req, res)=>{
+    console.log(req.session._id)
     res.render("edit_profile.hbs", {
-        username: req.session.username
-    })
-})
-
-app.get("/profile", (req, res)=>{
-    res.render("profile.hbs", {
         username: req.session.username
     })
 })
@@ -407,7 +398,10 @@ app.post("/signup", urlencoder, (req, res)=>{
                 res.send(err)
             }
             else if(doc){
-                res.redirect("/signup?error=" + encodeURIComponent('credentials_taken'));
+                if(doc.username == user.username)
+                    res.redirect("/signup?error=" + encodeURIComponent('username_taken'));
+                else if(doc.email == user.email)
+                    res.redirect("/signup?error=" + encodeURIComponent('emailaddress_taken'));
             }
             else{
                 user.save().then((doc)=>{
