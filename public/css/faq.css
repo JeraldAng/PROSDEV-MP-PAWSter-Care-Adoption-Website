@@ -1,6 +1,6 @@
 /* css for tiles part */
 html { height: 100%; }
-body {height: 100%; }
+body {min-height: 100%; }
 
 .background{
     background: url(../img/FAQs_BG.jpg) no-repeat top;
