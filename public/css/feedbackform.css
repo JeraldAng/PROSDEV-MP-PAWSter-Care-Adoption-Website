@@ -7,10 +7,38 @@ body{
 	min-height: 100%;
 }
 
+div.form-body{
+	background: #fff;
+	
+}
+
+div.container.contact{
+	padding-top: 0.2em;
+}
+
+.form-group{
+	padding: 0.7em;
+	margin: 0.2em;
+}
+
+div.feedback-head{
+	margin-left: 2em;
+}
+
+h1{
+	padding-top: 0.2em;
+}
+
+div.col-md-7{
+	background: #fff;
+	padding: 3%;
+}
+
 .contact{
 	padding: 4%;
     padding-bottom: 50%;
 	height: 400px;
+	
 }
 .col-md-5{
 	background-image: url("http://cdn.litlepups.net/2018/08/09/smart-dog-desktop-background-hd-2048x1395-deskbg-com.jpg");
@@ -34,10 +62,6 @@ body{
 .contact-info h2{
 	margin-bottom: 10%;
 }
-.col-md-7{
-	background: #fff;
-	padding: 3%;
-}
 .contact-form label{
 	font-weight:600;
 }
@@ -49,4 +73,4 @@ body{
 }
 .contact-form button:focus{
 	box-shadow:none;
-}
+}	
