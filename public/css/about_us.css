@@ -1,3 +1,11 @@
+html{
+    height: 100%;
+}
+
+body{
+    min-height: 100%;
+}
+
 .row.heading h2 {
     color: #000;
     font-size: 52.52px;

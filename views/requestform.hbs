@@ -75,116 +75,61 @@
 <!-- Navigation -->
 {{> navbar}}
     <script>HighlightTab("profile")</script><br><br><br>
-    
 <div class="container">
-    <br>
 	<div class="col-lg-12 paper-bg" id="source-html">
-        <h1 class="well text-center">Request for Adoption Form</h1><br>
-        <img class="clip" src="../img/clip.png"/>
-	<div class="row">
-				<form method="post" action="request">
-					<div class="col-sm-12">
-						<div class="row">
-							<div class="col-sm-3 form-group">
-								<label>First Name </label>
-								<input type="text" placeholder="Enter First Name Here.." class="form-control" name="reqfirst" required oninvalid="alert('You must fill out first name!')">
-							</div>
-                            <div class="col-sm-3 form-group">
-								<label>Middle Name </label>
-								<input type="text" placeholder="Enter Middle Name Here.." class="form-control" name="reqmiddle" required oninvalid="alert('You must fill out middle name!')">
-							</div>
-							<div class="col-sm-3 form-group">
-								<label>Last Name </label>
-								<input type="text" placeholder="Enter Last Name Here.." class="form-control" name="reqlast" required oninvalid="alert('You must fill out last name!')">
-							</div>
-						</div>					
-						<div class="form-group">
-							<label>Address </label>
-							<textarea placeholder="Enter Address Here.." rows="3" class="form-control" name="reqaddress" required oninvalid="alert('You must fill out address!')"></textarea>
-						</div>	
-						<div class="row">
-							<div class="col-sm-4 form-group">
-								<label>City </label>
-								<input type="text" placeholder="Enter City Name Here.." class="form-control" name="reqcity" required oninvalid="alert('You must fill out city!')">
-							</div>	
-							<div class="col-sm-2 form-group">
-								<label>Zip </label>
-								<input type="text" placeholder="Enter Zip Code Here.." class="form-control" name="reqzip" required oninvalid="alert('You must fill out Zip Code!')">
-							</div>
-                            <div class="col-sm-2 form-group">
-								<label>Household Type </label>
-								<select type="text" placeholder="Choose a household type.." class="form-control" name="reqhouse" required oninvalid="alert('You must fill out household type!')">
-                                      <option value="house">House</option>
-                                      <option value="townhouse">Townhouse</option>
-                                      <option value="condo">Condo</option>
-                                      <option value="apartment">Apartment</option>
-                                      <option value="duplex">Duplex</option>
-                                      <option value="other">Other</option>
-                                </select>
-							</div>		
-						</div>
-						<div class="row">
-							<div class="col-sm-2 form-group">
-								<label>Age </label>
-								<input type="text" placeholder="Enter Age Here.." class="form-control" name="reqage" required oninvalid="alert('You must fill out age!')">
-							</div>
-                            <div class="col-sm-2 form-group">
-								<label>Gender </label>
-								<input type="text" placeholder="Gender Here.." class="form-control" name="reqgender" required oninvalid="alert('You must fill out gender!')">
-							</div>
-							<div class="col-sm-2 form-group">
-								<label>Occupation </label>
-								<input type="text" placeholder="Occupation Here.." class="form-control" name="reqoccupation" required oninvalid="alert('You must fill out occupation!')">
-							</div>
-                            <div class="col-sm-2 form-group">
-                                <label>Phone Number </label>
-                                <input type="text" placeholder="Phone Number.." class="form-control" name="reqnum" required oninvalid="alert('You must fill out phone number!')">
+    <h1 class="well text-center">Dog Adoption Form</h1>
+    <p><span style="color:red">*</span> - Required fields</p>
+    <img class="clip" src="../img/clip.png"/>
+    <form method="post" action="request" class="needs-validation" novalidate>
+
+                        {{!-- NAME --}}
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>First Name<span style="color:red">*</span></label>
+                                <input type="text" placeholder="First Name" class="form-control" id="reqFirst" name="reqfirst" required>
+                                <div class="invalid-feedback" id="invalid-fname">You need to fill up this field.</div>
                             </div>
-                             <div class="col-sm-4 form-group">
-                                <label>Email Address </label>
-                                <input type="text" placeholder="Enter Email Address Here.." class="form-control" name="reqemail" value="{{email}}" required oninvalid="alert('You must fill out the email address!')" readonly="readonly">
-                            </div>	
-						</div><br><hr>
-                        <div class="chosen_dog">
-                            <input type="hidden" name="reqdogpic" value="{{dog.image}}">
-                            <img style="height: 300px; width: 500px" src= "../uploads/{{dog.image}}"/>
+                            <div class="form-group col-md-6">
+                                <label>Last Name<span style="color:red">*</span></label>
+                                <input type="text" placeholder="Last Name" class="form-control" id="reqLast" name="reqlast" required>
+                                <div class="invalid-feedback" id="invalid-lname">You need to fill up this field.</div>
+                            </div>
                         </div>
-                            <br><br>
-                        <div class="row">
-                            <div class="col-sm-4 form-group">
-								<label>Name of Dog </label>
-								<input type="text" placeholder="Dog Name.." class="form-control" value="{{dog.name}}" name="reqdog" required oninvalid="alert('You must fill out the dog's name!')" readonly="readonly">
-							</div>
-                            <div class="col-sm-3 form-group">
-								<label>Experience with Dogs </label>
-								<select type="text" placeholder="Choose experience type.." class="form-control" name="reqexp" required oninvalid="alert('You must fill out experience type!')">
-                                      <option value="none">None</option>
-                                      <option value="little">Little</option>
-                                      <option value="some">Some</option>
-                                      <option value="experienced">Experienced</option>
-                                </select>
-							</div>
-                            <div class="col-sm-12 form-group">
-								<label>Expectation or Preferences </label>
-								<input type="text" placeholder="I expect.. / I prefer.." class="form-control">
-							</div>
-						</div>
-                        <div class="row">
-                            <div class="col-sm-12 form-group">
-                                <label>Why would you want to adopt? </label>
-                                <textarea placeholder="Enter Reason Here.." rows="4" class="form-control" name="reqreason" required oninvalid="alert('You must fill out all details!')"></textarea> 
-                            </div>		    
-                        </div>	
-					</div>
-                        <label>&nbsp;&nbsp;Terms and Conditions</label>
-                        <p style="padding-left: 10px">
-                            By sending this electronically, I agree to the terms and conditions listed under <a href="protocols">PROTOCOLS</a>.<br><br>
+
+                        {{!-- CONTACT DETAIL --}}
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Mobile Phone Number</label>
+                                <input type="text" placeholder="Phone Number" class="form-control" id="reqNum"  name="reqNum">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Email Address<span style="color:red">*</span></label>
+                                <input type="email" placeholder="Email Address" class="form-control" id="reqEmail" name="reqEmail" value="{{email}}" required>
+                                <div class="invalid-feedback" id="invalid-email">Please choose a valid email address.</div>
+                            </div>
+                        </div>
+                        
+                        {{!-- ADDRESS and DOG --}}
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Address<span style="color:red">*</span></label>
+                                <textarea placeholder="Address" rows="3" class="form-control" id="reqAddress"  name="reqAddress" required></textarea>
+                                <div class="invalid-feedback">You need to fill up this field.</div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Your Pupper</label>
+                                <input type="text" placeholder="Dog Name.." class="form-control" value="{{dog.name}}" id="reqDog" name="reqDog" required readonly="readonly">
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <label>Terms and Conditions</label>
+                            <p>By sending this electronically, I agree to the terms and conditions listed under <a href="protocols">Protocols</a>.
+                        </div>
                     &nbsp;
-                    <input type="submit" class="btn btn-lg btn-info" value="Submit Request" onCLick="myFunction()">
-                    &nbsp;&nbsp;&nbsp;
-                        <button id="btn-export" class="btn btn-lg btn-success" onclick="exportHTML()">Download blank template</button>
-				</form> 
-				</div>
+                    <input type="submit" class="btn btn-lg btn-primary" value="Submit Request">
+                    <a type="button" class="btn btn-lg btn-secondary" value="Cancel Adoption" href="dogs">Cancel Adoption</a>
+                </form> 
 	   </div>
     </div>
     <br><br>

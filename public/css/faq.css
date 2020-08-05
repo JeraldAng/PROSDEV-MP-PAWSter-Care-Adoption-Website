@@ -3,21 +3,21 @@ html { height: 100%; }
 body {min-height: 100%; }
 
 .background{
-    background: url(../img/Policies_BG.png) no-repeat top;
+    background: url(../img/FAQs_BG.jpg) no-repeat top;
     background-size: contain;
-    background-color: #C2CE48;
+    background-color: #000000;
 }
 
-.policies-header{
+.faq-header{
     padding: 10% 0%;
     color: white;
-    text-align: left;
+    text-align: center;
 }
 
 .circle-tile {
     margin: 5px 25px;
     text-align: center;
-    height: 75%;
+    height: 80%;
 }
 .circle-tile-heading {
     border: 3px solid rgba(255, 255, 255, 0.3);
@@ -32,7 +32,7 @@ body {min-height: 100%; }
 }
 
 .circle-tile-content {
-    padding: 50px 20px 20px 20px;
+    padding: 50px 15px 20px 15px;
     color: black;
     border-radius: 5%;
     height: 100%;
