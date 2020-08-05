@@ -10,7 +10,7 @@
 
     
          <!--  title details    -->
-  <title>PAWSter Care - Edit Your Profile</title>
+  <title>PAWSter Care - Profile</title>
   <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
         
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -38,6 +38,7 @@
     <script src="../js/editprofile.js"></script>
 <!-- custom CSS -->
   <link href="../css/PAWSter%20Care.css" rel="stylesheet">
+  <link href="../css/profile.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/feedbackform.css">
     
 <!-- custom js -->
@@ -48,49 +49,42 @@
     <body>
     
 <!-- Navigation -->
-  {{> navbar}}
-    <script>HighlightTab("profile")</script><br><br><br><br>
+    {{> navbar}}
 
- <h1 class="text-center" >Edit your profile, {{username}}!</h1>
-        
-<!--Main Content-->
-  <div class="container contact">
-    <div class="row">
-         <div class="edit_profile_bg col-md-5">
-      <div class="contact-info">
-      </div>
-    </div>
-      <div class="col-md-7">            
-          <div class="card-body">
-            <form class="form-signin" method="post" action="edit_profile">
-              <div class="form-label-group">
-                  <label for="inputUserame">Username</label>
-                <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus name="uname" value="{{username}}">
-              </div><br>
-
-              <div class="form-label-group">
-                  <label for="inputEmail">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required value="{{email}}" name="email">
+    <div class="container emp-profile">
+      <div class="row">
+          <div class="col-md-4">
+              <div class="profile-img">
+                  <img src="https://www.prestigeanimalhospital.com/sites/default/files/styles/large/adaptive-image/public/golden-retriever-dog-breed-info.jpg?itok=scGfz-nI" alt="user icon"/>
               </div>
-              <label>Warning: When you choose to replace your email address, you will lose all of your track records from your requests page. Please keep in mind that this is irreversible.</label>
-              <hr>
-
-              <div class="form-label-group">
-                  <label for="inputPassword">Change Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name ="pass">
-                </div><br>
-
-              <button class="btn btn-primary text-uppercase" type="submit">Save Changes</button>
-              <hr class="my-4">
-                <p id="demo"></p>
-              
-            </form>
           </div>
-      </div>
-    </div>
-      
-  </div>
+          <div class="col-md-6">
+              <div class="profile-head">
+                <span style="font-size: 30px; font-weight:bold;">{{username}}</span>
+                <a class="btn btn-outline-secondary" id="editprofile" href="editprofile">Edit Profile</a>
+                <a class="btn btn-outline-primary" id="faq" href="requests">My Requests</a>
+              </div>
+          <br>    
+          <hr>
+          <div class="col-md-6">
+            <div class="tab-content profile-tab" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row">
+                </div>
+                <div class="row">
+                  <div class="col-md-10">
+                      <label>Email</label>
+                  </div>
+                  <div class="col-md-10">
+                      <p>{{email}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
+        </div>
+      </div>
+  </div>
+    <br><br>
 {{> footer}}
-    </body> 
-</html>

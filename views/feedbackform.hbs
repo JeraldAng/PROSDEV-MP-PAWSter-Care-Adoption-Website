@@ -40,7 +40,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="../js/feedbackform.js"></script>
+  <script src="../public/js/feedbackform.js"></script>
 
 <link rel="stylesheet" href="css/feedbackform.css">
         
@@ -51,49 +51,51 @@
   {{> navbar}}
     <script>HighlightTab("profile")</script><br><br><br><br>
     
-    <h1 class="text-center" >We would love to hear your feedback!</h1>
-    
 <div class="container contact">
-	<div class="row">
-		<div class="col-md-7">
-			<form action="feedbackform" id = "feedback_form" method="post">
+	<div class="form-container">
+		<div class="form-body">
+			<div class="feedback-head">
+				<h1>We would love to hear your feedback!</h1>
+				<p>Have any concerns about or suggestions for the site? Tell us below!</p>
+			</div>
+			<form action="feedbackform" id = "feedback_form" method="post" class="needs-validation">
             <div class="contact-form">
 				<div class="form-group">
-				  <label class="control-label col-sm-2" for="fname">First Name:</label>
+				  <label class="control-label col-sm-2" for="fname">First Name<span style="color:red">*</span></label>
 				  <div class="col-sm-10">          
-					<input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname" name="reqfname" required oninvalid="alert('You must fill out first name!')">
+					<input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname" name="reqfname" required>
+					<div class="invalid-feedback" id="invalid-fname">You need to fill up this field.</div>
 				  </div>
 				</div>
 				<div class="form-group">
-				  <label class="control-label col-sm-2" for="lname">Last Name:</label>
+				  <label class="control-label col-sm-2" for="lname">Last Name<span style="color:red">*</span></label>
 				  <div class="col-sm-10">          
-					<input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname" name="reqlname" required oninvalid="alert('You must fill out last name!')">
+					<input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname" name="reqlname" required>
+					<div class="invalid-feedback" id="invalid-lname">You need to fill up this field.</div>
 				  </div>
 				</div>
 				<div class="form-group">
-				  <label class="control-label col-sm-2" for="email">Email:</label>
+				  <label class="control-label col-sm-2" for="email">Email<span style="color:red">*</span></label>
 				  <div class="col-sm-10">
-					<input type="email" class="form-control" id="email" placeholder="Enter email" name="email" name="reqemail" required oninvalid="alert('You must fill out email!')">
+					<input type="email" class="form-control" id="email" placeholder="Enter email" name="email" name="reqemail" required>
+					<div class="invalid-feedback" id="invalid-email">Please choose a valid email address.</div>
 				  </div>
 				</div>
 				<div class="form-group">
-				  <label class="control-label col-sm-2" for="comment">Comment:</label>
+				  <label class="control-label col-sm-2" for="comment">Your Feedback<span style="color:red">*</span></label>
 				  <div class="col-sm-10">
-					<textarea form= "feedback_form" class="form-control" rows="5" id="comment" name="ftext" name="reqfeedback" required oninvalid="alert('You must fill out the feedback form!')"></textarea>
+					<textarea form= "feedback_form" class="form-control" rows="5" id="comment" name="ftext" name="reqfeedback" required></textarea>
+					<div class="invalid-feedback">You need to fill up this field.</div>
 				  </div>
 				</div>
 				<div class="form-group">        
 				  <div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-default">Submit</button>
+					<button type="submit" class="btn btn-outline-primary">Submit</button>
 				  </div>
 				</div>
 			</div>
         </form>
 	</div>
-        <div class="col-md-5">
-			<div class="contact-info">
-			</div>
-		</div>
         
     </div>
 </div>

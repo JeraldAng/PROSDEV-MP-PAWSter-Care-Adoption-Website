@@ -2,6 +2,14 @@
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
+html{
+    height: 100%;
+}
+
+body{
+    min-height: 100%;
+}
+
 
 .btn-primary:hover,
 .btn-primary:focus {
