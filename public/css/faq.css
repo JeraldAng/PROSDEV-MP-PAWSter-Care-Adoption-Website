@@ -1,0 +1,82 @@
+/* css for tiles part */
+html { height: 100%; }
+body {min-height: 100%; }
+
+.background{
+    background: url(../img/FAQs_BG.jpg) no-repeat top;
+    background-size: contain;
+    background-color: #000000;
+}
+
+.faq-header{
+    padding: 10% 0%;
+    color: white;
+    text-align: center;
+}
+
+.circle-tile {
+    margin: 5px 25px;
+    text-align: center;
+    height: 80%;
+}
+.circle-tile-heading {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100%;
+    color: #FFFFFF;
+    height: 150px;
+    margin: 0 auto -75px;
+    position: relative;
+    transition: all 0.3s ease-in-out 0s;
+    width: 150px;
+    vertical-align:middle;
+}
+
+.circle-tile-content {
+    padding: 50px 15px 20px 15px;
+    color: black;
+    border-radius: 5%;
+    height: 100%;
+}
+
+.circle-tile-heading h1{
+    font-size: 80px;
+}
+
+.circle-tile-number {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 5px 0 15px;
+}
+
+.white {
+    background-color: #FFFFFF;
+}
+.pink {
+    background-color: #F42267;
+}
+.blue {
+    background-color: #40BDC8;
+}
+.green {
+    background-color: #60990F;
+}
+.yellow {
+    background-color: #F2CA47;
+}
+.purple {
+    background-color: #A36EB9;
+}
+.orange {
+    background-color: #F87D04;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
