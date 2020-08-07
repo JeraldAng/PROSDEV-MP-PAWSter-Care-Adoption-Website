@@ -39,7 +39,8 @@ describe('Filter search results', () => {
         '</select>' +
         '</div>' +
         '</div>' + 
-        '<span data-name = "Benny" data-breed = "Beagle" data-gender = "male" data-energy_level = "high" data-ease_of_training = "easy" class="product">'; 
+        '<span id="Benny" data-name = "Benny" data-breed = "Beagle" data-gender = "male" data-energy_level = "high" data-ease_of_training = "easy">' +
+        '<span id="Harp" data-name = "Harp" data-breed = "Husky" data-gender = "female" data-energy_level = "low" data-ease_of_training = "difficult">'; 
     
     test('search: keyword not found', () => {
 	  // Arrange
