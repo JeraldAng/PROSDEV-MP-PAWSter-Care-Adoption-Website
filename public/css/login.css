@@ -4,8 +4,31 @@ html{
     height: 100%;
 }
 
+h2{
+	font-family:chewy!important;
+	color: #4B1C00;
+}
+
+.chewy {
+    font-family: "Chewy"!important;
+}
+
+@font-face {
+    font-family: "Chewy";
+    src: url("../vendor/fontawesome-free/webfonts/chewy.ttf");
+}
+
 body{
     min-height: 100%;
+}
+
+.cabin {
+    font-family: "Chewy"!important;
+}
+
+@font-face {
+    font-family: "C";
+    src: url("../vendor/fontawesome-free/webfonts/chewy.ttf");
 }
 
 .wrapper--w680 {
