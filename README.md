@@ -21,9 +21,7 @@ Users may also fill up feedback forms about the services, as well as about the d
 
     The admin is responsible for **approving** or **rejecting** all pending adoption requests. An **adopted** dog is no longer viewable by other users, but a dog with a pending request is still viewable. 
 
-*COMMENT: Can an admin have several accounts (i.e. many admins) or can there be only one?*
-
-    As of now, the admin can log in using a pre-made administrator account. 
+    The admin can log in using a pre-made administrator account. 
 
 2. User
 
@@ -36,4 +34,13 @@ Users may also fill up feedback forms about the services, as well as about the d
     That is as much as they can do. To access the other user-related features of the website, they must register an account and log in. Guests register with their first and last name, a valid email address, and a password.
 
 ## Setting Up
-*to follow.*
+### Installation 
+1. Run `npm install jest` to install Jest for unit testing.
+3. Ensure that you have MongoDB installed and set up on your system. 
+
+### Setting Up
+1. In the *C:\Program Files\MongoDB\Server\ (version)\bin* directory, run 'mongod.exe'. Alternatively, open the command prompt in the same directory and run the command `mongod`.
+
+2. Run 'mongo.exe' afterwards. Alternatively, run the command `mongo` in a separate command prompt. 
+
+3. Run `node server.js` in the command line in the main folder (in the same directory as the packages).
