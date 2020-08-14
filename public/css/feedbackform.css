@@ -3,8 +3,88 @@ html{
 }
 
 body{
-	background-color: #EADECE;
+	background-color: #F2EEE5;
 	min-height: 100%;
+}
+
+.btn-outline-primary{
+	background-color:#6DAB3C!important;
+	text-decoration: none!important;
+	width: 100%;
+}
+
+.bg-beige{
+  background-color: #F2EEE5;
+}
+
+.bubblegumsans {
+    font-family: "Bubblegum Sans"!important;
+}
+
+.chewy {
+    font-family: "Chewy"!important;
+}
+
+.cabin{
+  font-family: "Cabin"!important;
+}
+
+.delius{
+    font-family: "Delius Regular"!important;
+}
+
+.caveat{
+    font-family: "Caveat"!important;
+}
+
+@font-face {
+    font-family: "Bubblegum Sans";
+    src: url("../vendor/fontawesome-free/webfonts/bubblegumsans.otf");
+}
+
+@font-face {
+    font-family: "Chewy";
+    src: url("../vendor/fontawesome-free/webfonts/chewy.ttf");
+}
+
+@font-face {
+    font-family: "Cabin";
+    src: url("../vendor/fontawesome-free/webfonts/cabin.ttf");
+}
+
+@font-face {
+    font-family: "Caveat";
+    src: url("../vendor/fontawesome-free/webfonts/caveat.ttf");
+}
+
+@font-face {
+    font-family: "Delius Swash Caps";
+    src: url("../vendor/fontawesome-free/webfonts/deliusswashcaps.ttf");
+}
+
+@font-face {
+    font-family: "Delius";
+    src: url("../vendor/fontawesome-free/webfonts/deliusregular.ttf");
+}
+
+.text-black{
+  color: black;
+}
+
+.text-brown{
+  color: #4B1C00;
+}
+
+.text-green{
+  color: #A3AD55;
+}
+
+.text-violet{
+  color: #A36EB9;
+}
+
+.text-blue{
+  color: #79B3CE;
 }
 
 div.form-body{
@@ -74,3 +154,4 @@ div.col-md-7{
 .contact-form button:focus{
 	box-shadow:none;
 }	
+

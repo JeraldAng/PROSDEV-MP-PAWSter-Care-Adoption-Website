@@ -6,6 +6,8 @@
 //   }).setHeader('Invalid Input');
 // }
 
+var submitBtn = $('#submit-btn');
+
 $(document).ready(function(){
   
   var reqFirst = document.getElementById("fname");
@@ -43,8 +45,11 @@ $(document).ready(function(){
     }    
   }
 
+});
 
-
+submitBtn.click(function(){
+  alert.(this.id);
+  swal.fire("Feedback submitted!", "Thank you for your feedback.", "success");
 });
 
 (function() {
@@ -60,5 +65,5 @@ $(document).ready(function(){
           form.classList.add('was-validated');
         }, false);
         });
-      }, false);
+      }, false); 
 })();
