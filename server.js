@@ -12,7 +12,6 @@ const {Request} = require("./models/request.js")
 var upload = multer({dest: './public/uploads/'})
 var CryptoJS = require('crypto-js')
 
-
 const app = express()
 const urlencoder = bodyparser.urlencoded({
     extended: false
@@ -27,7 +26,6 @@ console.log("Connected to Database");
 }).catch((err) => {
 console.log("Not Connected to Database ERROR! ", err);
 });
-
 
 User.findOne({
          username: "admin"
@@ -168,7 +166,7 @@ app.get("/requestform", (req, res)=>{
     })
 })
 
-app.get("/requests", (req, res)=>{
+app.get("/profile", (req, res)=>{
     User.findOne({
         username: req.session.username
     }, (err, doc)=>{
@@ -176,28 +174,39 @@ app.get("/requests", (req, res)=>{
             res.send(err)
         }
         else{
+            email = doc.email
             Request.find({
-                reqEmail: doc.email
+                reqUserID: doc._id
             }, (err, doc)=>{
                 if(err){
                     res.send(err)
                 }
                 else{
-                      
-                    res.render("requests.hbs", {
-                        username: req.session.username,        
-                        des: doc.description,
-                        reqList: doc
-                    })
+                    reqList = doc
+                    dogList = doc.map(element => element.reqDogID)  // get all dog IDs
+                    
+                    Dog.find({
+                        '_id': { $in: dogList} // match dog IDs 
+                    }, (err, doc)=>{
+                        if(err){
+                            res.send(err)
+                        }
+                        else{  
+                            res.render("profile.hbs", {
+                                username: req.session.username,
+                                email: email,
+                                reqList: reqList,
+                                dog: doc        // return only requested dogs
+                            })
+                        }
                             
                 }
-            })
-            
+            )
         }
-    })
-       
+    }) 
+}
 })
-
+})
 app.get("/request_dog", (req, res)=>{
     console.log(req.query.id)
     
@@ -208,6 +217,7 @@ app.get("/request_dog", (req, res)=>{
             res.send(err)
         }
         else{
+                userID = doc._id
                 email = doc.email
                 Dog.findOne({
                     _id: req.query.id                     
@@ -219,12 +229,13 @@ app.get("/request_dog", (req, res)=>{
                         res.render("requestform.hbs", {
                             username: req.session.username,        
                             dog: doc,
-                            email: email
+                            email: email,
+                            userID: userID
                         })
                     }
                 })
         }
-})
+    })
 })
 
 app.get("/faq", (req, res)=>{
@@ -249,22 +260,6 @@ app.get("/editprofile", (req, res)=>{
         }
         else{
             res.render("edit_profile.hbs", {
-                username: req.session.username,        
-                email: doc.email
-            })
-        }
-    })
-})
-
-app.get("/profile", (req, res)=>{
-    User.findOne({
-        username: req.session.username
-    }, (err, doc)=>{
-        if(err){
-            res.send(err)
-        }
-        else{
-            res.render("profile.hbs", {
                 username: req.session.username,        
                 email: doc.email
             })
@@ -463,23 +458,43 @@ app.post("/edit_profile", urlencoder, (req, res)=>{
 })
 
 app.post("/request", urlencoder, (req, res)=>{
-    var reqName = req.body.reqfirst + " " + req.body.reqmiddle + " " + req.body.reqlast
-    var reqEmail = req.body.reqemail
-    var reqDog = req.body.reqdog
-    var reqDogPic = req.body.reqdogpic
+    var reqDate = new Date()
+    var reqName = req.body.reqFirst + " " + req.body.reqLast
+    var reqEmail = req.body.reqEmail
+    var reqAddress = req.body.reqAddress
+    var reqDog = req.body.reqDog
     var reqStatus = "pending"
-         
-    // console.log(req.body.reqdogpic.filename)
-    let request = new Request({
-         reqName, reqEmail, reqDog, reqDogPic, reqStatus
-    })
+    var reqDogID = req.body.reqDogID
+    var reqUserID = req.body.reqUserID
+    var reqBreed = ""
+    
+    if(req.body.reqNum == null)
+        var reqNum = ""
+    else
+        var reqNum = req.body.reqNum 
+    
+    Dog.findOne({
+         _id: reqDogID
+         }, (err, doc)=>{
+            if(err){
+                res.send(err)
+            }
+            else{
+                reqBreed = doc.breed;
+                
+                let request = new Request({
+                     reqDate, reqUserID, reqName, reqEmail, reqAddress, reqNum, reqDogID, reqDog, reqBreed, reqStatus
+                })
 
-    request.save().then((doc)=>{
-        console.log(doc)                                            // print the user details if successfully saved
-        res.redirect("/requests")
-    },(err)=>{
-        res.send(err)
-    })
+                request.save().then((doc)=>{
+                    console.log(doc)                           // print the user details if successfully saved
+                    res.redirect("/profile")
+                },(err)=>{
+                    res.send(err)
+                })
+                
+            }
+        })    
 })
 
 app.post("/approve", urlencoder, (req, res)=>{
