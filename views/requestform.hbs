@@ -86,12 +86,12 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label>First Name<span style="color:red">*</span></label>
-                                <input type="text" placeholder="First Name" class="form-control" id="reqFirst" name="reqfirst" required>
+                                <input type="text" placeholder="First Name" class="form-control" id="reqFirst" name="reqFirst" required>
                                 <div class="invalid-feedback" id="invalid-fname">You need to fill up this field.</div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Last Name<span style="color:red">*</span></label>
-                                <input type="text" placeholder="Last Name" class="form-control" id="reqLast" name="reqlast" required>
+                                <input type="text" placeholder="Last Name" class="form-control" id="reqLast" name="reqLast" required>
                                 <div class="invalid-feedback" id="invalid-lname">You need to fill up this field.</div>
                             </div>
                         </div>
@@ -105,6 +105,7 @@
                             <div class="form-group col-md-6">
                                 <label>Email Address<span style="color:red">*</span></label>
                                 <input type="email" placeholder="Email Address" class="form-control" id="reqEmail" name="reqEmail" value="{{email}}" required>
+                                
                                 <div class="invalid-feedback" id="invalid-email">Please choose a valid email address.</div>
                             </div>
                         </div>
@@ -121,13 +122,15 @@
                                 <input type="text" placeholder="Dog Name.." class="form-control" value="{{dog.name}}" id="reqDog" name="reqDog" required readonly="readonly">
                             </div>
                         </div>
+                        <input type = "hidden" value="{{dog._id}}" name= "reqDogID" id= "reqDogID">
+                        <input type = "hidden" value="{{userID}}" name= "reqUserID" id= "reqUserID">
                         <hr>
                         <div>
                             <label>Terms and Conditions</label>
                             <p>By sending this electronically, I agree to the terms and conditions listed under <a href="protocols">Protocols</a>.
                         </div>
                     &nbsp;
-                    <input type="submit" class="btn btn-lg btn-primary" value="Submit Request">
+                    <input type="submit" class="btn btn-lg btn-primary" value="Submit Request">        
                     <a type="button" class="btn btn-lg btn-secondary" value="Cancel Adoption" href="dogs">Cancel Adoption</a>
                 </form> 
 	   </div>

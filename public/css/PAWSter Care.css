@@ -82,6 +82,11 @@ body{
   display: none;
 }
 
+.navbar-brand img{
+    height: 35px;
+    width: 35px;
+}
+
         
 /* change the brand and text color */     
 .navbar-brand,
