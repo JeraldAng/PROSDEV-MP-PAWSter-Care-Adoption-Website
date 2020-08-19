@@ -27,6 +27,20 @@ console.log("Connected to Database");
 console.log("Not Connected to Database ERROR! ", err);
 });
 
+hbs.registerHelper('ifeq', function (a, b, options) {
+    if (a == b) { return options.fn(this); }
+    return options.inverse(this);
+});
+
+hbs.registerHelper('ifnoteq', function (a, b, options) {
+    if (a != b) { return options.fn(this); }
+    return options.inverse(this);
+});
+
+hbs.registerHelper("setVar", function(varName, varValue, options) {
+  options.data.root[varName] = varValue;
+});
+
 User.findOne({
          username: "admin"
          }, (err, doc)=>{
@@ -225,12 +239,23 @@ app.get("/request_dog", (req, res)=>{
                     if(err){
                         res.send(err)
                     }
-                    else{   
-                        res.render("requestform.hbs", {
-                            username: req.session.username,        
-                            dog: doc,
-                            email: email,
-                            userID: userID
+                    else{
+                        selected = doc
+                        Dog.find({
+                            '_id': { $ne: doc._id}
+                        }, (err, doc)=>{
+                            if(err){
+                                res.send(err)
+                            }
+                            else{                                 
+                                    res.render("requestform.hbs", {
+                                    username: req.session.username,        
+                                    currentdog: selected,
+                                    email: email,
+                                    userID: userID,
+                                    dogs: doc    
+                                })
+                            }
                         })
                     }
                 })
@@ -462,11 +487,13 @@ app.post("/request", urlencoder, (req, res)=>{
     var reqName = req.body.reqFirst + " " + req.body.reqLast
     var reqEmail = req.body.reqEmail
     var reqAddress = req.body.reqAddress
-    var reqDog = req.body.reqDog
     var reqStatus = "pending"
-    var reqDogID = req.body.reqDogID
+    var reqDog = ""
+    var reqDogID = req.body.reqDog
     var reqUserID = req.body.reqUserID
     var reqBreed = ""
+    
+    console.log(reqDog);
     
     if(req.body.reqNum == null)
         var reqNum = ""
@@ -480,6 +507,7 @@ app.post("/request", urlencoder, (req, res)=>{
                 res.send(err)
             }
             else{
+                reqDog = doc.name;
                 reqBreed = doc.breed;
                 
                 let request = new Request({

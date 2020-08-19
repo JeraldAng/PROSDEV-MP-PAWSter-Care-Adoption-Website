@@ -167,6 +167,27 @@ $(document).ready(function(){
     }   
 });
 
+$(document).ready(function(){   
+// show password 
+    $("#showPasswordBtn").click(function(){
+        $("#showPasswordBtn").find('i').toggleClass('fa-eye-slash');
+        if($("#password").attr('type') == 'text'){
+            $("#password").attr('type', 'password');
+        }else{
+            $("#password").attr('type', 'text');
+        }   
+    });
+    
+    $("#showConfirmPasswordBtn").click(function(){
+        $("#showConfirmPasswordBtn").find('i').toggleClass('fa-eye-slash');
+        if($("#confirm-password").attr('type') == 'text'){
+            $("#confirm-password").attr('type', 'password');
+        }else{
+            $("#confirm-password").attr('type', 'text');
+        }   
+    }); 
+});
+
 
 (function() {
 'use strict';
