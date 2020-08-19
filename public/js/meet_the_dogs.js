@@ -3,7 +3,7 @@ var breeds = "";
 var genders = "";
 var energy_levels = "";
 var ease_of_trainings = "";
-
+ 
 // create all options for drop down based on the database data
 $(".filter-breed").append(breeds);
 $(".filter-gender").append(genders);
@@ -29,6 +29,8 @@ function searchFilter() {
 		if (name.indexOf(query) > -1 || breed.indexOf(query) > -1 || gender.indexOf(query) > -1 || energy_level.indexOf(query) > -1 || ease_of_training.indexOf(query) > -1) {
 			$(this).show();
 		}
+
+
 	});  
 }
 
