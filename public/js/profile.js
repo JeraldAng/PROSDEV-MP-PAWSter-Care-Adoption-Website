@@ -13,9 +13,7 @@ $(document).ready(function(){
         
         this.innerHTML = (date.getMonth()+1) + "/" + date.getDate() + "/" + date.getFullYear() + "  " + strTime;
     });
-    
-    console.log($('tbody'));
-    
+            
     if ($('.table tbody').children().length == 0) {
         var tr = document.createElement('tr');
         var td = document.createElement('td');
@@ -25,6 +23,7 @@ $(document).ready(function(){
         td.style.color = '#7C7373';
         td.innerHTML = "No Pending Requests";
         tr.appendChild(td);
+        tr.style.backgroundColor = "#F2EEE5";
         $("tbody").append(tr);
     }
 });

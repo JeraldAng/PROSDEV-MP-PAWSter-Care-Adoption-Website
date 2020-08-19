@@ -46,18 +46,30 @@
                                     <input type="text" id="username" name="uname" class="form-control input_user" value="" type="text" placeholder="Username" maxlength="25" required>
                                     <div id="invalid-username" class="invalid-feedback">invalid username</div>
                                 </div>
+                                
                                 <div class="input-group">
                                     <div class="input-group-append">
 								    <span class="input-group-text"><i class="fas fa-lock"></i></span>
 							        </div>
                                     <input name="pass" id="password" type="password" class="form-control input_pass" value="" placeholder="Password" maxlength="25" required>
-                                    <div id="invalid-password" class="invalid-feedback">invalid password</div>    
+                                    <div class="input-group-append">
+                                        <span id ="showPasswordBtn" class="password input-group-text">
+                                            <i class="fa fa-eye"></i>
+                                        </span>
+                                    </div> 
+                                    <div id="invalid-password" class="invalid-feedback">invalid password</div>
                                 </div>
+                                
                                 <div class="input-group">
                                     <div class="input-group-append">
 								    <span class="input-group-text"><i class="fas fa-lock"></i></span>
 							        </div>
                                     <input type="password" id="confirm-password" name="confirm-password" class="form-control input_confirm_pass" value="" placeholder="Confirm Password" maxlength="25" required> 
+                                    <div class="input-group-append">
+                                        <span id ="showConfirmPasswordBtn" class="password input-group-text">
+                                            <i class="fa fa-eye"></i>
+                                        </span>
+                                    </div> 
                                 </div>
                                 <div id="invalid-confirm-password"></div>   
                             </div>

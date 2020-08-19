@@ -8,4 +8,13 @@ $(document).ready(function(){
         $('#loginAlert').show();
     }
     
+    $("#showPasswordBtn").click(function(){
+        $("#showPasswordBtn").find('i').toggleClass('fa-eye-slash');
+        if($("#password").attr('type') == 'text'){
+            $("#password").attr('type', 'password');
+        }else{
+            $("#password").attr('type', 'text');
+        }   
+    });
+    
     })
