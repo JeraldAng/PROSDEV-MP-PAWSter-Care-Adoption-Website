@@ -82,6 +82,15 @@ $(".filter").on("change",function () {
 
 $(document).ready(function() {
     $(".filter").change();
+    
+    $('#requestAlert').hide();
+        
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('error');
+    if(myParam == "pendingrequest_found") {  
+        $('#requestAlert').html("Sorry! Looks like you've requested for this dog already!").css('text-align', 'center');
+        $('#requestAlert').show();
+    }
 });
 
 // export functions for testing

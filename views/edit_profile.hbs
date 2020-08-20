@@ -27,7 +27,7 @@
     <script src="../js/editprofile.js"></script>
     <!-- custom CSS -->
     <link href="../css/PAWSter%20Care.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/feedbackform.css">
+    <link rel="stylesheet" href="../css/edit_profile.css">
     <!-- custom js -->
     <script src="../js/PAWSter%20Care.js" type="text/javascript"></script>
 </head>
@@ -35,8 +35,8 @@
 <body>
     <!-- Navigation -->
     {{> navbar}}
-  </div>
-    <script>HighlightTab("profile")</script><br><br><br><br>
+
+    <script>HighlightTab("profile")</script><br><br>
     <div class="container rounded mb-5 mt-0" style="position:relative;padding-top: 30px;">
           <!--   <span class="dot" style=" height: 200px;width: 200px;background-color: #F2CA47;border-radius: 50%;display: inline-block; max-width: 100%; margin-left: 32%!important; margin-top: -100px!important; z-index:50!important;position: fixed;"></span>  -->
         <div class="row" style="background-color: #FFFFFF; z-index:-1!important;"> 
@@ -52,25 +52,43 @@
                 <img style="position: absolute; bottom: 1px; left: 1px;" class="rounded float-left ml-0 mr-2" src="../img/dog_corner.PNG" />
             </div>
             <div class="col">
-                <div class="card-body">
-                    <form class="form-signin" method="post" action="edit_profile">
+                <div class="card-body form-container">
+                    <form class="needs-validation" novalidate action="edit_profile" method="post">
+                        <div class="alert alert-danger" role="alert" id="editProfileAlert">
+                            <p style="text-align: center;"></p>
+                        </div>
                         <div class="form-label-group">
                             <label class="bubblegumsans" for="inputUserame">Username</label>
-                            <input type="text" id="inputUserame" class="form-control bubblegumsans" placeholder="Username" required autofocus name="uname" value="{{username}}">
+                            <input type="text" id="inputUsername" class="form-control bubblegumsans" placeholder="Username" required name="uname" maxlength="25" value="{{username}}">
+                            <div id="invalid-username" class="invalid-feedback">invalid username</div>
                         </div><br>
                         <div class="form-label-group">
                             <label class="bubblegumsans" for="inputEmail">Email address</label>
                             <input type="email" id="inputEmail" class="form-control bubblegumsans" placeholder="Email address" required value="{{email}}" name="email">
-                        </div>
-                        <label class="cabin">Warning: When you choose to replace your email address, you will lose all of your track records from your requests page. Please keep in mind that this is irreversible.</label>
-                        <hr>
-                        <div class="form-label-group">
-                            <label class="bubblegumsans" for="inputPassword">Change Password</label>
-                            <input type="password" id="inputPassword" class="form-control bubblegumsans" placeholder="Password" required name="pass">
+                            <div id="invalid-email" class="invalid-feedback">invalid email address</div> 
                         </div><br>
-                        <button  class="btn button-style text-white bubblegumsans" type="submit" style="background: #6DAB3C!important;">Save Changes</button>
-                        <hr class="my-4">
-                        <p id="demo"></p>
+                        <label class="bubblegumsans" for="inputPassword">Change Password</label>
+                        <div class="input-group form-label-group">
+                            <input type="password" id="inputPassword" class="form-control bubblegumsans" maxlength="25" placeholder="Password" required name="pass">
+                            <div class="input-group-append">
+                                <span id ="showPasswordBtn" class="password input-group-text">
+                                    <i class="fa fa-eye"></i>
+                                </span>
+                            </div> 
+                        </div>
+                        <div id="invalid-password" class="invalid-feedback">invalid password</div><br>
+                            <div id="password-requirements">
+                                <small>Your password should contain at least the following:</small>
+                                <small><p id="letter" class="invalid">A <b>lowercase</b> letter</p></small>
+                                <small><p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p></small>
+                                <small><p id="number" class="invalid">A <b>number</b></p></small>
+                                <small><p id="length" class="invalid">Minimum <b>8 characters</b></p></small>
+                                <small><p id="special" class="invalid">One special character</p></small>
+                            </div>
+                        <br>
+                        <div class="p-t-20">
+                            <input type="submit" class="btn btn-submit button-style text-white bubblegumsans" value="Save Changes" style="background: #6DAB3C!important;">
+                        </div>
                     </form>
                 </div>
             </div>

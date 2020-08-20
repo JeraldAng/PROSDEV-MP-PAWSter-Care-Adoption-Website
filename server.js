@@ -276,7 +276,6 @@ app.get("/aboutus", (req, res)=>{
 })
 
 app.get("/editprofile", (req, res)=>{
-    console.log(req.session._id)
     User.findOne({
         username: req.session.username
     }, (err, doc)=>{
@@ -463,23 +462,93 @@ app.post("/signup", urlencoder, (req, res)=>{
 })
 
 app.post("/edit_profile", urlencoder, (req, res)=>{
-    
-    User.update({                              // where clause
-       username: req.session.username 
-    }, {                                       // new info that you want to add
-        username: req.body.uname,
-        email: req.body.email,
-        password: CryptoJS.MD5(req.body.pass).toString()
+    var comparename = "null"
+    var compareemail = "null"
+    var currentname = req.session.username
+    var currentemail = "null"
+        
+    User.findOne({
+        username: req.session.username
     }, (err, doc)=>{
-       if (err){
-           res.send(err)
-       }
-        else{
-            req.session.username = req.body.uname
-            res.redirect("/profile")
+        if(err){
+            res.send(err)
         }
-    })
+        else{ 
+            currentemail = doc.email
     
+            console.log("current name: ", currentname);
+            console.log("current email: ", currentemail);
+
+            // if user did not change email or username, do not compare these to the database
+            if (currentname != req.body.uname)
+                comparename = req.body.uname
+            if (currentemail != req.body.email)
+                compareemail = req.body.email
+
+            console.log("comapare name: ", comparename);
+            console.log("compare email: ", compareemail);
+            
+            User.findOne({
+                $or: [ 
+                    {username: comparename},
+                    {email: compareemail},    
+                ]
+                 }, (err, doc)=>{
+                    if(err){
+                        res.send(err)
+                    }
+                    else if(doc){
+                        console.log(doc.username, " comapare to ", req.body.uname);
+                        console.log(doc.email, " comapare to ", req.body.email);
+
+                        if(doc.username == req.body.uname){
+                            res.redirect("/editprofile?error=" + encodeURIComponent('username_taken'));
+                        }
+                        else if(doc.email == req.body.email){
+                            res.redirect("/editprofile?error=" + encodeURIComponent('emailaddress_taken'));
+                        }
+                        else{
+                            User.updateOne({                              // where clause
+                               username: req.session.username 
+                            }, {                                       // new info that you want to add
+                                username: req.body.uname,
+                                email: req.body.email,
+                                password: CryptoJS.MD5(req.body.pass).toString()
+                            }, (err, doc)=>{
+                               if (err){
+                                   res.send(err)
+                               }
+                                else{
+                                    req.session.username = req.body.uname
+                                    res.redirect("/profile")
+                                }
+                            }),(err)=>{
+                            res.send(err)
+                            }
+                        }
+                    }
+                    else{
+                        User.updateOne({                              // where clause
+                               username: req.session.username 
+                            }, {                                       // new info that you want to add
+                                username: req.body.uname,
+                                email: req.body.email,
+                                password: CryptoJS.MD5(req.body.pass).toString()
+                            }, (err, doc)=>{
+                               if (err){
+                                   res.send(err)
+                               }
+                                else{
+                                    req.session.username = req.body.uname
+                                    res.redirect("/profile")
+                                }
+                            }),(err)=>{
+                            res.send(err)
+                            }
+                    }
+                })
+            }
+    })    
 })
 
 app.post("/request", urlencoder, (req, res)=>{
@@ -500,31 +569,52 @@ app.post("/request", urlencoder, (req, res)=>{
     else
         var reqNum = req.body.reqNum 
     
-    Dog.findOne({
-         _id: reqDogID
-         }, (err, doc)=>{
+        Request.findOne({
+            reqUserID: reqUserID,
+            reqDogID: reqDogID,
+            reqStatus: reqStatus
+        }, (err, doc)=>{
             if(err){
                 res.send(err)
             }
             else{
-                reqDog = doc.name;
-                reqBreed = doc.breed;
+            console.log(" request is found ")    
+            isFound = doc
+            console.log(isFound, " is found ")
                 
-                let request = new Request({
-                     reqDate, reqUserID, reqName, reqEmail, reqAddress, reqNum, reqDogID, reqDog, reqBreed, reqStatus
-                })
+            Dog.findOne({
+                 _id: reqDogID
+                }, (err, doc)=>{
+                    if(err){
+                        res.send(err)
+                    }
+                    else{
+                        console.log(doc.name, "name of adopted dog");
+                        reqDog = doc.name;
+                        reqBreed = doc.breed;
+                        
+                        if(isFound === null){
+                        let request = new Request({
+                         reqDate, reqUserID, reqName, reqEmail, reqAddress, reqNum, reqDogID, reqDog, reqBreed, reqStatus
+                        })
 
-                request.save().then((doc)=>{
-                    console.log(doc)                           // print the user details if successfully saved
-                    res.redirect("/profile")
-                },(err)=>{
-                    res.send(err)
-                })
-                
-            }
-        })    
+                        request.save().then((doc)=>{
+                            console.log(doc)                           // print the user details if successfully saved
+                            res.redirect("/profile")
+                        },(err)=>{
+                            res.send(err)
+                        })
+                        }
+                        else{
+                            req.query.id = reqDogID
+                            res.redirect("/dogs?error=" + encodeURIComponent('pendingrequest_found'));
+                        }
+                  }
+            }) 
+       }
+       })
+
 })
-
 app.post("/approve", urlencoder, (req, res)=>{
 
     console.log(req.body.reqid)
@@ -677,6 +767,10 @@ app.post("/delete", urlencoder, (req, res)=>{
         }
     })
 })
+
+app.get("*", (req, res) => {
+    res.sendFile(__dirname + "/public/error.html")
+});
 
 app.listen(3000, function(){                  // read from this port
     console.log("Now listening at port 3000!");
