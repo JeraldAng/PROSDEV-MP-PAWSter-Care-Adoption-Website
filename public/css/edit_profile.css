@@ -3,7 +3,7 @@ html{
 }
 
 :root {
-  --input-padding-x: 1.5rem;
+  --input-padding-x: 1.5rem; 
   --input-padding-y: .75rem;
 }
 
@@ -41,6 +41,79 @@ body {
   width: 100%;
 }
 
+.bg-beige{
+  background-color: #F2EEE5;
+}
+
+.bubblegumsans {
+    font-family: "Bubblegum Sans"!important;
+}
+
+.chewy {
+    font-family: "Chewy"!important;
+}
+
+.cabin{
+  font-family: "Cabin"!important;
+}
+
+.delius{
+    font-family: "Delius Regular"!important;
+}
+
+.caveat{
+    font-family: "Caveat"!important;
+}
+
+@font-face {
+    font-family: "Bubblegum Sans";
+    src: url("../vendor/fontawesome-free/webfonts/bubblegumsans.otf");
+}
+
+@font-face {
+    font-family: "Chewy";
+    src: url("../vendor/fontawesome-free/webfonts/chewy.ttf");
+}
+
+@font-face {
+    font-family: "Cabin";
+    src: url("../vendor/fontawesome-free/webfonts/cabin.ttf");
+}
+
+@font-face {
+    font-family: "Caveat";
+    src: url("../vendor/fontawesome-free/webfonts/caveat.ttf");
+}
+
+@font-face {
+    font-family: "Delius Swash Caps";
+    src: url("../vendor/fontawesome-free/webfonts/deliusswashcaps.ttf");
+}
+
+@font-face {
+    font-family: "Delius";
+    src: url("../vendor/fontawesome-free/webfonts/deliusregular.ttf");
+}
+
+.text-black{
+  color: black;
+}
+
+.text-brown{
+  color: #4B1C00;
+}
+
+.text-green{
+  color: #A3AD55;
+}
+
+.text-violet{
+  color: #A36EB9;
+}
+
+.text-blue{
+  color: #79B3CE;
+}
 .form-signin .btn {
   font-size: 80%;
   border-radius: 5rem;
@@ -120,4 +193,34 @@ body {
 .btn-facebook {
   color: white;
   background-color: #3b5998;
+}
+
+.editProfileCircle{
+  width: 39.6px;
+    height: 39.6px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 21.6px;
+    border: 2px solid #3498db;
+    color:black;
+    background:#3498db;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.button-style {
+    padding: 12px 20px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-family: "Bubblegum Sans"!important;
+    background: #6DAB3C!important;
+}
+
+.button-style:hover {
+    background: #fff;
+    color: #4B1C00;
 }
