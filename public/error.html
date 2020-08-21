@@ -1,16 +1,53 @@
 <html>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-    <body style="background-image: url(https://i.pinimg.com/originals/16/c1/8d/16c18de8ee888c7e77f2594356c27ec0.jpg); background-size: cover">
-        <!-- Page Content -->
+	
+    <link href="css/error.css" rel="stylesheet">
+	
+<head>
+	<style>
+	body {
+		  background-image: url("img/error1.png");
+		  background-repeat: no-repeat top center;
+		  background-size: cover;
+	}
+		
+	button {
+		  position: relative;
+		  top: 15px;
+		  height: 50px; 
+		  width: 200px;		  
+	}
+		
+	@font-face {
+    	  font-family: "Chewy";
+    	  src: url("../vendor/fontawesome-free/webfonts/chewy.ttf");
+    }
+
+	@font-face {
+    	  font-family: "Cabin";
+    	  src: url("../vendor/fontawesome-free/webfonts/cabin.ttf");
+    }
+		
+	.chewy {
+    	  font-family: "Chewy"!important;
+    }
+
+    .cabin {
+  		  font-family: "Cabin"!important;
+	}
+	</style>
+</head>
+	
+<body>	
+        <!-- Page Content -->		
 <div>
-<div class="container" style="background-color: rgba(255,255,255,0.4)">
+<div class="container">
   <div>
     <div style="margin-top: 10%; text-align: center"><br><br><br><br>
-      <h1 style="font-size: 100px">Uh Oh...</h1>
-        <p style="font-size: 30px">It looks like the user is not found! Please try again!</p><br><br>
-        <a href = 'login'><button class="btn btn-success">Go Back to Login</button></a>
+      <br><br><br><br>
+		<h1 class="chewy" style="font-size: 100px">~ Error 404 ~</h1>
+        <p class="cabin" style="font-size: 40px">Sorry, our dog ate this page.</p>
+        <a href = 'home'><button class="btn btn-success">Go Back to Homepage</button></a>
       <div style="height: 100px"></div>
     </div>
   </div>
