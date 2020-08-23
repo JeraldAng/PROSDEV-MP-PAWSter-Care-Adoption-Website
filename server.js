@@ -747,7 +747,7 @@ app.post("/feedbackform", urlencoder, (req, res)=>{
     
     feedback.save().then((doc)=>{
         console.log(doc)                                             
-        res.redirect("/")
+        res.redirect("/home")
     })
 
 })

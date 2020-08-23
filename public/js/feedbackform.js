@@ -1,15 +1,4 @@
-// function alert(field){
-//     alertify.set('notifier','position', 'bottom-left'); 
-    
-//     alertify.alert("Please input your " + field, function(){
-//     alertify.message(field+" required");
-//   }).setHeader('Invalid Input');
-// }
-
-var submitBtn = $('#submit-btn');
-
-$(document).ready(function(){
-  
+/*$(document).ready(function(){
   var reqFirst = document.getElementById("fname");
   var reqLast = document.getElementById("lname");
   var email = document.getElementById("email");
@@ -46,10 +35,27 @@ $(document).ready(function(){
   }
 
 });
-
-submitBtn.click(function(){
-  alert.(this.id);
-  swal.fire("Feedback submitted!", "Thank you for your feedback.", "success");
+*/
+$(document).on('click', '#submit-btn', function(e) {
+    e.preventDefault();
+    swal({
+        title: 'Confirm',
+        input: 'checkbox',
+        inputValue: 0,
+        inputPlaceholder: ' I agree with the Terms',
+        confirmButtonText: 'Continue',
+        inputValidator: function (result) {
+            return new Promise(function (resolve, reject) {
+                if (result) {
+                    resolve();
+                } else {
+                    reject('You need to agree with the Terms');
+                }
+            })
+        }
+    }).then(function (result) {
+        $('#myForm').submit();
+    });
 });
 
 (function() {

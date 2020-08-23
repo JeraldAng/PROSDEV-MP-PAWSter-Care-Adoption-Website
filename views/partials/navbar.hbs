@@ -30,6 +30,10 @@
             <a class="nav-link" id="signout" href="login">Sign Out</a>
           </li>
 
+          <li class="nav-item ml-1">
+            <a href="#myModal" class="nav-link" data-toggle="modal">Login</a>
+          </li>
+
           {{!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="profile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Profile
@@ -59,3 +63,54 @@
       </div>
     </div>
   </nav>
+
+  <div id="myModal" class="modal fade">
+  <div class="modal-dialog modal-login mt-5" style="margin-top: 120px!important;">
+    <div class="modal-content">
+            <div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float:right;">
+                    <span aria-hidden="true">&times;&nbsp;</span>
+                </button>
+                <div><img src="/img/logo.png" style="height:30%; width: 30%; margin-left: 35%; margin-right: 40%;position: relative; top: -60px; margin-bottom: -60px;">
+                </div>
+                <div class="card-body">
+                    <h2 class="title chewy text-center text-brown">LOGIN</h2>
+                    <form action="login" method="post">
+                        <div class="row row-space">
+                            <div class="input-group">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
+                                </div>
+                                <input type="text" name="uname" class="form-control input_user" value="" placeholder="Username" maxlength="25" required>
+                            </div>
+                            <div class="input-group" style="margin-top: 10px!important;">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" style="width: 43px;"><i class="fa fa-lock ml-1"></i></span>
+                                </div>
+                                <input type="password" id="password" name="pass" class="form-control input_pass" value="" placeholder="Password" maxlength="25" required>
+                                <div class="input-group-append">
+                                        <span id ="showPasswordBtn" class="password input-group-text">
+                                            <i class="fa fa-eye"></i>
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-center links" style="margin-top: 10px!important;">
+                            Don't have an account? <a href="signup.html" class="ml-2">Sign Up!</a>
+                        </div>
+                        <div class=row>
+                        <div class="col-12">
+                            <input type="submit" name="button" class="btn btn--radius btn--orange login_btn cabin text-center text-white mt-2" value="LOGIN" style="background-color:#f87d04!important;width: 450px!important;">
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer cg">
+                <button id="login-btn" type="button" class="btn bg-dark-purple text-white cg">Login</button>
+                <button type="button" class="btn btn-secondary cg" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+  </div>
+</div>     
