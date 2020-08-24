@@ -6,13 +6,73 @@ body{
     min-height: 100%;
 }
 
+.bg-aboutus{
+    background: url(../img/aboutus.png) no-repeat top!important;
+    background-size: contain;
+    background-color: #FFFFFF!important;
+}
+
+.bg-beige{
+  background-color: #F2EEE5;
+}
+
+.bubblegumsans {
+    font-family: "Bubblegum Sans"!important;
+}
+
+.chewy {
+    font-family: "Chewy"!important;
+}
+
+.cabin{
+  font-family: "Cabin"!important;
+}
+
+.delius{
+    font-family: "Delius Regular"!important;
+}
+
+.caveat{
+    font-family: "Caveat"!important;
+}
+
+@font-face {
+    font-family: "Bubblegum Sans";
+    src: url("../vendor/fontawesome-free/webfonts/bubblegumsans.otf");
+}
+
+@font-face {
+    font-family: "Chewy";
+    src: url("../vendor/fontawesome-free/webfonts/chewy.ttf");
+}
+
+@font-face {
+    font-family: "Cabin";
+    src: url("../vendor/fontawesome-free/webfonts/cabin.ttf");
+}
+
+@font-face {
+    font-family: "Caveat";
+    src: url("../vendor/fontawesome-free/webfonts/caveat.ttf");
+}
+
+@font-face {
+    font-family: "Delius Swash Caps";
+    src: url("../vendor/fontawesome-free/webfonts/deliusswashcaps.ttf");
+}
+
+@font-face {
+    font-family: "Delius";
+    src: url("../vendor/fontawesome-free/webfonts/deliusregular.ttf");
+}
+
 .row.heading h2 {
     color: #000;
     font-size: 52.52px;
     line-height: 95px;
     font-weight: 400;
     text-align: center;
-    margin: 0 0 40px;
+    margin: 0 0 40px; 
     padding-bottom: 20px;
     text-transform: uppercase;
 }
@@ -115,3 +175,4 @@ ul{
 .our-webcoderskull .cnt-block .follow-us li .fa:hover{ 
    color:#025a8e;
 }
+

@@ -272,3 +272,10 @@ section .section-title {
     background-image: url("../img/meetthedogsbg.png");
 }
 
+#nodogsfound{
+    padding: 30px 30px;
+    text-align: center;
+    font-size: 50px;
+    margin: 0 auto;
+}
+
