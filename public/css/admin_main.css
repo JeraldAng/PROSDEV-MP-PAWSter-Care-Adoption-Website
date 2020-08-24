@@ -61,7 +61,7 @@ ul{
 
 
 .our-webcoderskull{
-  background: url("https://www.petmd.com/sites/default/files/CANS_dogsmiling_379727605.jpg") no-repeat center top / cover;
+  background: url("../img/admin_aboutus_bg.jpg") no-repeat center top / cover;
   
 }
 .our-webcoderskull .cnt-block{ 
@@ -119,4 +119,31 @@ ul{
 }
 .our-webcoderskull .cnt-block .follow-us li .fa:hover{ 
    color:#025a8e;
+}
+
+@font-face {
+    font-family: "Chewy";
+    src: url("../vendor/fontawesome-free/webfonts/chewy.ttf");
+}
+
+@font-face {
+    font-family: "Cabin";
+    src: url("../vendor/fontawesome-free/webfonts/cabin.ttf");
+}
+
+.chewy {
+    font-family: "Chewy"!important;
+}
+
+.cabin{
+  font-family: "Cabin"!important;
+}
+
+h2 {
+  color: black;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 5px 0 #000;
 }
