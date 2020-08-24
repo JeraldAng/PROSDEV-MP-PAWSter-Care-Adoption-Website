@@ -25,14 +25,16 @@
           <li class="nav-item ml-1">
             <a class="nav-link" id="editprofile" href="profile">Profile</a>
           </li>
-
-          <li class="nav-item ml-1">
-            <a class="nav-link" id="signout" href="login">Sign Out</a>
-          </li>
-
-          <li class="nav-item ml-1">
-            <a href="#myModal" class="nav-link" data-toggle="modal">Login</a>
-          </li>
+          {{#if req.session.username }}
+            <li class="nav-item ml-1">
+              <a href="#myModal" class="nav-link" data-toggle="modal">Login</a>
+            </li>
+            
+          {{else}}
+            <li class="nav-item ml-1">
+              <a class="nav-link" id="signout" href="login">Sign Out</a>
+            </li>
+          {{/if}}
 
           {{!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="profile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
