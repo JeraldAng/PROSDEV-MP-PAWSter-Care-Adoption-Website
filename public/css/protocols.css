@@ -4,6 +4,81 @@ html{
 
 body{
     min-height: 100%;
+    background-color: #5a6d2c!important;
+}
+
+.bg-beige{
+  background-color: #F2EEE5;
+}
+
+.bubblegumsans {
+    font-family: "Bubblegum Sans"!important;
+}
+
+.chewy {
+    font-family: "Chewy"!important;
+}
+
+.cabin{
+  font-family: "Cabin"!important;
+}
+
+.delius{
+    font-family: "Delius Regular"!important;
+}
+
+.caveat{
+    font-family: "Caveat"!important;
+}
+
+@font-face {
+    font-family: "Bubblegum Sans";
+    src: url("../vendor/fontawesome-free/webfonts/bubblegumsans.otf");
+}
+
+@font-face {
+    font-family: "Chewy";
+    src: url("../vendor/fontawesome-free/webfonts/chewy.ttf");
+}
+
+@font-face {
+    font-family: "Cabin";
+    src: url("../vendor/fontawesome-free/webfonts/cabin.ttf");
+}
+
+@font-face {
+    font-family: "Caveat";
+    src: url("../vendor/fontawesome-free/webfonts/caveat.ttf");
+}
+
+@font-face {
+    font-family: "Delius Swash Caps";
+    src: url("../vendor/fontawesome-free/webfonts/deliusswashcaps.ttf");
+}
+
+@font-face {
+    font-family: "Delius";
+    src: url("../vendor/fontawesome-free/webfonts/deliusregular.ttf");
+}
+
+.text-black{
+  color: black;
+}
+
+.text-brown{
+  color: #4B1C00;
+}
+
+.text-green{
+  color: #A3AD55;
+}
+
+.text-violet{
+  color: #A36EB9;
+}
+
+.text-blue{
+  color: #79B3CE;
 }
 
 /*********************** Demo - 14 *******************/
@@ -23,7 +98,6 @@ body{
 }
 
 .tiles-container, .tiles{
-    padding: 5% 0%;
 }
 
 .terms-and-conditions-wrapper{
@@ -60,4 +134,77 @@ body {height: 100%; }
     background: url(../img/Protocols_BG.png) no-repeat top;
     background-size: cover;
     background-color: #C2CE48;
+}
+
+.circle-tile {
+    margin: 5px 25px;
+    text-align: center;
+    height: 75%;
+}
+.circle-tile-heading {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100%;
+    color: #FFFFFF;
+    height: 150px;
+    margin: 0 auto -75px;
+    position: relative;
+    transition: all 0.3s ease-in-out 0s;
+    width: 150px;
+    vertical-align:middle;
+}
+
+.circle-tile-content {
+    padding: 50px 20px 20px 20px;
+    color: black;
+    border-radius: 5%;
+    height: 100%;
+}
+
+.circle-tile-heading h1{
+    font-size: 80px;
+    font-family: chewy;
+}
+
+.circle-tile-number {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 5px 0 15px;
+}
+
+.white {
+    background-color: #FFFFFF;
+}
+.pink {
+    background-color: #F42267;
+}
+.blue {
+    background-color: #40BDC8;
+}
+.green {
+    background-color: #60990F;
+}
+.yellow {
+    background-color: #F2CA47;
+}
+.purple {
+    background-color: #A36EB9;
+}
+.orange {
+    background-color: #F87D04;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.bg-protocols{
+    background: url(../img/protocols.png) no-repeat top!important;
+    background-size: contain;
+    background-color: #5a6d2c!important;
 }

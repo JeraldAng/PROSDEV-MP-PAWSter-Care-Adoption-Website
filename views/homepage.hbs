@@ -41,6 +41,7 @@
     <!-- custom CSS -->
     <link href="../css/PAWSter%20Care.css" rel="stylesheet">
     <link href="../css/homepage.css" rel="stylesheet">
+
     <!-- custom js -->
     <script src="../js/homepage.js" type="text/javascript"></script>
     <script src="../js/PAWSter%20Care.js" type="text/javascript"></script>
@@ -128,56 +129,55 @@
             <section class="text-center">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-12 mt-5"">
+                        <div class="col-sm-12 mt-5">
                             <div class="p-2 bg-white rounded">
                                 <!-- Bootstrap carousel-->
                                 <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel">
                                     <!-- Bootstrap carousel indicators [nav] -->
                                     <ol class="carousel-indicators mb-0">
-                                        <li class="active" data-target="#carouselExampleIndicators" data-slide-to="0"></li>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                        {{#each feedback}}
+                                        {{#ifCond @index "<" 5}}
+                                            {{#ifCond @index "==" 0}}
+                                            <li class="active" data-target="#carouselExampleIndicators" data-slide-to={{@index}}></li>
+                                            {{/ifCond}}
+                                            {{#ifCond @index "!=" 0}}
+                                            <li data-target="#carouselExampleIndicators" data-slide-to='{{@index}}'></li>
+                                            {{/ifCond}}
+                                        {{/ifCond}}
+                                        {{/each}}
                                     </ol>
                                     <!-- Bootstrap inner [slides]-->
                                     <div class="carousel-inner px-5 pb-4">
-                                        <!-- Carousel slide-->
                                         <div class="carousel-item active">
-                                            <div class="media"><img class="rounded-circle img-thumbnail" src="../img/barryrichie.jpg" alt="" width="75">
+                                            <div class="media">
                                                 <div class="media-body ml-3">
                                                     <blockquote class="blockquote border-0 p-0">
-                                                        <p class="font-italic lead"> <i class="fa fa-quote-left mr-3 text-success"></i>Adopting Richie was the best day of my life! Can't imagine a world without him.</p>
-                                                        <footer class="bg-white caveat"> - Barry Richie
+                                                        <p class="font-italic lead">Leave us some feedback in the feedback page! Check it in the footer tab! We make sure to always listen to our customers in order to give the only the best of service!</p>
+                                                        <footer class="bg-white caveat"> Go ahead and start your dog journey!
                                                         </footer>
                                                     </blockquote>
                                                 </div>
                                             </div>
                                         </div>
+                                        {{#each feedback}}
+                                        {{#ifCond @index "<" 5}}
                                         <!-- Carousel slide-->
                                         <div class="carousel-item">
-                                            <div class="media"><img class="rounded-circle img-thumbnail" src="../img/te2.jpg" alt="" width="75">
+                                            <div class="media"><img class="rounded-circle img-thumbnail" src="../img/user-icon.png" alt="" width="75">
                                                 <div class="media-body ml-3">
                                                     <blockquote class="blockquote border-0 p-0">
-                                                        <p class="font-italic lead"> <i class="fa fa-quote-left mr-3 text-success "></i>Cassie was one of the best decisions I've made in my life. She brought joy and color to my world. Adopting her at PAWSter Care was a smooth and easy process!</p>
-                                                        <footer class="bg-white caveat"> - Hannah Hartman
+                                                        <p class="font-italic lead"> <i class="fa fa-quote-left mr-3 text-success"></i>{{fText}}</p>
+                                                        <footer class="bg-white caveat"> - {{fName}} {{lName}}
                                                         </footer>
                                                     </blockquote>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Carousel slide-->
-                                        <div class="carousel-item">
-                                            <div class="media"><img class="rounded-circle img-thumbnail" src="../img/te3.jpg" alt="" width="75">
-                                                <div class="media-body ml-3">
-                                                    <blockquote class="blockquote border-0 p-0">
-                                                        <p class="font-italic lead"> <i class="fa fa-quote-left mr-3 text-success"></i>Gem and Gislle are twins and they're so adorable.While I was scrolling through my feed I found an advertisment that lead to PAWSter Care and little did I know I would end up adopting twin puppies who I adore and love each and every day.</p>
-                                                        <footer class="bg-white caveat"> - Alexis Carrington
-                                                        </footer>
-                                                    </blockquote>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {{/ifCond}}
+                                        {{/each}}
                                     </div>
                                     <!-- Bootstrap controls [dots]-->
+<!--
                                     <a class="carousel-control-prev width-auto" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                         <i class="fa fa-angle-left text-dark text-lg"></i>
                                         <span class="sr-only">Previous</span>
@@ -186,6 +186,7 @@
                                         <i class="fa fa-angle-right text-dark text-lg"></i>
                                         <span class="sr-only">Next</span>
                                     </a>
+-->
                                 </div>
                             </div>
                         </div>
@@ -197,6 +198,29 @@
     <!-- //testimonials -->
     <div class="container mt-5 mb-5" style="background-color: #F2EEE5; background-size: cover;">
     </div>
+    
+    <div id="WrongLoginModal" class="modal fade">
+      <div class="modal-dialog modal-login mt-5" style="margin-top: 120px!important;">
+        <div class="modal-content">
+                <div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float:right;">
+                        <span aria-hidden="true">&times;&nbsp;</span>
+                    </button>
+                    <div><img src="/img/logo.png" style="height:30%; width: 30%; margin-left: 35%; margin-right: 40%;position: relative; top: -90px; margin-bottom: -80px;">
+                    </div>
+                    <div class="card-body">
+                        <h2 class="title chewy text-center text-brown">Incorrect Login</h2><br>
+                        <h5 class="cabin text-center">Username or password is incorrect. Please try again!</h5><br>
+                        <h5 class="cabin text-center">Don't have an account? <a href="signup.html">Sign Up!</a></h5>
+                    </div>
+                </div>
+                <div class="modal-footer cg">
+                    <button type="button" class="btn btn-secondary cg" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+      </div>
+    </div>
+    
     {{> footer}}
     <form action="filter" id="filterform">
         <!-- just for the javascript function-->

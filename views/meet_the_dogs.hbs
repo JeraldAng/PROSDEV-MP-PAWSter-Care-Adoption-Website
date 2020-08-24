@@ -2,151 +2,195 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-<!--  title details    -->
-  <title>PAWSter Care - Meet the dogs!</title>
-  <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png" />
-    
-  <!-- BootstrapCDN -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-   <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--  title details    -->
+    <title>PAWSter Care - Meet the dogs!</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png" />
+    <!-- BootstrapCDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-  <!-- Custom fonts for this template -->
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-  <!-- custom CSS -->
-  <link href="../css/PAWSter%20Care.css" rel="stylesheet">
-  <link href="../css/meet_the_dogs.css" rel="stylesheet">
-    
-  <!-- custom js -->
+    <!-- Custom fonts for this template -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- custom CSS -->
+    <link href="../css/PAWSter%20Care.css" rel="stylesheet">
+    <link href="../css/meet_the_dogs.css" rel="stylesheet">
+    <!-- custom js -->
     <script src="../js/PAWSter%20Care.js" type="text/javascript"></script>
     <script src="../js/admin_dogs.js" type="text/javascript"></script>
     <script src="../js/meet_the_dogs.js" type="text/javascript"></script>
-
 </head>
 
 <body>
- {{> navbar}}
+    {{> navbar}}
     <script>HighlightTab("meet_the_dogs")</script>
-    
-<!-- Cards -->
-    <div class="filter-container">
-        <br><br><br><br>
-        <h1 class="text-center" >Search our PAWSter Dogs!</h1><br>
-        <div id="search" class="filter-category mt-2">
-        <form id="search-form" action="" method="POST" enctype="multipart/form-data">
-        <div class="input-group col-6 mx-auto">
-            <input id="search-box" type="text" class="form-control" placeholder="Search for a name or a breed!"/>
-        <span class="input-group-btn">
-            <button type="submit" class="btn btn-block btn-primary">Search!</button>
-        </span>
-        <span class="input-group-btn ml-5">
-            <button id = "reset-filter" type="button" class="btn btn-block btn-secondary">Clear Filter and Search</button>
-        </span>    
+    <!-- Cards 
+    background-image: url(../img/meetthedogsbg.png); background-size:cover; background-repeat: no-repeat;-->
+    <div class="container" style="margin-top:100px!important;">
+<!--
+        <div class="alert alert-danger bubblegumsans" style="font-size: 30px; hidden" role="alert" id="requestAlert">
+                <p style="text-align: center;"></p>
+            </div>
+-->
+        <div class="row mt-5">
+            <div class="col mt-5">
+                <div id="search" class="filter-category delius ">
+                    <form id="search-form" action="" method="POST" enctype="multipart/form-data">
+                        <div class="input-group">
+                            <input id="search-box" type="text" class="form-control" placeholder="Search for a name or a breed!" />
+                            <span class="input-group-btn ml-3">
+                                <button class="btn btn-block btn-primary bubblegumsans text-white" style="background: #6DAB3C!important;">Search!</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col">
+            </div>
+            <div class="w-100"></div>
+            <div class="col mt-5">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group delius">
+                        <strong>Select Breed</strong>
+                        <select data-filter="breed" class="filter-breed filter form-control">
+                            <option value="">Show All</option>
+                            <option value="Beagle">Beagle</option>
+                            <option value="Corgi">Corgi</option>
+                            <option value="Dachshund">Dachshund</option>
+                            <option value="Golden Retriever">Golden Retriever</option>
+                            <option value="Husky">Husky</option>
+                            <option value="Schnauzer">Schnauzer</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group delius">
+                        <strong>Select Gender</strong>
+                        <select data-filter="gender" class="filter-gender filter form-control">
+                            <option value="">Show All</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col">
+                        <div class="form-group delius">
+                        <strong>Select Energy Level</strong>
+                        <select data-filter="energy_level" class="filter-energy_level filter form-control">
+                            <option value="">Show All</option>
+                            <option value="high">High</option>
+                            <option value="moderate">Moderate</option>
+                            <option value=low>Low</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group delius">
+                        <strong>Select Ease of Training</strong>
+                        <select data-filter="ease_of_training" class="filter-ease_of_training filter form-control">
+                            <option value="">Show All</option>
+                            <option value="easy">Easy</option>
+                            <option value="average">Average</option>
+                            <option value="difficult">Difficult</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>
+                <div class="row mb-5 mt-3 bubblegumsans">
+                    <span class="input-group-btn mx-auto">
+                        <button id="reset-filter" type="button" class="btn btn-block btn-secondary" style="background: #6DAB3C!important;">Clear Filter and Search</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col">
+                <img class="ml-3" style="max-height: 98%!important; max-width: 98%!important;" src="../img/doggos.png" />
+            </div>
         </div>
-            </form>
-        </div><br>
-        
-    <!-- Filter -->
-        <div class="filter-category mx-auto" id="filter">
-            <form>
-              <div id="filter-row" class="row">
-                <div class="form-group col-md-3 ml-auto">
-                    <strong>Select Breed</strong>
-                    <select data-filter="breed" class="filter-breed filter form-control">
-                        <option value="">Show All</option>
-                        <option value="Beagle">Beagle</option>
-                        <option value="Corgi">Corgi</option>
-                        <option value="Dachshund">Dachshund</option>
-                        <option value="Golden Retriever">Golden Retriever</option>
-                        <option value="Husky">Husky</option>
-                        <option value="Schnauzer">Schnauzer</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-3 ml-auto">
-                    <strong>Select Gender</strong>
-                    <select data-filter="gender" class="filter-gender filter form-control">
-                        <option value="">Show All</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-3 mr-auto">
-                    <strong>Select Energy Level</strong>
-                    <select data-filter="energy_level" class="filter-energy_level filter form-control">
-                        <option value="">Show All</option>
-                        <option value="high">High</option>
-                        <option value="moderate">Moderate</option>
-                        <option value=low>Low</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-3 mr-auto">
-                    <strong>Select Ease of Training</strong>
-                    <select data-filter="ease_of_training" class="filter-ease_of_training filter form-control">
-                        <option value="">Show All</option>
-                        <option value="easy">Easy</option>
-                        <option value="average">Average</option>
-                        <option value="difficult">Difficult</option>
-                    </select>
-                </div>
-              </div>
-            </form>
-        </div><br><br><br><br><br>
     </div>
+
+    
     <!-- Filter -->
-  <hr>      
-<br>
-<br>
+    <hr>
+    <br>
+    <br>
     <!-- Team -->
-<section id="team" class="pb-5" style="margin-top: -6%;">
-    <div class="container">
-        <div class="row gallery" id = "gallery">
-            <!-- Team member -->
-            {{#each db}}
-            <span data-name = "{{name}}" data-breed = "{{breed}}" data-gender = "{{gender}}" data-energy_level = "{{energy_level}}" data-ease_of_training = "{{ease_of_training}}" class="col-xs-12 col-sm-6 col-md-4  product">
-                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">   
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <img class="img-fluid" src="../uploads/{{image}}" alt="card image"/><br><br>
-                                    <h4 class="card-title" style="display: inline">{{name}}</h4>
-                                    <img src="../img/{{gender}}.png" style="height:20px; width: 20px; display: inline"/>
-                                    <p class="card-text">the {{breed}}</p>
-                                    <p class="card-text">Energy Level: <img src="../img/{{energy_level}}.png" style="margin-top: -15px; height:20px; width: 70px;"/></p>
+    <section id="team" class="pb-5" style="margin-top: -6%;">
+        <div class="container">
+            <h1 class="chewy text-center text-green mt-5">Pets for Adoption</h1>
+            <h2 class="caveat text-center text-gray-dark">You are in the right place</h2>
+            <img style="margin-left: 40%; margin-right: -50%;" class="mb-5" src="../img/line.PNG" />
+        </div>
+        <div class="container">
+            <div class="row gallery" id="gallery">
+                <!-- Team member -->
+                <div id="nodogsfound" class="bubblegumsans"><div><span class="text-orange">Oops!</span> No dogs found!</div></div>
+                {{#each db}}
+                <span data-name="{{name}}" data-breed="{{breed}}" data-gender="{{gender}}" data-energy_level="{{energy_level}}" data-ease_of_training="{{ease_of_training}}" class="col-xs-12 col-sm-6 col-md-4  product">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <img class="img-fluid" src="../uploads/{{image}}" class="img-responsive" alt="card image" /><br><br>
+                                        <h4 class="card-title text-black bubblegumsans" style="display: inline; color: black!important;">{{name}}</h4>
+                                        <img src="../img/{{gender}}.png" style="height:20px; width: 20px; display: inline" />
+                                        <p class="card-text text-black bubblegumsans">the {{breed}}</p>
+                                        <p class="card-text text-black bubblegumsans">Energy Level: <img src="../img/{{energy_level}}.png" style="margin-top: -15px; height:20px; width: 70px;" /></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <img src="../uploads/{{image}}" alt="card image" style="height: 36%;">
-                                    <h4 class="card-title">{{name}}</h4>
-                                    <p class="card-text" style="text-align: justify">{{description}}</p><br>
-                                    <button class="edit btn btn-primary" data-id="{{_id}}">Check this pup!</button>
+                            <div class="backside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <img src="../uploads/{{image}}" class="img-responsive" alt="card image" style="height: 36%;">
+                                        <h4 class="card-title cabin">{{name}}</h4>
+                                        <p class="card-text cabin" style="text-align: justify">{{description}}</p><br>
+                                        <button class="edit btn btn-primary cabin" data-id="{{_id}}" style="background-color: #A3AD55!important;">Check this pup!</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </span>
-            {{/each}}
+                </span>
+                {{/each}}
+            </div>
         </div>
-    </div>
     </section>
+    
+    <script>$(".filter-breed").val("{{selectbreed}}")
+            console.log({{selectbreed}})
+            $(".filter").change();
+    </script>
+    
+    <div id="RequestFoundModal" class="modal fade">
+      <div class="modal-dialog modal-login mt-5" style="margin-top: 120px!important;">
+        <div class="modal-content">
+                <div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float:right;">
+                        <span aria-hidden="true">&times;&nbsp;</span>
+                    </button>
+                    <div><img src="/img/logo.png" style="height:30%; width: 30%; margin-left: 35%; margin-right: 40%;position: relative; top: -90px; margin-bottom: -80px;">
+                    </div>
+                    <div class="card-body">
+                        <h2 class="title chewy text-center text-brown">Existing Request Found</h2><br>
+                        <h5 class="cabin text-center">Sorry, looks like you've already requested this pup! Feel free to browse other dogs that need a home!</h5><br>
+                    </div>
+                </div>
+                <div class="modal-footer cg">
+                    <button type="button" class="btn btn-secondary cg" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+      </div>
+    </div>
+    
     <script>$(".filter-breed").val("{{selectbreed}}")
             console.log({{selectbreed}})
             $(".filter").change();
@@ -159,8 +203,10 @@
     <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
     <script src="js/meet_the_dogs.js"></script>
     
-     <form action = "check" id = "editform">                  <!-- just for the javascript function-->
-            <input type = "hidden" name="id" id= "editid">
-        </form>
-    </body>
+    <form action="check" id="editform">
+        <!-- just for the javascript function-->
+        <input type="hidden" name="id" id="editid">
+    </form>
+</body>
+
 </html>

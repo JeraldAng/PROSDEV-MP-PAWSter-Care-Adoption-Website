@@ -1,96 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
-    
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-    
-         <!--  title details    -->
-  <title>PAWSter Care - Edit Your Profile</title>
-  <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
-        
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
-<!-- Custom fonts for this template -->
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-        
-<!------ Footer ---------->
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--  title details    -->
+    <title>PAWSter Care - Edit Your Profile</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Custom fonts for this template -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!------ Footer ---------->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!-- Alertify CDN  -->  
- <script src="js/alertify.min.js"></script> 
-    
+    <!-- Alertify CDN  -->
+    <script src="js/alertify.min.js"></script>
     <!-- for sweet alert boxes (replacement for norm js pop up) -->
     <script src="../js/sweetalert2.all.min.js"></script>
     <script src="../js/editprofile.js"></script>
-<!-- custom CSS -->
-  <link href="../css/PAWSter%20Care.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/feedbackform.css">
-    
-<!-- custom js -->
-<script src="../js/PAWSter%20Care.js" type="text/javascript"></script>
+    <!-- custom CSS -->
+    <link href="../css/PAWSter%20Care.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/edit_profile.css">
+    <!-- custom js -->
+    <script src="../js/PAWSter%20Care.js" type="text/javascript"></script>
+</head>
 
-   </head>
-      
-    <body>
-    
-<!-- Navigation -->
-  {{> navbar}}
-    <script>HighlightTab("profile")</script><br><br><br><br>
+<body>
+    <!-- Navigation -->
+    {{> navbar}}
 
- <h1 class="text-center" >Edit your profile, {{username}}!</h1>
-        
-<!--Main Content-->
-  <div class="container contact">
-    <div class="row">
-         <div class="edit_profile_bg col-md-5">
-      <div class="contact-info">
-      </div>
+    <script>HighlightTab("profile")</script><br><br>
+    <div class="container rounded mb-5 mt-0" style="position:relative;padding-top: 30px;">
+          <!--   <span class="dot" style=" height: 200px;width: 200px;background-color: #F2CA47;border-radius: 50%;display: inline-block; max-width: 100%; margin-left: 32%!important; margin-top: -100px!important; z-index:50!important;position: fixed;"></span>  -->
+        <div class="row" style="background-color: #FFFFFF; z-index:-1!important;"> 
+            <div class="col mt-5">
+                <h1 class="text-left chewy text-center">Edit your Profile</h1>
+                <h2 class="caveat text-center">You can choose!</h2>
+            </div>
+            <div class="col">
+                <img style="" class="rounded float-right mt-2" src="../img/caninehouse.png" />
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="position: relative; text-align: center; color: white;">
+                <img style="position: absolute; bottom: 1px; left: 1px;" class="rounded float-left ml-0 mr-2" src="../img/dog_corner.PNG" />
+            </div>
+            <div class="col">
+                <div class="card-body form-container">
+                    <form class="needs-validation" novalidate action="edit_profile" method="post">
+                        <div class="alert alert-danger" role="alert" id="editProfileAlert">
+                            <p style="text-align: center;"></p>
+                        </div>
+                        <div class="form-label-group">
+                            <label class="bubblegumsans" for="inputUserame">Username</label>
+                            <input type="text" id="inputUsername" class="form-control bubblegumsans" placeholder="Username" required name="uname" maxlength="25" value="{{username}}">
+                            <div id="invalid-username" class="invalid-feedback">invalid username</div>
+                        </div><br>
+                        <div class="form-label-group">
+                            <label class="bubblegumsans" for="inputEmail">Email address</label>
+                            <input type="email" id="inputEmail" class="form-control bubblegumsans" placeholder="Email address" required value="{{email}}" name="email">
+                            <div id="invalid-email" class="invalid-feedback">invalid email address</div> 
+                        </div><br>
+                        <label class="bubblegumsans" for="inputPassword">Change Password</label>
+                        <div class="input-group form-label-group">
+                            <input type="password" id="inputPassword" class="form-control bubblegumsans" maxlength="25" placeholder="Password" required name="pass">
+                            <div class="input-group-append">
+                                <span id ="showPasswordBtn" class="password input-group-text">
+                                    <i class="fa fa-eye"></i>
+                                </span>
+                            </div> 
+                        </div>
+                        <div id="invalid-password" class="invalid-feedback">invalid password</div><br>
+                            <div id="password-requirements">
+                                <small>Your password should contain at least the following:</small>
+                                <small><p id="letter" class="invalid">A <b>lowercase</b> letter</p></small>
+                                <small><p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p></small>
+                                <small><p id="number" class="invalid">A <b>number</b></p></small>
+                                <small><p id="length" class="invalid">Minimum <b>8 characters</b></p></small>
+                                <small><p id="special" class="invalid">One special character</p></small>
+                            </div>
+                        <br>
+                        <div class="p-t-20">
+                            <input type="submit" class="btn btn-submit button-style text-white bubblegumsans" value="Save Changes" style="background: #6DAB3C!important;">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-      <div class="col-md-7">            
-          <div class="card-body">
-            <form class="form-signin" method="post" action="edit_profile">
-              <div class="form-label-group">
-                  <label for="inputUserame">Username</label>
-                <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus name="uname" value="{{username}}">
-              </div><br>
+    {{> footer}}
+</body>
 
-              <div class="form-label-group">
-                  <label for="inputEmail">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required value="{{email}}" name="email">
-              </div>
-              <label>Warning: When you choose to replace your email address, you will lose all of your track records from your requests page. Please keep in mind that this is irreversible.</label>
-              <hr>
-
-              <div class="form-label-group">
-                  <label for="inputPassword">Change Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name ="pass">
-                </div><br>
-
-              <button class="btn btn-primary text-uppercase" type="submit">Save Changes</button>
-              <hr class="my-4">
-                <p id="demo"></p>
-              
-            </form>
-          </div>
-      </div>
-    </div>
-      
-  </div>
-
-{{> footer}}
-    </body> 
 </html>

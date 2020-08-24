@@ -4,19 +4,24 @@ html{
 
 body{
     min-height: 100%;
+    background: url(../img/headerProfile.jpg) no-repeat top;
+    background-size: cover;
+}
+
+.container{
+    text-align: center;
 }
 
 .emp-profile{
     padding: 5em;
     margin-top: 5em;
     border-radius: 0.5rem;
-    background: #fff;
 }
 .profile-img{
     text-align: center;
 }
 .profile-img img{
-    width: 70%;
+    width: 90%;
     height: 100%;
     border-radius: 50%;
 }
@@ -35,6 +40,16 @@ body{
     opacity: 0;
     right: 0;
     top: 0;
+}
+
+.profile-head{
+    float: right;
+    color: #4B1C00;
+}
+
+.profile-head .user-data{
+    padding-bottom: 10%;
+    color: #4E3939;
 }
 
 .profile-head h5{
@@ -92,15 +107,68 @@ body{
     color: #0062cc;
 }
 
-a#faq.btn.btn-outline-primary{
-    float: right;
-    margin-right: 1em;
-}
-
-a#editprofile.btn.btn-outline-secondary{
-    float: right;
-}
-
 div.col-md-6{
     padding: 1em;
+}
+
+/* requests */
+
+.table{
+    margin-top: 8%;
+}
+
+.table td, .table th{
+    border-top-color: #F2EEE5!important;
+    border-color: #F2EEE5!important;
+    padding: 20px 0px;
+}
+
+.approved{
+    background-color: #addbad;
+}
+
+.approved:hover{
+    background-color: #BDE2BD;
+}
+
+.rejected{
+    background-color: #ECA9A7;
+}
+
+.rejected:hover{
+    background-color: #EFBAB8;
+}
+
+.pending{
+    background-color: #F9F9F9;
+}
+
+.pending:hover{
+    background-color: rgba(255,255,255);
+}
+
+.request-header{
+    background-color: #F2EEE5;
+}
+
+.reqicon{
+    height: 70px;
+    width: 80px;
+}
+
+
+.lightbox-target:target a.lightbox-close {
+top: 9%;
+}
+
+.btn-outline-primary, .btn-outline-primary:hover{
+	background-color:#6DAB3C!important;
+    border-color: #6DAB3C;
+    color: white;
+	text-decoration: none!important;
+	width: 90%!important;
+}
+
+a:hover{
+	text-decoration: none!important;
 }

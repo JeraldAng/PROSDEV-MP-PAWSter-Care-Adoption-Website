@@ -24,7 +24,7 @@
 // }
 
 $(document).ready(function(){
-  
+    
   var reqFirst = document.getElementById("reqFirst");
   var reqLast = document.getElementById("reqLast");
   var email = document.getElementById("reqEmail");

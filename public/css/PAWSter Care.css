@@ -78,6 +78,10 @@ body{
   color: #79B3CE;
 }
 
+.text-orange{
+    color: #F87D04;
+}
+
 .hide{
   display: none;
 }
