@@ -27,14 +27,31 @@ console.log("Connected to Database");
 console.log("Not Connected to Database ERROR! ", err);
 });
 
-hbs.registerHelper('ifeq', function (a, b, options) {
-    if (a == b) { return options.fn(this); }
-    return options.inverse(this);
-});
-
-hbs.registerHelper('ifnoteq', function (a, b, options) {
-    if (a != b) { return options.fn(this); }
-    return options.inverse(this);
+hbs.registerHelper('ifCond', function (v1, operator, v2, options) {
+    switch (operator) {
+        case '==':
+            return (v1 == v2) ? options.fn(this) : options.inverse(this);
+        case '===':
+            return (v1 === v2) ? options.fn(this) : options.inverse(this);
+        case '!=':
+            return (v1 != v2) ? options.fn(this) : options.inverse(this);
+        case '!==':
+            return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+        case '<':
+            return (v1 < v2) ? options.fn(this) : options.inverse(this);
+        case '<=':
+            return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+        case '>':
+            return (v1 > v2) ? options.fn(this) : options.inverse(this);
+        case '>=':
+            return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+        case '&&':
+            return (v1 && v2) ? options.fn(this) : options.inverse(this);
+        case '||':
+            return (v1 || v2) ? options.fn(this) : options.inverse(this);
+        default:
+            return options.inverse(this);
+    }
 });
 
 hbs.registerHelper("setVar", function(varName, varValue, options) {
@@ -74,28 +91,25 @@ app.use(session({
 
 hbs.registerPartials(__dirname + "/views/partials")
 
-app.get("/login", (req,res)=>{
-    req.session.username = ""
-    res.sendFile(__dirname + "/public/index.html")
+app.get(["/", "/home", "homepage"], (req, res)=>{                                                          
+    Feedback.aggregate([
+        {$sample: {size: 5}}
+    ], (err, doc)=>{
+            if(err){
+                res.send(err)
+            }
+            else{                                 
+                res.render("homepage.hbs", {
+                    username: req.session.username,
+                    feedback: doc
+                })
+            }
+        })  
 })
 
-app.get("/signup", (req,res)=>{
-    res.sendFile(__dirname + "/public/signup.html")
-})
-
-app.get("/error", (req,res)=>{
-    res.sendFile(__dirname + "/public/error.html")
-})
-
-app.get(["/", "/home", "homepage"], (req, res)=>{
-    if(!req.session.username){                                      // default would be the login page (no account yet)
-        res.sendFile(__dirname + "/public/index.html")
-    }
-    else{                                                           // remember the user who logged in
-        res.render("homepage.hbs", {
-            username: req.session.username
-        })
-    }
+app.get("/signout", (req, res)=>{                                                          
+        req.session.username = "";
+        res.render("homepage.hbs")
 })
 
 app.get("/dogs", (req, res)=>{
@@ -112,7 +126,7 @@ app.get("/dogs", (req, res)=>{
                 })
             }
         })
-    })
+})
 
 
 app.get("/check", (req, res)=>{                // just find the user given the id
@@ -175,92 +189,106 @@ app.get("/feedbackform", (req, res)=>{
 })
 
 app.get("/requestform", (req, res)=>{
-    res.render("requestform.hbs", {
-        username: req.session.username
-    })
+    if (req.session.username){
+        res.render("requestform.hbs", {
+            username: req.session.username
+        })
+    }
+    else
+        res.redirect("signup.html");
 })
 
 app.get("/profile", (req, res)=>{
-    User.findOne({
-        username: req.session.username
-    }, (err, doc)=>{
-        if(err){
-            res.send(err)
-        }
-        else{
-            email = doc.email
-            Request.find({
-                reqUserID: doc._id
-            }, (err, doc)=>{
-                if(err){
-                    res.send(err)
-                }
-                else{
-                    reqList = doc
-                    dogList = doc.map(element => element.reqDogID)  // get all dog IDs
-                    
-                    Dog.find({
-                        '_id': { $in: dogList} // match dog IDs 
-                    }, (err, doc)=>{
-                        if(err){
-                            res.send(err)
-                        }
-                        else{  
-                            res.render("profile.hbs", {
-                                username: req.session.username,
-                                email: email,
-                                reqList: reqList,
-                                dog: doc        // return only requested dogs
-                            })
-                        }
-                            
-                }
-            )
-        }
-    }) 
-}
-})
-})
-app.get("/request_dog", (req, res)=>{
-    console.log(req.query.id)
     
-    User.findOne({
-        username: req.session.username
-    }, (err, doc)=>{
-        if(err){
-            res.send(err)
-        }
-        else{
-                userID = doc._id
+    if (req.session.username){
+        User.findOne({
+            username: req.session.username
+        }, (err, doc)=>{
+            if(err){
+                res.send(err)
+            }
+            else{
                 email = doc.email
-                Dog.findOne({
-                    _id: req.query.id                     
+                Request.find({
+                    reqUserID: doc._id
                 }, (err, doc)=>{
                     if(err){
                         res.send(err)
                     }
                     else{
-                        selected = doc
+                        reqList = doc
+                        dogList = doc.map(element => element.reqDogID)  // get all dog IDs
+
                         Dog.find({
-                            '_id': { $ne: doc._id}
+                            '_id': { $in: dogList} // match dog IDs 
                         }, (err, doc)=>{
                             if(err){
                                 res.send(err)
                             }
-                            else{                                 
-                                    res.render("requestform.hbs", {
-                                    username: req.session.username,        
-                                    currentdog: selected,
+                            else{  
+                                res.render("profile.hbs", {
+                                    username: req.session.username,
                                     email: email,
-                                    userID: userID,
-                                    dogs: doc    
+                                    reqList: reqList,
+                                    dog: doc        // return only requested dogs
                                 })
                             }
-                        })
-                    }
-                })
+                        }
+                    )
+                }
+            }) 
         }
-    })
+        })
+    }
+    else{
+        res.redirect("signup.html")
+    }
+})
+app.get("/request_dog", (req, res)=>{
+    console.log(req.query.id)
+    
+    if (req.session.username){
+        User.findOne({
+            username: req.session.username
+        }, (err, doc)=>{
+            if(err){
+                res.send(err)
+            }
+            else{
+                    userID = doc._id
+                    email = doc.email
+                    Dog.findOne({
+                        _id: req.query.id                     
+                    }, (err, doc)=>{
+                        if(err){
+                            res.send(err)
+                        }
+                        else{
+                            selected = doc
+                            Dog.find({
+                                '_id': { $ne: doc._id}
+                            }, (err, doc)=>{
+                                if(err){
+                                    res.send(err)
+                                }
+                                else{                                 
+                                        res.render("requestform.hbs", {
+                                        username: req.session.username,        
+                                        currentdog: selected,
+                                        email: email,
+                                        userID: userID,
+                                        dogs: doc    
+                                    })
+                                }
+                            })
+                        }
+                    })
+            }
+        })
+    }
+    else{
+       res.redirect("signup.html") 
+    }
 })
 
 app.get("/faq", (req, res)=>{
@@ -276,128 +304,170 @@ app.get("/aboutus", (req, res)=>{
 })
 
 app.get("/editprofile", (req, res)=>{
-    User.findOne({
-        username: req.session.username
-    }, (err, doc)=>{
-        if(err){
-            res.send(err)
-        }
-        else{
-            res.render("edit_profile.hbs", {
-                username: req.session.username,        
-                email: doc.email
-            })
-        }
-    })
+    if(req.session.username){
+        User.findOne({
+            username: req.session.username
+        }, (err, doc)=>{
+            if(err){
+                res.send(err)
+            }
+            else{
+                res.render("edit_profile.hbs", {
+                    username: req.session.username,        
+                    email: doc.email
+                })
+            }
+        })
+    }
+    else{
+        res.redirect("signup.html")
+    }
 })
 
 app.get("/admin_main", (req, res)=>{
-    res.render("admin_main.hbs", {
-        username: req.session.username
-    })
+    if(req.session.username == "admin"){
+        res.render("admin_main.hbs", {
+            username: req.session.username
+        })
+    }
+    else{
+        res.redirect("error.html")
+    }
 })
 
 app.get("/admin_dogs", (req, res)=>{    
-    Dog.find({
-        
-    }, (err, doc)=>{
-        if(err){
-            res.send(err)
-        }
-        else{                                 
-            res.render("admin_dogs.hbs", {
-                db: doc
-            })
-        }
-    })
+    if(req.session.username == "admin"){
+        Dog.find({
+
+        }, (err, doc)=>{
+            if(err){
+                res.send(err)
+            }
+            else{                                 
+                res.render("admin_dogs.hbs", {
+                    db: doc
+                })
+            }
+        })
+    }
+    else{
+        res.redirect("error.html")
+    }
 })
 
 app.get("/admin_add_dog", (req, res)=>{
-    res.render("admin_add_dog.hbs", {
-        username: req.session.username
-    })
+    if(req.session.username == "admin"){
+        res.render("admin_add_dog.hbs", {
+            username: req.session.username
+        })
+    }
+    else{
+        res.redirect("error.html")
+    }
 })
 
 
 app.get("/edit", (req, res)=>{                // just find the user given the id
-    console.log("GET /admin_edit_dog/" + req.query.id)
-    
-    Dog.findOne({
-        _id: req.query.id                     // just get the query, not body
-    }, (err, doc)=>{
-        if(err){
-            res.send(err)
-        }
-        else{                                 // send all details of the user to edit.hbs
-            res.render("admin_edit_dog.hbs", {
-                dog: doc
-            })
-        }
-    })
+    if (req.session.username == "admin"){
+        console.log("GET /admin_edit_dog/" + req.query.id)
+
+        Dog.findOne({
+            _id: req.query.id                     // just get the query, not body
+        }, (err, doc)=>{
+            if(err){
+                res.send(err)
+            }
+            else{                                 // send all details of the user to edit.hbs
+                res.render("admin_edit_dog.hbs", {
+                    dog: doc
+                })
+            }
+        })
+    }
+    else{
+        res.redirect("error.html")
+    }
 })
 
 app.get("/admin_requests", (req, res)=>{
-    Request.find({
-        
-    }, (err, doc)=>{
-        if(err){
-            res.send(err)
+    if(req.session.username == "admin"){
+        Request.find({
+
+        }, (err, doc)=>{
+            if(err){
+                res.send(err)
+            }
+            else{  
+
+                res.render("admin_requests.hbs", {
+                    requests: doc
+           })
         }
-        else{  
-            
-            res.render("admin_requests.hbs", {
-                requests: doc
-       })
+        })
     }
-    })
+    else{
+        res.redirect("error.html")
+    }
 })
 
 app.get("/admin_userTable", (req, res)=>{
-    
-    User.find({
-        
-    }, (err, doc)=>{
-        if(err){
-            res.send(err)
-        }
-        else{                                 
-            res.render("admin_userTable.hbs", {
-                users: doc
+    if(req.session.username == "admin"){
+        User.find({
+
+        }, (err, doc)=>{
+            if(err){
+                res.send(err)
+            }
+            else{                                 
+                res.render("admin_userTable.hbs", {
+                    users: doc
+                })
+            }  
         })
-    }  
-})
+    }
+    else{
+        res.redirect("error.html")
+    }
 })
 
 app.get("/admin_dogTable", (req, res)=>{
-    
-    Dog.find({
-        
-    }, (err, doc)=>{
-        if(err){
-            res.send(err)
-        }
-        else{                                 
-            res.render("admin_dogTable.hbs", {
-                dogs: doc
-       })
-    }  
-})
+    if(req.session.username == "admin"){
+        Dog.find({
+
+        }, (err, doc)=>{
+            if(err){
+                res.send(err)
+            }
+            else{                                 
+                res.render("admin_dogTable.hbs", {
+                    dogs: doc
+               })
+            }
+        })
+    }
+    else{
+        res.redirect("error.html")
+    }
 })
 
 app.get("/admin_feedbackTable", (req, res)=>{
-    
-    Feedback.find({
-        
-    }, (err, doc)=>{
-        if(err){
-            res.send(err)
-        }
-        else{                                 
-            res.render("admin_feedbackTable.hbs", {
-                feedbacks: doc
-       })
-    }  
-})
+    if(req.session.username == "admin"){
+        Feedback.find({
+
+        }, (err, doc)=>{
+            if(err){
+                res.send(err)
+            }
+            else{                                 
+                res.render("admin_feedbackTable.hbs", {
+                    feedbacks: doc
+                })
+            }  
+        })
+    }
+    else{
+        res.redirect("error.html")
+    }
 })
 
 app.post("/login", urlencoder, (req, res)=>{
@@ -418,7 +488,7 @@ app.post("/login", urlencoder, (req, res)=>{
                 res.redirect("/home")
             }
             else{
-                res.redirect("/login?error=" + encodeURIComponent('Incorrect_Credential'));
+                res.redirect("/home?error=" + encodeURIComponent('Incorrect_Credential'));
             }
         })
 })

@@ -33,9 +33,11 @@
     <!-- Cards 
     background-image: url(../img/meetthedogsbg.png); background-size:cover; background-repeat: no-repeat;-->
     <div class="container" style="margin-top:100px!important;">
-        <div class="alert alert-danger" role="alert" id="requestAlert">
+<!--
+        <div class="alert alert-danger bubblegumsans" style="font-size: 30px; hidden" role="alert" id="requestAlert">
                 <p style="text-align: center;"></p>
             </div>
+-->
         <div class="row mt-5">
             <div class="col mt-5">
                 <div id="search" class="filter-category delius ">
@@ -43,7 +45,7 @@
                         <div class="input-group">
                             <input id="search-box" type="text" class="form-control" placeholder="Search for a name or a breed!" />
                             <span class="input-group-btn ml-3">
-                                <button type="submit" class="btn btn-block btn-primary bubblegumsans text-white" style="background: #6DAB3C!important;">Search!</button>
+                                <button class="btn btn-block btn-primary bubblegumsans text-white" style="background: #6DAB3C!important;">Search!</button>
                             </span>
                         </div>
                     </form>
@@ -129,6 +131,7 @@
         <div class="container">
             <div class="row gallery" id="gallery">
                 <!-- Team member -->
+                <div id="nodogsfound" class="bubblegumsans"><div><span class="text-orange">Oops!</span> No dogs found!</div></div>
                 {{#each db}}
                 <span data-name="{{name}}" data-breed="{{breed}}" data-gender="{{gender}}" data-energy_level="{{energy_level}}" data-ease_of_training="{{ease_of_training}}" class="col-xs-12 col-sm-6 col-md-4  product">
                     <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
@@ -161,15 +164,45 @@
             </div>
         </div>
     </section>
+    
     <script>$(".filter-breed").val("{{selectbreed}}")
             console.log({{selectbreed}})
             $(".filter").change();
     </script>
-    {{> footer}}
+    
+    <div id="RequestFoundModal" class="modal fade">
+      <div class="modal-dialog modal-login mt-5" style="margin-top: 120px!important;">
+        <div class="modal-content">
+                <div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float:right;">
+                        <span aria-hidden="true">&times;&nbsp;</span>
+                    </button>
+                    <div><img src="/img/logo.png" style="height:30%; width: 30%; margin-left: 35%; margin-right: 40%;position: relative; top: -90px; margin-bottom: -80px;">
+                    </div>
+                    <div class="card-body">
+                        <h2 class="title chewy text-center text-brown">Existing Request Found</h2><br>
+                        <h5 class="cabin text-center">Sorry, looks like you've already requested this pup! Feel free to browse other dogs that need a home!</h5><br>
+                    </div>
+                </div>
+                <div class="modal-footer cg">
+                    <button type="button" class="btn btn-secondary cg" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+      </div>
+    </div>
+    
+    <script>$(".filter-breed").val("{{selectbreed}}")
+            console.log({{selectbreed}})
+            $(".filter").change();
+    </script>
+    
+{{> footer}}
+    
     <script src='http://production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
     <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
     <script src="js/meet_the_dogs.js"></script>
+    
     <form action="check" id="editform">
         <!-- just for the javascript function-->
         <input type="hidden" name="id" id="editid">

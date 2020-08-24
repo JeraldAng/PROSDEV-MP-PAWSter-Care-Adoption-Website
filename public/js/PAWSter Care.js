@@ -1,11 +1,12 @@
 $(document).ready(function(){ 
     
-    $('#loginAlert').hide();
+    jQuery.noConflict(); 
+    $('#WrongLoginModal').modal('hide');
         
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('error');
     if(myParam == "Incorrect_Credential") {
-        $('#loginAlert').show();
+        $('#WrongLoginModal').modal('show');
     }
     
     $("#showPasswordBtn").click(function(){

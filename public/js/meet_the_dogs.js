@@ -40,29 +40,20 @@ function clearFilter() {
      $(".filter-ease_of_training").val("")  
      $("#search-box").val("")  
 
-     $(".filter").change();
+    FilterItems(filtersObject, "breed", "");
+    FilterItems(filtersObject, "energy_level", "");
+    FilterItems(filtersObject, "gender", "");
+    FilterItems(filtersObject, "ease_of_training", "");
 }
 
-// action listeners 
-$("#reset-filter").click(function(){
-     clearFilter();
-})
-
-$("#search-form").submit(function(e) {
-    e.preventDefault();
-	searchFilter();
-});
-
-$(".filter").on("change",function () {
-    var filterName = $(this).data("filter"),
-		filterVal = $(this).val();
-	
-	if (filterVal == "") {
+function FilterItems(filtersObject, filterName, filterVal){
+    $('#nodogsfound').hide();
+    
+    if (filterVal == "") {
 		delete filtersObject[filterName];
 	} else {
 		filtersObject[filterName] = filterVal;
 	}
-	
 	var filters = "";
 	
 	for (var key in filtersObject) {
@@ -78,20 +69,44 @@ $(".filter").on("change",function () {
 		$(".product").hide();
 		$(".product").hide().filter(filters).show();
 	}
+    
+    if($('#gallery').children(':visible').length == 0) {
+        $('#nodogsfound').show();
+    }
+}
+
+
+// action listeners 
+$("#reset-filter").click(function(){
+    clearFilter();
+})
+
+$("#search-form").submit(function(e) {
+    e.preventDefault();
+	searchFilter();
+});
+
+$(".filter").on("change",function () {
+    var filterName = $(this).data("filter"),
+		filterVal = $(this).val();
+    
+    console.log(filterName, filterVal);
+    
+    FilterItems(filtersObject, filterName, filterVal);
 });
 
 $(document).ready(function() {
     $(".filter").change();
     
-    $('#requestAlert').hide();
+    jQuery.noConflict(); 
+    $('#RequestFoundModal').modal('hide');
         
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('error');
-    if(myParam == "pendingrequest_found") {  
-        $('#requestAlert').html("Sorry! Looks like you've requested for this dog already!").css('text-align', 'center');
-        $('#requestAlert').show();
+    if(myParam == "pendingrequest_found") {
+        $('#RequestFoundModal').modal('show');
     }
 });
 
 // export functions for testing
-module.exports = {clearFilter, searchFilter};
+module.exports = {clearFilter, searchFilter, FilterItems};
