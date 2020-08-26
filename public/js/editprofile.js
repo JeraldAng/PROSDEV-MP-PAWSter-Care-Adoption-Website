@@ -15,7 +15,7 @@ function checkUsername(inputName){
         return false;  
       }
       else if (inputName.match(specials)){
-          console.log("no special characters");
+          //console.log("no special characters");
         $('#invalid-username').html("No special characters allowed.").css('color', 'red'); 
         return false;  
       }    
@@ -177,3 +177,6 @@ form.classList.add('was-validated');
 });
 }, false);
 })();
+
+// export functions for testing
+module.exports = {checkUsername, checkPassword};
