@@ -198,7 +198,10 @@ section .section-title {
 
 .frontside .card,
 .backside .card {
-    min-height: 312px;
+    min-height: 360px;
+    max-height: 360px;
+    min-width: 360px;
+    max-width: 360px;
     margin: 0 auto;
 }
 
@@ -212,8 +215,8 @@ section .section-title {
 }
 
 .backside .card .card-body img {
-    width: 140px;
-    height: 100px;
+    height: 36%;
+    width: 40%;
     border-radius: 50%;
 }
 
@@ -252,7 +255,7 @@ section .section-title {
 }
 
 .delete:hover, .delete:focus{
-     background-color: #d9534f;
+    background-color: #d9534f;
     border-color: #d9534f;
     box-shadow: none;
     outline: none;
@@ -270,6 +273,10 @@ section .section-title {
 
 .section-container{
     background-image: url("../img/meetthedogsbg.png");
+}
+
+img{
+    object-fit: cover; 
 }
 
 #nodogsfound{

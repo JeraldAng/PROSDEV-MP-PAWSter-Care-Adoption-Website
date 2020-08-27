@@ -9,11 +9,13 @@ $(".filter-breed").append(breeds);
 $(".filter-gender").append(genders);
 $(".filter-energy_level").append(energy_levels);
 $(".filter-ease_of_training").append(ease_of_trainings);
+$('#nodogsfound').hide();
 
 var filtersObject = {};
 
 // on search form submit
 function searchFilter() {    
+    $('#nodogsfound').hide();
     // make search not case sensitive
     var query = $("#search-form input").val().toLowerCase();
 	
@@ -29,7 +31,11 @@ function searchFilter() {
 		if (name.indexOf(query) > -1 || breed.indexOf(query) > -1 || gender.indexOf(query) > -1 || energy_level.indexOf(query) > -1 || ease_of_training.indexOf(query) > -1) {
 			$(this).show();
 		}
-	});  
+	});
+    
+    if($('#gallery').children(':visible').length == 0) {
+        $('#nodogsfound').show();
+    }
 }
 
 // upon clicking clear filter button to reset all filters

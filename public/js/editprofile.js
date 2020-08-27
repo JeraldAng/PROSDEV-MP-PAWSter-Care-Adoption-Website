@@ -103,8 +103,8 @@ function checkPassword(inputPass){
 
 $(document).ready(function(){ 
     // show password 
-    $("#showPasswordBtn").click(function(){
-        $("#showPasswordBtn").find('i').toggleClass('fa-eye-slash');
+    $("#showPasswordBtn-edit").click(function(){
+        $("#showPasswordBtn-edit").find('i').toggleClass('fa-eye-slash');
         if($("#inputPassword").attr('type') == 'text'){
             $("#inputPassword").attr('type', 'password');
         }else{

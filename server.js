@@ -92,19 +92,26 @@ app.use(session({
 hbs.registerPartials(__dirname + "/views/partials")
 
 app.get(["/", "/home", "homepage"], (req, res)=>{                                                          
-    Feedback.aggregate([
-        {$sample: {size: 5}}
-    ], (err, doc)=>{
-            if(err){
-                res.send(err)
-            }
-            else{                                 
-                res.render("homepage.hbs", {
-                    username: req.session.username,
-                    feedback: doc
-                })
-            }
-        })  
+    if (req.session.username == "admin"){
+       res.render("admin_main.hbs", {
+            username: req.session.username
+        })
+    }
+    else{
+        Feedback.aggregate([
+            {$sample: {size: 5}}
+        ], (err, doc)=>{
+                if(err){
+                    res.send(err)
+                }
+                else{                                 
+                    res.render("homepage.hbs", {
+                        username: req.session.username,
+                        feedback: doc
+                    })
+                }
+        }) 
+    }
 })
 
 app.get("/signout", (req, res)=>{                                                          
