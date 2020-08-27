@@ -15,7 +15,7 @@ function checkUsername(inputName){
         return false;  
       }
       else if (inputName.match(specials)){
-          console.log("no special characters");
+          //console.log("no special characters");
         $('#invalid-username').html("No special characters allowed.").css('color', 'red'); 
         return false;  
       }    
@@ -101,10 +101,23 @@ function checkPassword(inputPass){
       }
 }
 
+//check if email is valid
+function checkEmail(inputEmail){
+    var emailFormat = /\S+@\S+\.\S+/;
+    
+    if(inputEmail.match(emailFormat)){
+        return true;
+    }
+    else{
+        $('#invalid-email').html("Email must follow the format: name@site.com").css('color', 'red');
+        return false;
+    }
+}
+
 $(document).ready(function(){ 
     // show password 
-    $("#showPasswordBtn").click(function(){
-        $("#showPasswordBtn").find('i').toggleClass('fa-eye-slash');
+    $("#showPasswordBtn-edit").click(function(){
+        $("#showPasswordBtn-edit").find('i').toggleClass('fa-eye-slash');
         if($("#inputPassword").attr('type') == 'text'){
             $("#inputPassword").attr('type', 'password');
         }else{
@@ -131,11 +144,16 @@ $(document).ready(function(){
     var password = document.getElementById("inputPassword");
     var email = document.getElementById("inputEmail");
 
+    // When the user starts to type something inside the email field
     email.onkeyup = function(){
-            if(!email.checkValidity()){
-                $('#invalid-email').html("Email must follow the format: name@site.com").css('color', 'red');  
-            }
+            var isValid = checkEmail(document.getElementById("inputEmail").value);
+        if(isValid){
+             document.getElementById('inputEmail').setCustomValidity("");     
         }
+        else{
+            document.getElementById('inputEmail').setCustomValidity("Invalid field.");
+        }
+    }
 
     document.getElementById("inputUsername").onkeyup = function(){
         var isValid = checkUsername(document.getElementById("inputUsername").value);
@@ -177,3 +195,6 @@ form.classList.add('was-validated');
 });
 }, false);
 })();
+
+// export functions for testing
+module.exports = {checkUsername, checkPassword};

@@ -80,27 +80,7 @@
     color: #F87D04;
 }
 
-.nav-item:hover .nav-link {
-    background-color: rgba(255,255,255,0.2);
-    color: #F87D04;
-    transition: .2s ease-out;
-    transition-delay: 0.1s;
-}
 
-#nav-profile-tab:hover {
-    background-color: rgba(255,255,255,0.2);
-    color: #F87D04;
-    transition: .2s ease-out;
-    transition-delay: 0.1s;
-}
-
-
-#nav-home-tab:hover {
-    background-color: rgba(255,255,255,0.2);
-    color: #F87D04!important;
-    transition: .2s ease-out;
-    transition-delay: 0.1s;
-}
 .emp-profile{
     position: relative;
     padding: 3%;
@@ -322,4 +302,8 @@ top: 9%;
     position: absolute;
     top: -4%;
     right: 0;
+}
+
+.dog-pic{
+    object-fit: cover;
 }
