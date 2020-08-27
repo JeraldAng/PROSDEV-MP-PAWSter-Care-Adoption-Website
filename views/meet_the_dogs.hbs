@@ -139,7 +139,7 @@
                             <div class="frontside">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <img class="img-fluid" src="../uploads/{{image}}" class="img-responsive" alt="card image" /><br><br>
+                                        <img class="img-fluid" src="../uploads/{{image}}" class="img-responsive" onerror="this.onerror=null;this.src='../img/dog-not-found.png';" alt="no dog image found"/><br><br>
                                         <h4 class="card-title text-black bubblegumsans" style="display: inline; color: black!important;">{{name}}</h4>
                                         <img src="../img/{{gender}}.png" style="height:20px; width: 20px; display: inline" />
                                         <p class="card-text text-black bubblegumsans">the {{breed}}</p>
@@ -150,7 +150,7 @@
                             <div class="backside">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <img src="../uploads/{{image}}" class="img-responsive" alt="card image" style="height: 36%;">
+                                        <img src="../uploads/{{image}}" class="img-responsive img-back" onerror="this.onerror=null;this.src='../img/dog-not-found.png';" alt="card image">
                                         <h4 class="card-title cabin">{{name}}</h4>
                                         <p class="card-text cabin" style="text-align: justify">{{description}}</p><br>
                                         <button class="edit btn btn-primary cabin" data-id="{{_id}}" style="background-color: #A3AD55!important;">Check this pup!</button>
@@ -199,8 +199,6 @@
 {{> footer}}
     
     <script src='http://production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
-    <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
     <script src="js/meet_the_dogs.js"></script>
     
     <form action="check" id="editform">
