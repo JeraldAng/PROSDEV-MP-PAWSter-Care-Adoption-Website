@@ -99,6 +99,19 @@ function checkPassword(inputPass){
       }
 }
 
+//check if email is valid
+function checkEmail(inputEmail){
+    var emailFormat = /\S+@\S+\.\S+/;
+    
+    if(inputEmail.match(emailFormat)){
+        return true;
+    }
+    else{
+        $('#invalid-email').html("Email must follow the format: name@site.com").css('color', 'red');
+        return false;
+    }
+}
+
 $(document).ready(function(){
     // check if username is already taken 
     $('#signupAlert').hide();
@@ -139,9 +152,14 @@ $(document).ready(function(){
     
     // inputs cannot be all whitespaces
     
+    // When the user starts to type something inside the email field
     email.onkeyup = function(){
-        if(!email.checkValidity()){
-            $('#invalid-email').html("Email must follow the format: name@site.com").css('color', 'red');  
+            var isValid = checkEmail(document.getElementById("email-address").value);
+        if(isValid){
+             document.getElementById('email-address').setCustomValidity("");     
+        }
+        else{
+            document.getElementById('email-address').setCustomValidity("Invalid field.");
         }
     }
             

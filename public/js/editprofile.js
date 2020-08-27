@@ -101,6 +101,19 @@ function checkPassword(inputPass){
       }
 }
 
+//check if email is valid
+function checkEmail(inputEmail){
+    var emailFormat = /\S+@\S+\.\S+/;
+    
+    if(inputEmail.match(emailFormat)){
+        return true;
+    }
+    else{
+        $('#invalid-email').html("Email must follow the format: name@site.com").css('color', 'red');
+        return false;
+    }
+}
+
 $(document).ready(function(){ 
     // show password 
     $("#showPasswordBtn-edit").click(function(){
@@ -131,11 +144,16 @@ $(document).ready(function(){
     var password = document.getElementById("inputPassword");
     var email = document.getElementById("inputEmail");
 
+    // When the user starts to type something inside the email field
     email.onkeyup = function(){
-            if(!email.checkValidity()){
-                $('#invalid-email').html("Email must follow the format: name@site.com").css('color', 'red');  
-            }
+            var isValid = checkEmail(document.getElementById("inputEmail").value);
+        if(isValid){
+             document.getElementById('inputEmail').setCustomValidity("");     
         }
+        else{
+            document.getElementById('inputEmail').setCustomValidity("Invalid field.");
+        }
+    }
 
     document.getElementById("inputUsername").onkeyup = function(){
         var isValid = checkUsername(document.getElementById("inputUsername").value);
