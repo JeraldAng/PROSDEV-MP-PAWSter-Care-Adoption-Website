@@ -105,7 +105,7 @@ function checkPassword(inputPass){
 function checkEmail(inputEmail){
     var emailFormat = /\S+@\S+\.\S+/;
     
-    if(inputEmail.match(emailFormat)){
+    if(inputEmail.match(emailFormat) && !/\s/.test(inputEmail)){
         return true;
     }
     else{
@@ -197,4 +197,4 @@ form.classList.add('was-validated');
 })();
 
 // export functions for testing
-module.exports = {checkUsername, checkPassword};
+module.exports = {checkUsername, checkPassword, checkEmail};

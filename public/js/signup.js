@@ -103,13 +103,17 @@ function checkPassword(inputPass){
 function checkEmail(inputEmail){
     var emailFormat = /\S+@\S+\.\S+/;
     
-    if(inputEmail.match(emailFormat)){
+    if(inputEmail.match(emailFormat) && !/\s/.test(inputEmail)){
         return true;
     }
     else{
         $('#invalid-email').html("Email must follow the format: name@site.com").css('color', 'red');
         return false;
     }
+	
+	/*if(checkSpace.test(inputEmail)){
+		return true;
+	}*/
 }
 
 $(document).ready(function(){
@@ -226,4 +230,4 @@ form.classList.add('was-validated');
 })();
 
 // export functions for testing
-module.exports = {checkUsername, checkPassword};
+module.exports = {checkUsername, checkPassword, checkEmail};
