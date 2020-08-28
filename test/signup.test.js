@@ -159,3 +159,104 @@ describe('Signup Password checker', () => {
         expect(isValid).toBeFalsy();   
     })
 });
+
+describe('Signup Email checker', () => {
+    test('signup email: input valid email', () => {
+	  // Arrange
+      var input = "robin_hood@gmail.com";   
+        
+	  // Act
+      var isValid = dogFunc.checkEmail(input);
+      
+	  // Assert
+        expect(isValid).toBeTruthy();   
+    })
+	
+	test('signup email: input valid alphanumeric email', () => {
+	  // Arrange
+      var input = "rob1n_hood09@gmail.com";   
+        
+	  // Act
+      var isValid = dogFunc.checkEmail(input);
+      
+	  // Assert
+        expect(isValid).toBeTruthy();   
+    })
+    
+    test('signup email: null input', () => {
+	  // Arrange
+      var input = "";   
+        
+	  // Act
+      var isValid = dogFunc.checkEmail(input);
+      
+	  // Assert
+       expect(isValid).toBeFalsy();
+    })
+    
+    test('signup email: input only whitespace', () => {
+	  // Arrange
+      var input = "           ";   
+        
+	  // Act
+      var isValid = dogFunc.checkEmail(input);
+      
+	  // Assert
+        expect(isValid).toBeFalsy();   
+    })
+    
+    test('signup email: no "@"', () => {
+	  // Arrange
+      var input = "robin_hood.gmail.com";   
+        
+	  // Act
+      var isValid = dogFunc.checkEmail(input);
+      
+	  // Assert
+        expect(isValid).toBeFalsy();   
+    })
+    
+    test('signup email: no "." after "@"', () => {
+	  // Arrange
+      var input = "robin_hood@yahoo";   
+        
+	  // Act
+      var isValid = dogFunc.checkEmail(input);
+      
+	  // Assert
+        expect(isValid).toBeFalsy();   
+    })
+    
+    test('signup email: no spaces', () => {
+	  // Arrange
+      var input = "robin hood@yahoo.com";   
+        
+	  // Act
+      var isValid = dogFunc.checkEmail(input);
+      
+	  // Assert
+        expect(isValid).toBeFalsy();   
+    })
+    
+    test('edit email: no special characters', () => {
+	  // Arrange
+      var input = "P4sSw0rd258";   
+        
+	  // Act
+      var isValid = dogFunc.checkPassword(input);
+      
+	  // Assert
+        expect(isValid).toBeFalsy();   
+    })
+    
+    test('edit password: less than 8 valid characters', () => {
+	  // Arrange
+      var input = "P@w0r?";   
+        
+	  // Act
+      var isValid = dogFunc.checkPassword(input);
+      
+	  // Assert
+        expect(isValid).toBeFalsy();   
+    }) 
+}); 
