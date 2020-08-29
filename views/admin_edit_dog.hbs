@@ -44,14 +44,14 @@
 <!-- Main Content -->
     
   <div class="container">
-      <h1>Edit {{dog.name}}'s Profile</h1>
+      <h1 class="bubblegumsans text-brown">Edit {{dog.name}}'s Profile</h1>
       <hr>
 	<div class="row">
       <!-- left column -->
       <div class="col-md-4">
         <div class="text-center">
           <img id="upload_ID" style="max-height: 350px; max-width: 350px" src="../uploads/{{dog.image}}" class="avatar img-circle" alt="avatar">
-          <h6>Upload a different photo...</h6>
+          <h6 class="cabin">Upload a different photo...</h6>
           
           <form method="post" action="admin_edit_dog" class="form-horizontal" role="form" enctype="multipart/form-data">
             <input type="file" onchange="previewFile()" id="avatar" class="form-control" accept="image/jpg, image/png" name="dog_image">  

@@ -2,227 +2,237 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <!--  title details    -->
     <title>PAWSter Care Admin</title>
     <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png" />
-
     <!-- BootstrapCDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
     <!-- Custom fonts for this template -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
     <!-- custom CSS -->
     <link href="../css/PAWSter%20Care.css" rel="stylesheet">
-
     <!-- custom js -->
     <script src="../js/PAWSter%20Care.js" type="text/javascript"></script>
     <script src="../js/admin_add_dog.js" type="text/javascript"></script>
     <script>
-    @Html.TextBoxFor(m => m.dog_birthday, "{0:yyyy-MM-dd}", new { @type = "date"  })</script>
-
+        @Html.TextBoxFor(m => m.dog_birthday, "{0:yyyy-MM-dd}", new { @type = "date"  })</script>
 </head>
 
 <body>
-{{> navbar_admin}}
-<script>HighlightTabAdmin("see_dogs")</script><br><br><br>
-
-<!-- edit profile -->
-<div class="container">
-    <h1>Create Dog's Profile</h1>
-    <hr>
-    <div class="row">
-        <!-- left column -->
-        <div class="col-md-4">
-            <div class="text-center">
-                <img id="upload_ID" style="max-height: 350px; max-width: 350px" src="../img/dogpic.png" class="avatar img-circle" alt="avatar"><br><br>
-                <h6>Upload a different photo...</h6>
-
-                <form method="post" action="admin_add_dog" class="form-horizontal" role="form" enctype="multipart/form-data">
-                    <input type="file" onchange="previewFile()" id="avatar" class="form-control" accept="image/jpg, image/png" name="dog_image" required>
-
-            </div>
-        </div>
-
-        <!-- edit form column -->
-        <div class="col-md-8 personal-info">
-            <div class="alert alert-info alert-dismissable">
-                <a class="panel-close close" data-dismiss="alert">×</a>
-                <i class="fa fa-exclamation-triangle"></i>
-                <strong>NOTE: </strong> Once data has been uploaded, the site will automatically change for all user screens.
-            </div>
-            <h3>General Information</h3>
-
-            <div class="form-group">
-                <div class="col-md-6">
-                    <img src="../img/name.png" style="height: 25px;">
-                    <label>&nbsp;&nbsp;Name</label>
-                </div>
-                <div class="col-lg-8">
-                    <input class="form-control" type="text" name="dog_name">
+    {{> navbar_admin}}
+    <script>HighlightTabAdmin("see_dogs")</script><br><br><br>
+    <!-- edit profile -->
+    <div class="container">
+        <hr>
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-4">
+                <div class="text-center">
+                    <img id="upload_ID" style="max-height: 350px; max-width: 350px" src="../img/adopt me pug.png" class="avatar img-circle" alt="avatar"><br><br>
+                    <h6>Upload a different photo...</h6>
+                    <form method="post" action="admin_add_dog" class="form-horizontal" role="form" enctype="multipart/form-data">
+                        <input type="file" onchange="previewFile()" id="avatar" class="form-control" accept="image/jpg, image/png" name="dog_image" required>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <img src="../img/breed.png" style="height: 25px;">
-                    <label>&nbsp;&nbsp;Breed</label>
-                </div>
-                <div class="col-lg-8">
-                    <select type="text" class="form-control" name="dog_breed" required>
-                        <option value="" disabled selected hidden>Choose dog breed...</option>
-                        <option value="Beagle">Beagle</option>
-                        <option value="Corgi">Corgi</option>
-                        <option value="Dachshund">Dachshund</option>
-                        <option value="Golden Retriever">Golden Retriever</option>
-                        <option value="Husky">Husky</option>
-                        <option value="Schnauzer">Schnauzer</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <img src="../img/birthday.png" style="height: 25px;">
-                    <label>&nbsp;&nbsp;Date of Birth</label>
-                </div>
-                <div class="col-lg-8">
-                    <input class="form-control" type="date" name="dog_birthday">
-                </div>
-            </div>
-
-            <div class="row" style="margin-left:1px">
-                <div class="col-sm-3 form-group">
-                    <div class="col-md-6.1">
-                        <img src="../img/gender.png" style="height: 25px;">
-                        <label>&nbsp;&nbsp;Gender</label>
+            <!-- edit form column -->
+            <div class="col personal-info">
+                <div class="container">
+                    <div class="alert alert-info alert-dismissable">
+                        <a class="panel-close close" data-dismiss="alert">×</a>
+                        <i class="fa fa-exclamation-triangle"></i>
+                        <strong>NOTE: </strong> Once data has been uploaded, the site will automatically change for all user screens.
                     </div>
-                    <select type="text" class="form-control" name="dog_gender" required>
-                        <option value="" disabled selected hidden>Choose gender..</option>
-                        <option value="male">male</option>
-                        <option value="female">female</option>
-                    </select>
-                </div>
-                <div class="col-sm-3 form-group">
-                    <div class="col-md-6.1">
-                        <img src="../img/height.png" style="height: 25px;">
-                        <label>&nbsp;&nbsp;Height (inches)</label>
+                    <h3 class="bubblegumsans text-brown">General Information</h3>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="col cabin">
+                                    <img src="../img/name.png" style="height: 25px;">
+                                    <label>&nbsp;&nbsp;Name</label>
+                                </div>
+                                <div class="col cabin">
+                                    <input class="form-control" type="text" name="dog_name" placeholder="Enter Dog's Name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col cabin">
+                            <div class="form-group">
+                                <div class="col">
+                                    <img src="../img/breed.png" style="height: 25px;">
+                                    <label>&nbsp;&nbsp;Breed</label>
+                                </div>
+                                <div class="col">
+                                    <select type="text" class="form-control" name="dog_breed" required>
+                                        <option value="" disabled selected hidden>Choose dog breed...</option>
+                                        <option value="Beagle">Beagle</option>
+                                        <option value="Corgi">Corgi</option>
+                                        <option value="Dachshund">Dachshund</option>
+                                        <option value="Golden Retriever">Golden Retriever</option>
+                                        <option value="Husky">Husky</option>
+                                        <option value="Schnauzer">Schnauzer</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <input type="number" class="form-control" name="dog_height">
-                </div>
-                <div class="col-sm-3 form-group">
-                    <div class="col-md-6.1">
-                        <img src="../img/weight.png" style="height: 25px;">
-                        <label>&nbsp;&nbsp;Weight (pounds)</label>
+                    <div class="row">
+                        <div class="col cabin">
+                            <div class="form-group">
+                                <div class="col cabin">
+                                    <img src="../img/birthday.png" style="height: 25px;">
+                                    <label>&nbsp;&nbsp;Date of Birth</label>
+                                </div>
+                                <div class="col cabin">
+                                    <input class="form-control" type="date" name="dog_birthday">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="col cabin">
+                                    <img src="../img/gender.png" style="height: 25px;">
+                                    <label>&nbsp;&nbsp;Gender</label>
+                                </div>
+                                <div class="col cabin">
+                                    <select type="text" class="form-control" name="dog_gender" required>
+                                        <option value="" disabled selected hidden>Choose gender..</option>
+                                        <option value="male">male</option>
+                                        <option value="female">female</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group cabin">
+                                <img src="../img/height.png" style="height: 25px;">
+                                <label>&nbsp;Height (in)</label>
+                                <input type="number" class="form-control" name="dog_height" placeholder="0">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group cabin">
+                                <img src="../img/weight.png" style="height: 25px;">
+                                <label>&nbsp;&nbsp;Weight (lb)</label>
+                                <input type="number" class="form-control cabin" name="dog_weight" placeholder="0">
+                            </div>
+                        </div>
                     </div>
-                    <input type="number" class="form-control" name="dog_weight">
+                    <div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="col cabin">
+                                    <img src="../img/name.png" style="height: 25px;">
+                                    <label>&nbsp;&nbsp;Special Conditions:</label>
+                                </div>
+                                <div class="col cabin">
+                                    <input class="form-control" type="text" name="dog_conditions" placeholder="i.e. none">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group cabin">
+                                <label class="col control-label">Short Description:</label>
+                                <div class="col">
+                                    <textarea class="form-control" rows="5" name="dog_description" placeholder="Enter Dog's information here"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <hr>
+                <h3 class="bubblegumsans text-brown">Character Information</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="col cabin">
+                                    <img src="../img/energy.png" style="height: 30px;">
+                                    <label>&nbsp;&nbsp;Energy Level</label>
+                                </div>
+                                <div class="col cabin">
+                                    <select type="text" class="form-control" name="dog_energy_level" required>
+                                        <option value="" disabled selected hidden>Choose energy level..</option>
+                                        <option value="low">low</option>
+                                        <option value="moderate">moderate</option>
+                                        <option value="high">high</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="col cabin">
+                                    <img src="../img/training.png" style="height: 35px;">
+                                    <label>&nbsp;Ease of Training</label>
+                                </div>
+                                <div class="col cabin">
+                                    <select type="text" class="form-control" name="dog_ease_of_training" required>
+                                        <option value="" disabled selected hidden>Choose ease of training..</option>
+                                        <option value="easy">easy</option>
+                                        <option value="average">average</option>
+                                        <option value="difficult">difficult</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="col cabin">
+                                    <img src="../img/grooming.png" style="height: 27px;">
+                                    <label>&nbsp;&nbsp;Grooming Requirements</label>
+                                </div>
+                                <div class="col cabin">
+                                    <select type="text" class="form-control" name="dog_grooming_requirements" required>
+                                        <option value="" disabled selected hidden>Choose grooming requirements..</option>
+                                        <option value="low">low</option>
+                                        <option value="moderate">moderate</option>
+                                        <option value="high">high</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="col cabin">
+                                    <img src="../img/affection.png" style="height: 25px;">
+                                    <label>&nbsp;&nbsp;Affection Needs</label>
+                                </div>
+                                <div class="col cabin">
+                                    <select type="text" class="form-control" name="dog_affection_needs" required>
+                                        <option value="" disabled selected hidden>Choose affection needs..</option>
+                                        <option value="independent">independent</option>
+                                        <option value="balanced">balanced</option>
+                                        <option value="cuddly">cuddly</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input type="submit" class="cabin btn btn-primary" value="Introduce This Pup!" style="background: #6DAB3C!important;">
+                        <span></span>
+                        <a href='admin_dogs'><button class="btn btn-primary btn-danger delete">Cancel</button></a>
+                    </div>
+                </div>
+                <br>
+                </form>
             </div>
-
-            <div class="form-group">
-                <div class="col-md-6">
-                    <img src="../img/name.png" style="height: 25px;">
-                    <label>&nbsp;&nbsp;Special Conditions</label>
-                </div>
-                <div class="col-md-8">
-                    <input class="form-control" type="text" name="dog_conditions">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-md-5 control-label">give your dog a short description:</label>
-                <div class="col-md-8">
-                    <textarea class="form-control" rows="5" name="dog_description"></textarea>
-                </div>
-            </div>
-
-            <hr>
-            <h3>Character Information</h3>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <img src="../img/energy.png" style="height: 30px;">
-                    <label>&nbsp;&nbsp;Energy Level</label>
-                </div>
-                <div class="col-md-8">
-                    <select type="text" class="form-control" name="dog_energy_level" required>
-                        <option value="" disabled selected hidden>Choose energy level..</option>
-                        <option value="low">low</option>
-                        <option value="moderate">moderate</option>
-                        <option value="high">high</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <img src="../img/training.png" style="height: 35px;">
-                    <label>&nbsp;Ease of Training</label>
-                </div>
-                <div class="col-md-8">
-                    <select type="text" class="form-control" name="dog_ease_of_training" required>
-                        <option value="" disabled selected hidden>Choose ease of training..</option>
-                        <option value="easy">easy</option>
-                        <option value="average">average</option>
-                        <option value="difficult">difficult</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <img src="../img/grooming.png" style="height: 27px;">
-                    <label>&nbsp;&nbsp;Grooming Requirements</label>
-                </div>
-                <div class="col-md-8">
-                    <select type="text" class="form-control" name="dog_grooming_requirements" required>
-                        <option value="" disabled selected hidden>Choose grooming requirements..</option>
-                        <option value="low">low</option>
-                        <option value="moderate">moderate</option>
-                        <option value="high">high</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <img src="../img/affection.png" style="height: 25px;">
-                    <label>&nbsp;&nbsp;Affection Needs</label>
-                </div>
-                <div class="col-md-8">
-                    <select type="text" class="form-control" name="dog_affection_needs" required>
-                        <option value="" disabled selected hidden>Choose affection needs..</option>
-                        <option value="independent">independent</option>
-                        <option value="balanced">balanced</option>
-                        <option value="cuddly">cuddly</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-md-3 control-label"></label>
-                <div class="col-md-8">
-                    <input type="submit" class="btn btn-primary" value="Introduce This Pup!">
-                    <span></span>
-                    <a href = 'admin_dogs'><button class="btn btn-default">Cancel</button></a>
-                </div>
-            </div>
-            <br>
-            </form>
         </div>
     </div>
-</div>
-
 </body>
 
 </html>
-
-
-
-

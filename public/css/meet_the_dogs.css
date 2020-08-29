@@ -222,7 +222,8 @@ section .section-title {
 
 .frontside .card .card-title,
 .backside .card .card-title {
-    color: #FFFFFF !important;
+    color: #4B1C00 !important;
+    
 }
 
 .frontside .card .card-body img {
