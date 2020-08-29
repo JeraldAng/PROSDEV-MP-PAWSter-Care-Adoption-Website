@@ -238,7 +238,7 @@ describe('Edit Email checker', () => {
         expect(isValid).toBeFalsy();   
     })
     
-    test('edit email: no special characters', () => {
+    /*test('edit email: no special characters', () => {
 	  // Arrange
       var input = "P4sSw0rd258";   
         
@@ -249,7 +249,7 @@ describe('Edit Email checker', () => {
         expect(isValid).toBeFalsy();   
     })
     
-    test('edit password: less than 8 valid characters', () => {
+    test('edit email: less than 8 valid characters', () => {
 	  // Arrange
       var input = "P@w0r?";   
         
@@ -258,6 +258,6 @@ describe('Edit Email checker', () => {
       
 	  // Assert
         expect(isValid).toBeFalsy();   
-    }) 
+    }) */
 }); 
 
