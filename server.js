@@ -105,10 +105,17 @@ app.get(["/", "/home", "homepage"], (req, res)=>{
                     res.send(err)
                 }
                 else{                                 
-                    res.render("homepage.hbs", {
-                        username: req.session.username,
-                        feedback: doc
-                    })
+                    if (req.session.username){
+                        res.render("homepage.hbs", {
+                            username: req.session.username,
+                            feedback: doc
+                        })
+                    }
+                    else{
+                        res.render("homepage.hbs", {
+                            feedback: doc
+                        })
+                    }
                 }
         }) 
     }
@@ -333,9 +340,30 @@ app.get("/editprofile", (req, res)=>{
 
 app.get("/admin_main", (req, res)=>{
     if(req.session.username == "admin"){
-        res.render("admin_main.hbs", {
-            username: req.session.username
-        })
+        Request.find({
+            
+        }, (err, doc)=>{
+            if(err){
+                res.send(err)
+            }
+            else{ 
+                requests = doc
+                Dog.find({      
+                    
+                }, (err, doc)=>{
+                    if(err){
+                        res.send(err)
+                    }
+                    else{
+                        res.render("admin_main.hbs", {
+                            username: req.session.username,
+                            dogs: doc,
+                            requests: requests
+                        })
+                    }
+                }).sort({ _id: -1 }).limit(3)
+            }
+        }).sort({ _id: -1 }).limit(5)
     }
     else{
         res.redirect("error.html")
@@ -475,6 +503,17 @@ app.get("/admin_feedbackTable", (req, res)=>{
     else{
         res.redirect("error.html")
     }
+})
+
+app.get("/admin_team", (req, res)=>{
+    if(req.session.username == "admin"){
+        res.render("admin_team.hbs", {
+            username: req.session.username
+        })
+    }
+    else{
+        res.redirect("error.html")
+    }  
 })
 
 app.post("/login", urlencoder, (req, res)=>{

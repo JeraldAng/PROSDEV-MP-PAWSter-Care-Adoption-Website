@@ -221,3 +221,38 @@ h2 {
     -1px 1px 0 #000,
      1px 5px 0 #000;
 }
+
+table{
+    margin-top: 8%;
+    border: none!important;
+    padding: 1em 1em 1em 1em;
+    border-radius: 0.5rem;
+}
+
+table td, table th{
+    border-top-color: white!important;
+    border-color: white!important;
+    background-color: white!important;
+}
+
+.title{
+    font-size: 50px;
+}
+
+.Dashboard-request{
+    margin: 5em 5em 5em 5em;
+}
+
+.Dashboard-dogs{
+    margin: 0em 5em 5em 5em;
+}
+
+.Dashboard-requestTable{
+    display: inline-table;
+    width: 100%;
+    padding: 2em 2em 2em 2em;
+    background-color: white;
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+}

@@ -29,6 +29,7 @@
 
   <!-- custom CSS -->
   <link href="../css/PAWSter%20Care.css" rel="stylesheet">
+  <link href="../css/check_dog.css" rel="stylesheet">
     
   <!-- custom js + slider -->
     <script src="../js/PAWSter%20Care.js" type="text/javascript"></script>
@@ -50,7 +51,8 @@
       <!-- left column -->
       <div class="col-md-4">
         <div class="text-center">
-          <img id="upload_ID" style="max-height: 350px; max-width: 350px" src="../uploads/{{dog.image}}" class="avatar img-circle" alt="avatar">
+            
+          <img id="upload_ID" class="dog-pic" style="height: 350px; width: 350px" src="../uploads/{{dog.image}}" class="avatar img-circle" alt="avatar">
           <h6 class="cabin">Upload a different photo...</h6>
           
           <form method="post" action="admin_edit_dog" class="form-horizontal" role="form" enctype="multipart/form-data">

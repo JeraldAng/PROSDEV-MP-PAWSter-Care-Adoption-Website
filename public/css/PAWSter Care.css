@@ -285,3 +285,10 @@ label.col-md-3.control-label{
     color: white;
 }
 
+.header-img {
+  width: 100%;
+  height: 500px;
+  background: url('http://www.kodhus.com/freecourse-images/header-image.jpg');
+  background-size: cover;
+}
+
