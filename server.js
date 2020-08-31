@@ -361,7 +361,7 @@ app.get("/admin_main", (req, res)=>{
                             requests: requests
                         })
                     }
-                }).sort({ _id: -1 }).limit(3)
+                }).sort({ _id: -1 })
             }
         }).sort({ _id: -1 }).limit(5)
     }
