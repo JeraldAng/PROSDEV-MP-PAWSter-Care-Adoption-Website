@@ -28,8 +28,57 @@ $(document).ready(function(){
   var reqFirst = document.getElementById("reqFirst");
   var reqLast = document.getElementById("reqLast");
   var email = document.getElementById("reqEmail");
-  // var phone = document.getElementById("reqNum");
-  // var ph = new RegExp(/^(09|\+639)\d{9}$/);
+  var reqNum = document.getElementById("reqNum");
+  var reqAddress = document.getElementById("reqAddress");
+  //var ph = new RegExp(/^\d{10}$/);
+	// /^(?:\+?\d{2}[ -]?\d{3}[ -]?\d{5}|\d{4})$/
+	
+  reqNum.onkeyup = function() { 
+	var inputName = document.getElementById("reqNum");
+	var ph = /^[\d\-\(\)\+}]+$/;
+	  
+	if(!ph.test(inputName.value)  || /\s/.test(inputName.value) || inputName.value.length > 11){
+		document.getElementById('reqNum').setCustomValidity("Invalid field.");
+		$('#invalid-pnum').html("Please enter a valid phone number.").css('color', 'red');
+	}
+	else{
+		document.getElementById('reqNum').setCustomValidity("");
+	}
+	  
+//    if((reqNum.value.match(ph)) && !/\s/.test(reqNum.value)) {
+//	  document.getElementById('reqNum').setCustomValidity("");
+//		//return true;
+//    } 
+//    else{ 
+//		//document.getElementById('reqNum').setCustomValidity("Invalid field.");
+//        $('#invalid-pnum').html("Please enter a valid phone number.").css('color', 'red');
+//		//return false;
+//    }  
+  
+  }
+  
+  reqAddress.onkeyup = function() { 
+	var inputName = reqAddress.value;
+	inputName = inputName.replace(/^\s+/, '').replace(/\s+$/, '');
+	  
+	if(inputName.length == 0) {
+      document.getElementById('reqAddress').setCustomValidity("Invalid field.");
+      $('#invalid-address').html("Address cannot be empty or whitespace.").css('color', 'red');          
+    } 
+    else{
+      document.getElementById('reqAddress').setCustomValidity("");    
+    } 
+	  
+//	if(/\s/.test(inputName.value)){
+//		document.getElementById('reqAddress').setCustomValidity("Invalid field.");
+//		$('#invalid-address').html("Address cannot be empty or whitespace.").css('color', 'red');
+//	}
+//	else{
+//		document.getElementById('reqAddress').setCustomValidity("");
+//	}
+}
+  
+  
 
   email.onkeyup = function(){
       if(!email.checkValidity()){
@@ -54,13 +103,12 @@ $(document).ready(function(){
     inputName = inputName.replace(/^\s+/, '').replace(/\s+$/, '');
     if(inputName.length == 0) {
       document.getElementById('reqLast').setCustomValidity("Invalid field.");
-      $('#invalid-lname').html("First name cannot be empty or whitespace.").css('color', 'red');          
+      $('#invalid-lname').html("Last name cannot be empty or whitespace.").css('color', 'red');          
     } 
     else{
       document.getElementById('reqLast').setCustomValidity("");    
     }    
   }
-
 
 
 });
