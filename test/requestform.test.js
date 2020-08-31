@@ -307,7 +307,7 @@ describe('Phone number checker', () => {
         expect(isValid).toBeTruthy();  
     })
 
-    test('Phone Number: input invalid special characters', () => {
+    test('Phone Number: input special characters', () => {
 	  // Arrange
       var input = "*@123$?'!";   
         
@@ -318,7 +318,7 @@ describe('Phone number checker', () => {
         expect(isValid).toBeFalsy(); 
     })
 	
-	test('Phone Number: input valid special characters', () => {
+	/*test('Phone Number: input valid special characters', () => {
 	  // Arrange
       var input = "(01)555-355";   
         
@@ -327,7 +327,7 @@ describe('Phone number checker', () => {
       
 	  // Assert
         expect(isValid).toBeTruthy(); 
-    })
+    })*/
 	
     test('Phone Number: input only whitespace', () => {
 	  // Arrange

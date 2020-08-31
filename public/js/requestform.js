@@ -56,7 +56,7 @@ function checkEmail(inputEmail){
 
 //check if email is valid
 function checkNum(inputNum){
-    var numFormat = /^[\d\-\(\)\+}]+$/;
+    var numFormat = /^[\d]+$/;
     
     if(inputNum.match(numFormat) && !/\s/.test(inputNum) && inputNum.length <= 11){
         return true;
