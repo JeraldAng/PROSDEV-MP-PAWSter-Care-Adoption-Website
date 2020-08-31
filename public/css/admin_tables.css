@@ -1,0 +1,64 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    min-height: 100%;
+}
+
+.table-container{
+    padding: 5%;
+}
+
+table{
+    margin-top: 8%;
+    padding: 2% 0%;
+    border: none!important;
+    table-layout: auto;
+    width: 100%!important;
+}
+
+table td{
+    text-align: center;
+    background-color: #F2EEE5!important;
+}
+
+table td, table th{
+    border-top-color: #F2EEE5!important;
+    border-color: #F2EEE5!important;
+    padding: 20px 0px;
+}
+
+.approved{
+    background-color: #addbad;
+}
+
+.approved:hover{
+    background-color: #BDE2BD;
+}
+
+.rejected{
+    background-color: #ECA9A7;
+}
+
+.rejected:hover{
+    background-color: #EFBAB8;
+}
+
+.pending{
+    background-color: #F9F9F9;
+}
+
+.pending:hover{
+    background-color: rgba(255,255,255);
+}
+
+.request-header{
+    background-color: #F2EEE5;
+}
+
+.reqicon{
+    height: 70px;
+    width: 80px;
+}

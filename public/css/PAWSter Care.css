@@ -30,7 +30,7 @@ body{
 }
 
 .delius{
-    font-family: "Delius Swash Caps"!important;
+    font-family: "Delius Regular"!important;
 }
 
 @font-face {
@@ -283,5 +283,12 @@ label.col-md-3.control-label{
     transition: .2s ease-out; 
     transition-delay: 0.1s;
     color: white;
+}
+
+.header-img {
+  width: 100%;
+  height: 500px;
+  background: url('http://www.kodhus.com/freecourse-images/header-image.jpg');
+  background-size: cover;
 }
 

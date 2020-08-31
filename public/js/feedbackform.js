@@ -20,7 +20,7 @@ function checkName(inputName, whichName){
 function checkEmail(inputEmail){
     var emailFormat = /\S+@\S+\.\S+/;
     
-    if(inputEmail.match(emailFormat)){
+    if(inputEmail.match(emailFormat) && !/\s/.test(inputEmail)){
         return true;
     }
     else{
@@ -115,3 +115,6 @@ form.classList.add('was-validated');
 });
 }, false);
 })();
+
+// export functions for testing
+module.exports = {checkName, checkEmail, checkFeedbackText};

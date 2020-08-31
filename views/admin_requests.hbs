@@ -33,6 +33,7 @@
     
   <!-- custom CSS -->
   <link href="../css/PAWSter%20Care.css" rel="stylesheet">
+  <link href="../css/admin_tables.css" rel="stylesheet">
     
   <!-- custom js -->
     <script src="../js/PAWSter%20Care.js" type="text/javascript"></script>
@@ -43,11 +44,12 @@
 
 <body>
  {{> navbar_admin}}
-    <script>HighlightTabAdmin("requests")</script><br><br><br>
-    
-  <h2 style="text-align: center" class="post-title">PAWSter Care Requests</h2><br>
-
-    
+    <script>HighlightTabAdmin("requests")</script>
+  <div class = "cabin"><br><br>
+        <div style="background: url(../img/requestsAdmin.jpg) no-repeat; background-size: cover; height: 500px"><br><br>
+        <h1 class="bubblegumsans" style="width: 30%; margin-top: 100px; text-align: center; color: #F1EAEA; font-size:70px!important;">Pawster Care Requests</h1><br>
+        </div>
+    <div class="table-container">
         <table id = "RequestsTable" class="display" style="width=100%">
              <thead>
                 <tr>
@@ -83,9 +85,9 @@
             </tbody>
         
         </table>
-    
+    </div>
+    </div>      
 </body>
-
 </html>
 
 

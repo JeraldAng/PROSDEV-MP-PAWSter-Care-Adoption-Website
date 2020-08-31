@@ -176,6 +176,7 @@ section .section-title {
     -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
     -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
     box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    height: 100%;
 }
 
 .frontside,
@@ -202,6 +203,7 @@ section .section-title {
     max-height: 360px;
     min-width: 360px;
     max-width: 360px;
+    height: 100%;
     margin: 0 auto;
 }
 
@@ -222,7 +224,8 @@ section .section-title {
 
 .frontside .card .card-title,
 .backside .card .card-title {
-    color: #FFFFFF !important;
+    color: #4B1C00 !important;
+    
 }
 
 .frontside .card .card-body img {
