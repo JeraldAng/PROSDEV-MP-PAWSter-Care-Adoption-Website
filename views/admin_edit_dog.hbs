@@ -2,227 +2,234 @@
 <html lang="en">
 
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-<!--  title details    -->
-  <title>PAWSter Care Admin</title>
-  <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png" />
-    
-  <!-- BootstrapCDN -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-  <!-- Custom fonts for this template -->
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-  <!-- custom CSS -->
-  <link href="../css/PAWSter%20Care.css" rel="stylesheet">
-  <link href="../css/check_dog.css" rel="stylesheet">
-    
-  <!-- custom js + slider -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--  title details    -->
+    <title>PAWSter Care Admin</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png" />
+    <!-- BootstrapCDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Custom fonts for this template -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- custom CSS -->
+    <link href="../css/PAWSter%20Care.css" rel="stylesheet">
+    <link href="../css/check_dog.css" rel="stylesheet">
+    <!-- custom js + slider -->
     <script src="../js/PAWSter%20Care.js" type="text/javascript"></script>
     <script src="../js/admin_add_dog.js" type="text/javascript"></script>
     <script>@Html.TextBoxFor(m => m.dog_birthday, "{0:yyyy-MM-dd}", new { @type = "date"  })</script>
-
 </head>
 
 <body>
- {{> navbar_admin}}
+    {{> navbar_admin}}
     <script>HighlightTabAdmin("see_dogs")</script><br><br><br>
-    
-<!-- Main Content -->
-    
-  <div class="container">
-      <h1 class="bubblegumsans text-brown">Edit {{dog.name}}'s Profile</h1>
-      <hr>
-	<div class="row">
-      <!-- left column -->
-      <div class="col-md-4">
-        <div class="text-center">
-            
-          <img id="upload_ID" class="dog-pic" style="height: 350px; width: 350px" src="../uploads/{{dog.image}}" class="avatar img-circle" alt="avatar">
-          <h6 class="cabin">Upload a different photo...</h6>
-          
-          <form method="post" action="admin_edit_dog" class="form-horizontal" role="form" enctype="multipart/form-data">
-            <input type="file" onchange="previewFile()" id="avatar" class="form-control" accept="image/jpg, image/png" name="dog_image">  
-        </div>
-      </div>
-        
-          <!-- edit form column -->
-      <div class="col-md-8 personal-info">
-        <div class="alert alert-info alert-dismissable">
-          <a class="panel-close close" data-dismiss="alert">×</a> 
-          <i class="fa fa-exclamation-triangle"></i>
-          <strong>NOTE: </strong> The site will automatically save your edits and display them for all user screens.
-        </div>
-          
-        <h3>General Information</h3>
-        
-          <div class="form-group">
-              <div class="col-md-6">
-                <img src="../img/name.png" style="height: 25px;">
-                <label>&nbsp;&nbsp;Name</label>
-              </div>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" name="dog_name" value="{{dog.name}}">
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="bubblegumsans text-brown">Edit {{dog.name}}'s Profile</h1>
+        <hr>
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-4">
+                <div class="text-center">
+                    <img id="upload_ID" class="dog-pic" style="height: 350px; width: 350px" src="../uploads/{{dog.image}}" class="avatar img-circle" alt="avatar">
+                    <h6 class="cabin">Upload a different photo...</h6>
+                    <form method="post" action="admin_edit_dog" class="form-horizontal" role="form" enctype="multipart/form-data">
+                        <input type="file" onchange="previewFile()" id="avatar" class="form-control" accept="image/jpg, image/png" name="dog_image">
+                </div>
             </div>
-          </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                <img src="../img/breed.png" style="height: 25px;">
-                <label>&nbsp;&nbsp;Breed</label>
-              </div>
-            <div class="col-lg-8">
-            <select type="text" class="form-control" id = "select_breed" name="dog_breed" required>
-                    <option value="{{dog.breed}}" selected hidden>{{dog.breed}}</option>
-                    <option value="Beagle">Beagle</option>
-                    <option value="Corgi">Corgi</option>    
-                    <option value="Dachshund">Dachshund</option>
-                    <option value="Golden Retriever">Golden Retriever</option>
-                    <option value="Husky">Husky</option>
-                    <option value="Schnauzer">Schnauzer</option>
-            </select>
-            </div>
-          </div>
-          <div class="form-group">
-              <div class="col-md-6">
-                <img src="../img/birthday.png" style="height: 25px;">
-                <label>&nbsp;&nbsp;Date of Birth</label>
-              </div>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" name="dog_birthday" value="{{dog.birthday}}">
-            </div>
-          </div>
-          
-          <div class="row" style="margin-left:1px">
-                            <div class="col-sm-3 form-group">
-                                <div class="col-md-6.1">
-                                    <img src="../img/gender.png" style="height: 25px;">
-                                    <label>&nbsp;&nbsp;Gender</label>
-                                </div>
-                                <select type="text" class="form-control" name="dog_gender" required>
-                                    <option value="{{dog.gender}}" selected hidden>{{dog.gender}}</option>
-                                        <option value="male">male</option>
-                                        <option value="female">female</option>
+            <!-- edit form column -->
+            <div class="col-md-8 personal-info">
+                <div class="alert alert-info alert-dismissable">
+                    <a class="panel-close close cabin" data-dismiss="alert">×</a>
+                    <i class="fa fa-exclamation-triangle "></i>
+                    <strong class="cabin">NOTE: </strong> The site will automatically save your edits and display them for all user screens.
+                </div>
+                <h3 class="bubblegumsans text-brown">General Information</h3>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="col">
+                                <img class="cabin" src="../img/name.png" style="height: 25px;">
+                                <label class="cabin">&nbsp;&nbsp;Name</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control cabin" type="text" name="dog_name" value="{{dog.name}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col cabin">
+                        <div class="form-group">
+                            <div class="col">
+                                <img src="../img/breed.png" class="cabin" style="height: 25px;">
+                                <label>&nbsp;&nbsp;Breed</label>
+                            </div>
+                            <div class="col">
+                                <select type="text" class="form-control cabin" id="select_breed" name="dog_breed" required>
+                                    <option value="{{dog.breed}}" selected hidden>{{dog.breed}}</option>
+                                    <option value="Beagle">Beagle</option>
+                                    <option value="Corgi">Corgi</option>
+                                    <option value="Dachshund">Dachshund</option>
+                                    <option value="Golden Retriever">Golden Retriever</option>
+                                    <option value="Husky">Husky</option>
+                                    <option value="Schnauzer">Schnauzer</option>
                                 </select>
-							</div>
-							<div class="col-sm-3 form-group">
-                                <div class="col-md-6.1">
-                                    <img src="../img/height.png" style="height: 25px;">
-                                    <label>&nbsp;&nbsp;Height (inches)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col cabin">
+                        <div class="form-group">
+                            <div class="col">
+                                <img src="../img/birthday.png" style="height: 25px;">
+                                <label class="cabin">&nbsp;&nbsp;Date of Birth</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control cabin" type="text" name="dog_birthday" value="{{dog.birthday}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="col form-group">
+                            <div class="col">
+                                <img src="../img/gender.png" class="cabin" style="height: 25px;">
+                                <label class="cabin">&nbsp;&nbsp;Gender</label>
+                            </div>
+                            <select type="text" class="form-control cabin" name="dog_gender" required>
+                                <option value="{{dog.gender}}" selected hidden>{{dog.gender}}</option>
+                                <option value="male">male</option>
+                                <option value="female">female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="col form-group">
+                            <div class="col">
+                                <img src="../img/height.png" style="height: 25px;">
+                                <label class="cabin">Height(in)</label>
+                            </div>
+                            <input type="number" class="form-control cabin" name="dog_height" value="{{dog.height}}">
+                        </div>
+                    </div>
+                    <div class="col form-group">
+                        <div class="col">
+                            <img src="../img/weight.png" style="height: 25px;">
+                            <label class="cabin">&nbsp;&nbsp;Weight(lb)</label>
+                        </div>
+                        <input type="number" class="form-control cabin" name="dog_weight" value="{{dog.weight}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="col">
+                                <img src="../img/name.png" style="height: 25px;">
+                                <label class="cabin">&nbsp;&nbsp;Specific Conditions</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control cabin" type="text" name="dog_conditions" value="{{dog.conditions}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="col control-label cabin">Short Description:</label>
+                            <div class="col">
+                                <textarea class="form-control cabin" rows="5" name="dog_description">{{dog.description}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <h3 class="bubblegumsans text-brown">Character Information</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="col">
+                                    <img src="../img/energy.png" style="height: 25px;">
+                                    <label class="cabin">&nbsp;&nbsp;Energy Level</label>
                                 </div>
-								<input type="number" class="form-control" name="dog_height" value="{{dog.height}}"> 
-							</div>
-                            <div class="col-sm-3 form-group">
-                                <div class="col-md-6.1">
-                                    <img src="../img/weight.png" style="height: 25px;">
-                                    <label>&nbsp;&nbsp;Weight (pounds)</label>
+                                <div class="col">
+                                    <select type="text" class="form-control cabin" name="dog_energy_level" required>
+                                        <option value="{{dog.energy_level}}" selected hidden>{{dog.energy_level}}</option>
+                                        <option value="low">low</option>
+                                        <option value="moderate">moderate</option>
+                                        <option value="high">high</option>
+                                    </select>
                                 </div>
-								<input type="number" class="form-control" name="dog_weight" value="{{dog.weight}}">
-							</div>
-          </div>
-          <div class="form-group">
-              <div class="col-md-6">
-                    <img src="../img/name.png" style="height: 25px;">
-                    <label>&nbsp;&nbsp;Specific Conditions</label>
-              </div>
-            <div class="col-md-8">
-              <input class="form-control" type="text" name="dog_conditions" value="{{dog.conditions}}">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="col">
+                                    <img src="../img/training.png" style="height: 35px;">
+                                    <label class="cabin">Ease of Training</label>
+                                </div>
+                                <div class="col">
+                                    <select type="text" class="form-control cabin" name="dog_ease_of_training" required>
+                                        <option value="{{dog.ease_of_training}}" selected hidden>{{dog.ease_of_training}}</option>
+                                        <option value="easy">easy</option>
+                                        <option value="average">average</option>
+                                        <option value="difficult">difficult</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="col">
+                                    <img src="../img/grooming.png" style="height: 25px;">
+                                    <label class="cabin">&nbsp;&nbsp;Grooming Requirements</label>
+                                </div>
+                                <div class="col">
+                                    <select type="text" class="form-control cabin" name="dog_grooming_requirements" required>
+                                        <option value="{{dog.grooming_requirements}}" selected hidden>{{dog.grooming_requirements}}</option>
+                                        <option value="low">low</option>
+                                        <option value="moderate">moderate</option>
+                                        <option value="high">high</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <div class="col">
+                                    <img src="../img/affection.png" style="height: 25px;">
+                                    <label class="cabin">&nbsp;&nbsp;Affection Needs</label>
+                                </div>
+                                <div class="col">
+                                    <select type="text" class="form-control cabin" name="dog_affection_needs" required>
+                                        <option value="{{dog.affection_needs}}" selected hidden>{{dog.affection_needs}}</option>
+                                        <option value="independent">independent</option>
+                                        <option value="balanced">balanced</option>
+                                        <option value="cuddly">cuddly</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input type="hidden" name="id" value="{{dog._id}}">
+                        <input type="submit" class="btn btn-primary cabin" value="Save Changes" style="background: #6DAB3C!important;">
+                        <span></span>
+                        <a href='admin_dogs' class="btn btn-primary btn-danger delete cabin">Cancel</a>
+                    </div>
+                </div>
+                </form>
             </div>
-          </div>
-            <div class="form-group">
-            <label class="col-md-5 control-label">give your dog a short description:</label>
-            <div class="col-md-8">
-                <textarea class="form-control" rows="5" name="dog_description">{{dog.description}}</textarea>
-            </div>
-          </div>
-          
-          <hr>
-          <h3>Character Information</h3>
-          <div class="form-group">
-              <div class="col-md-6">
-                    <img src="../img/energy.png" style="height: 25px;">
-                    <label>&nbsp;&nbsp;Energy Level</label>
-              </div>
-            <div class="col-md-8">
-            <select type="text" class="form-control" name="dog_energy_level" required>
-                    <option value="{{dog.energy_level}}" selected hidden>{{dog.energy_level}}</option>
-                    <option value="low">low</option>
-                    <option value="moderate">moderate</option>
-                    <option value="high">high</option>
-            </select>
-            </div>
-          </div>
-          <div class="form-group">
-               <div class="col-md-6">
-                    <img src="../img/training.png" style="height: 35px;">
-                    <label>Ease of Training</label>
-              </div>
-            <div class="col-md-8">
-            <select type="text" class="form-control" name="dog_ease_of_training" required>
-                    <option value="{{dog.ease_of_training}}" selected hidden>{{dog.ease_of_training}}</option>
-                    <option value="easy">easy</option>
-                    <option value="average">average</option>
-                    <option value="difficult">difficult</option>
-            </select>
-            </div>
-          </div>
-          <div class="form-group">
-              <div class="col-md-6">
-                    <img src="../img/grooming.png" style="height: 25px;">
-                    <label>&nbsp;&nbsp;Grooming Requirements</label>
-              </div>
-            <div class="col-md-8">
-            <select type="text" class="form-control" name="dog_grooming_requirements" required>
-                    <option value="{{dog.grooming_requirements}}" selected hidden>{{dog.grooming_requirements}}</option>
-                    <option value="low">low</option>
-                    <option value="moderate">moderate</option>
-                    <option value="high">high</option>
-            </select>
-            </div>
-          </div>
-          <div class="form-group">
-              <div class="col-md-6">
-                    <img src="../img/affection.png" style="height: 25px;">
-                    <label>&nbsp;&nbsp;Affection Needs</label>
-              </div>
-            <div class="col-md-8">
-            <select type="text" class="form-control" name="dog_affection_needs" required>
-                    <option value="{{dog.affection_needs}}" selected hidden>{{dog.affection_needs}}</option>
-                    <option value="independent">independent</option>
-                    <option value="balanced">balanced</option>
-                    <option value="cuddly">cuddly</option>
-            </select> 
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
-                <input type = "hidden" name="id" value="{{dog._id}}">
-              <input type="submit" class="btn btn-primary" value="Save Changes">
-              <span></span>
-                <a href = 'admin_dogs'><button class="btn btn-default">Cancel</button></a>
-            </div>
-          </div>
-        </form>
-      </div>
-      
-    </div>
-  </div><br>
-
+        </div>
+    </div><br>
 </body>
 
 </html>
