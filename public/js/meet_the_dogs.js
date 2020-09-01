@@ -9,11 +9,13 @@ $(".filter-breed").append(breeds);
 $(".filter-gender").append(genders);
 $(".filter-energy_level").append(energy_levels);
 $(".filter-ease_of_training").append(ease_of_trainings);
+$('#nodogsfound').hide();
 
 var filtersObject = {};
 
 // on search form submit
 function searchFilter() {    
+    $('#nodogsfound').hide();
     // make search not case sensitive
     var query = $("#search-form input").val().toLowerCase();
 	
@@ -29,7 +31,11 @@ function searchFilter() {
 		if (name.indexOf(query) > -1 || breed.indexOf(query) > -1 || gender.indexOf(query) > -1 || energy_level.indexOf(query) > -1 || ease_of_training.indexOf(query) > -1) {
 			$(this).show();
 		}
-	});  
+	});
+    
+    if($('#gallery').children(':visible').length == 0) {
+        $('#nodogsfound').show();
+    }
 }
 
 // upon clicking clear filter button to reset all filters
@@ -40,29 +46,20 @@ function clearFilter() {
      $(".filter-ease_of_training").val("")  
      $("#search-box").val("")  
 
-     $(".filter").change();
+    FilterItems(filtersObject, "breed", "");
+    FilterItems(filtersObject, "energy_level", "");
+    FilterItems(filtersObject, "gender", "");
+    FilterItems(filtersObject, "ease_of_training", "");
 }
 
-// action listeners 
-$("#reset-filter").click(function(){
-     clearFilter();
-})
-
-$("#search-form").submit(function(e) {
-    e.preventDefault();
-	searchFilter();
-});
-
-$(".filter").on("change",function () {
-    var filterName = $(this).data("filter"),
-		filterVal = $(this).val();
-	
-	if (filterVal == "") {
+function FilterItems(filtersObject, filterName, filterVal){
+    $('#nodogsfound').hide();
+    
+    if (filterVal == "") {
 		delete filtersObject[filterName];
 	} else {
 		filtersObject[filterName] = filterVal;
 	}
-	
 	var filters = "";
 	
 	for (var key in filtersObject) {
@@ -78,11 +75,42 @@ $(".filter").on("change",function () {
 		$(".product").hide();
 		$(".product").hide().filter(filters).show();
 	}
+    
+    if($('#gallery').children(':visible').length == 0) {
+        $('#nodogsfound').show();
+    }
+}
+
+
+// action listeners 
+$("#reset-filter").click(function(){
+    clearFilter();
+})
+
+$("#search-form").submit(function(e) {
+    e.preventDefault();
+	searchFilter();
+});
+
+$(".filter").on("change",function () {
+    var filterName = $(this).data("filter"),
+		filterVal = $(this).val();
+        
+    FilterItems(filtersObject, filterName, filterVal);
 });
 
 $(document).ready(function() {
     $(".filter").change();
+    jQuery.noConflict();
+    
+    $('#RequestFoundModal').modal('hide');
+        
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('error');
+    if(myParam == "pendingrequest_found") {
+        $('#RequestFoundModal').modal('show');
+    }
 });
 
 // export functions for testing
-module.exports = {clearFilter, searchFilter};
+module.exports = {clearFilter, searchFilter, FilterItems};

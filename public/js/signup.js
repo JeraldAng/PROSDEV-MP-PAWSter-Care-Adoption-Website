@@ -99,6 +99,23 @@ function checkPassword(inputPass){
       }
 }
 
+//check if email is valid
+function checkEmail(inputEmail){
+    var emailFormat = /\S+@\S+\.\S+/;
+    
+    if(inputEmail.match(emailFormat) && !/\s/.test(inputEmail)){
+        return true;
+    }
+    else{
+        $('#invalid-email').html("Email must follow the format: name@site.com").css('color', 'red');
+        return false;
+    }
+	
+	/*if(checkSpace.test(inputEmail)){
+		return true;
+	}*/
+}
+
 $(document).ready(function(){
     // check if username is already taken 
     $('#signupAlert').hide();
@@ -139,9 +156,14 @@ $(document).ready(function(){
     
     // inputs cannot be all whitespaces
     
+    // When the user starts to type something inside the email field
     email.onkeyup = function(){
-        if(!email.checkValidity()){
-            $('#invalid-email').html("Email must follow the format: name@site.com").css('color', 'red');  
+            var isValid = checkEmail(document.getElementById("email-address").value);
+        if(isValid){
+             document.getElementById('email-address').setCustomValidity("");     
+        }
+        else{
+            document.getElementById('email-address').setCustomValidity("Invalid field.");
         }
     }
             
@@ -167,6 +189,27 @@ $(document).ready(function(){
     }   
 });
 
+$(document).ready(function(){   
+// show password 
+    $("#showPasswordBtn").click(function(){
+        $("#showPasswordBtn").find('i').toggleClass('fa-eye-slash');
+        if($("#password").attr('type') == 'text'){
+            $("#password").attr('type', 'password');
+        }else{
+            $("#password").attr('type', 'text');
+        }   
+    });
+    
+    $("#showConfirmPasswordBtn").click(function(){
+        $("#showConfirmPasswordBtn").find('i').toggleClass('fa-eye-slash');
+        if($("#confirm-password").attr('type') == 'text'){
+            $("#confirm-password").attr('type', 'password');
+        }else{
+            $("#confirm-password").attr('type', 'text');
+        }   
+    }); 
+});
+
 
 (function() {
 'use strict';
@@ -187,4 +230,4 @@ form.classList.add('was-validated');
 })();
 
 // export functions for testing
-module.exports = {checkUsername, checkPassword};
+module.exports = {checkUsername, checkPassword, checkEmail};

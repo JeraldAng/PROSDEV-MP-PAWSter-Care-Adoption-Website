@@ -23,13 +23,98 @@
 //   }).setHeader('Invalid Input');
 // }
 
+// check if Firstname or Lastname is valid
+function checkName(inputName, whichName){
+    inputName = inputName.replace(/^\s+/, '').replace(/\s+$/, '');
+    
+    if(inputName.length == 0) {
+        // whichName can be any of the two for unit testing
+        if(whichName == "firstname")
+            $('#invalid-fname').html("First name cannot be empty or whitespace.").css('color', 'red'); 
+        else if (whichName == "lastname")
+            $('#invalid-lname').html("First name cannot be empty or whitespace.").css('color', 'red');     
+      
+        return false;    
+    } 
+    else{
+      return true;    
+    }    
+}
+
+//check if email is valid
+function checkEmail(inputEmail){
+    var emailFormat = /\S+@\S+\.\S+/;
+    
+    if(inputEmail.match(emailFormat) && !/\s/.test(inputEmail)){
+        return true;
+    }
+    else{
+        $('#invalid-email').html("Email must follow the format: name@site.com").css('color', 'red');
+        return false;
+    }
+}
+
+//check if email is valid
+function checkNum(inputNum){
+    var numFormat = /^[\d]+$/;
+    
+    if(inputNum.match(numFormat) && !/\s/.test(inputNum) && inputNum.length <= 11){
+        return true;
+    }
+    else{
+        $('#invalid-pnum').html("Invalid phone number.").css('color', 'red');
+        return false;
+    }
+}
+
+//check if Address is valid
+function checkAddress(inputAddress){
+    inputAddress = inputAddress.replace(/^\s+/, '').replace(/\s+$/, '');
+    
+    if(inputAddress.length == 0) {
+        $('#invalid-address').html("Address cannot be empty or whitespace.").css('color', 'red'); 
+        return false;    
+    } 
+    else{
+      return true;    
+    }    
+}
+
 $(document).ready(function(){
-  
+    
   var reqFirst = document.getElementById("reqFirst");
   var reqLast = document.getElementById("reqLast");
   var email = document.getElementById("reqEmail");
-  // var phone = document.getElementById("reqNum");
-  // var ph = new RegExp(/^(09|\+639)\d{9}$/);
+  var reqNum = document.getElementById("reqNum");
+  var reqAddress = document.getElementById("reqAddress");
+  //var ph = new RegExp(/^\d{10}$/);
+	// /^(?:\+?\d{2}[ -]?\d{3}[ -]?\d{5}|\d{4})$/
+	
+  reqNum.onkeyup = function() { 
+	var inputName = document.getElementById("reqNum");
+	var ph = /^[\d\-\(\)\+}]+$/;
+	  
+	if(!ph.test(inputName.value)  || /\s/.test(inputName.value) || inputName.value.length > 11){
+		document.getElementById('reqNum').setCustomValidity("Invalid field.");
+		$('#invalid-pnum').html("Please enter a valid phone number.").css('color', 'red');
+	}
+	else{
+		document.getElementById('reqNum').setCustomValidity("");
+	}   
+  }
+  
+  reqAddress.onkeyup = function() { 
+	var inputName = reqAddress.value;
+	inputName = inputName.replace(/^\s+/, '').replace(/\s+$/, '');
+	  
+	if(inputName.length == 0) {
+      document.getElementById('reqAddress').setCustomValidity("Invalid field.");
+      $('#invalid-address').html("Address cannot be empty or whitespace.").css('color', 'red');          
+    } 
+    else{
+      document.getElementById('reqAddress').setCustomValidity("");    
+    } 
+} 
 
   email.onkeyup = function(){
       if(!email.checkValidity()){
@@ -54,13 +139,12 @@ $(document).ready(function(){
     inputName = inputName.replace(/^\s+/, '').replace(/\s+$/, '');
     if(inputName.length == 0) {
       document.getElementById('reqLast').setCustomValidity("Invalid field.");
-      $('#invalid-lname').html("First name cannot be empty or whitespace.").css('color', 'red');          
+      $('#invalid-lname').html("Last name cannot be empty or whitespace.").css('color', 'red');          
     } 
     else{
       document.getElementById('reqLast').setCustomValidity("");    
     }    
   }
-
 
 
 });
@@ -80,3 +164,6 @@ $(document).ready(function(){
         });
       }, false);
 })();
+
+// export functions for testing
+module.exports = {checkName, checkEmail, checkAddress, checkNum};

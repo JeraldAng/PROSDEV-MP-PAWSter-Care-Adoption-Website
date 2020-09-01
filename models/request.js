@@ -1,10 +1,15 @@
 const mongoose = require("mongoose")
 
 var Request = mongoose.model("request", {             
+    reqDate: Date,
+    reqUserID: String,
     reqName: String,
     reqEmail: String,
+    reqAddress: String,
+    reqNum: String,
+    reqDogID: String,
     reqDog: String,
-    reqDogPic: String,
+    reqBreed: String,
     reqStatus: String
 })
 

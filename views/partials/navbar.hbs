@@ -1,4 +1,53 @@
 <!-- Navigation -->
+<div id="mymodal" class="modal fade">
+  <div class="modal-dialog modal-login mt-5" style="margin-top: 120px!important;">
+    <div class="modal-content">
+            <div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float:right;">
+                    <span aria-hidden="true">&times;&nbsp;</span>
+                </button>
+                <div><img src="/img/logo.png" style="height:30%; width: 30%; margin-left: 35%; margin-right: 40%;position: relative; top: -60px; margin-bottom: -60px;">
+                </div>
+                <div class="card-body">
+                    <h2 class="title chewy text-center text-brown">LOGIN</h2>
+                    <form action="login" method="post">
+                        <div class="row row-space">
+                            <div class="input-group">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
+                                </div>
+                                <input type="text" name="uname" class="form-control input_user" value="" placeholder="Username" maxlength="25" required>
+                            </div>
+                            <div class="input-group" style="margin-top: 10px!important;">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" style="width: 43px;"><i class="fa fa-lock ml-1"></i></span>
+                                </div>
+                                <input type="password" id="password" name="pass" class="form-control input_pass" value="" placeholder="Password" maxlength="25" required>
+                                <div class="input-group-append">
+                                        <button type="button" id ="showPasswordBtn" class="password input-group-text">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-center links" style="margin-top: 10px!important;">
+                            Don't have an account? <a href="signup.html">Sign Up!</a>
+                        </div>
+                        <div class=row>
+                        <div class="col-12">
+                            <input type="submit" name="button" class="btn btn--radius btn--orange login_btn cabin text-center text-white mt-2" value="Login" style="background-color:#f87d04!important;width: 100%!important;">
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer cg">
+                <button type="button" class="btn btn-secondary cg" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+  </div>
+</div>
 
   <nav class="navbar navbar-expand-lg navbar-custom fixed-top" id="mainNav">
     <div class="container">
@@ -21,14 +70,19 @@
           <li class="nav-item ml-1">
             <a class="nav-link" id="faq" href="faq">FAQs</a>
           </li>
-
-          <li class="nav-item ml-1">
+            
+          {{#if username}}
+            <li class="nav-item ml-1">
             <a class="nav-link" id="editprofile" href="profile">Profile</a>
-          </li>
-
-          <li class="nav-item ml-1">
-            <a class="nav-link" id="signout" href="login">Sign Out</a>
-          </li>
+            </li>
+            <li class="nav-item ml-1">
+              <a class="nav-link" id="signout" href="signout">Sign Out</a>
+            </li>
+          {{else}}
+            <li class="nav-item ml-1">
+              <a href="#mymodal" class="nav-link" data-toggle="modal">Login</a>
+            </li>
+          {{/if}}
 
           {{!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="profile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -59,3 +113,88 @@
       </div>
     </div>
   </nav>
+<body>
+<!--
+  <div id="SignupModal" class="modal fade">
+  <div class="modal-dialog modal-lg" style="margin-top: 120px!important;">
+    <div class="modal-content">
+            <div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float:right;">
+                    <span aria-hidden="true">&times;&nbsp;</span>
+                </button>
+                <div><img src="/img/logo.png" style="height:20%; width: 20%; margin-left: 40%; margin-right: 40%;position: relative; top: -90px; margin-bottom: -110px;">
+                </div>
+                    <div class="card-body">
+                    <h1 class="title chewy text-brown">SIGN UP</h1>
+                    <form class="needs-validation" novalidate action="signup" method="post">
+                        <div class="row row-space">
+                            <div class="col-6">
+                                <div class="input-group">
+                                    <div class="input-group-append">
+								    <span class="input-group-text"><i class="fa fa-user"></i></span>
+							        </div>
+                                    <input type="text" id="username" name="uname" class="form-control input_user" value="" type="text" placeholder="Username" maxlength="25" required>
+                                    <div id="invalid-username" class="invalid-feedback">invalid username</div>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <div class="input-group-append">
+								    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+							        </div>
+                                    <input name="pass" id="signup-password" type="password" class="form-control input_pass" value="" placeholder="Password" maxlength="25" required>
+                                    <div class="input-group-append">
+                                        <span id ="showPasswordBtn" class="password input-group-text">
+                                            <i class="fa fa-eye"></i>
+                                        </span>
+                                    </div> 
+                                    <div id="invalid-password" class="invalid-feedback">invalid password</div>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <div class="input-group-append">
+								    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+							        </div>
+                                    <input type="password" id="confirm-password" name="confirm-password" class="form-control input_confirm_pass" value="" placeholder="Confirm Password" maxlength="25" required> 
+                                    <div class="input-group-append">
+                                        <span id ="showConfirmPasswordBtn" class="password input-group-text">
+                                            <i class="fa fa-eye"></i>
+                                        </span>
+                                    </div> 
+                                </div>
+                                <div id="invalid-confirm-password"></div>   
+                            </div>
+                            <div class="col-6">
+                                <div class="input-group">
+                                    <div class="input-group-append">
+								    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+							        </div>
+                                    <input type="email" id="email-address" name="email" class="form-control input_email" value="" placeholder="Email Address" required>                 <div id="invalid-email" class="invalid-feedback">invalid email address</div> 
+                                </div>    
+                                <div id="password-requirements">
+                                <small>Your password should contain at least the following:</small>
+                                <small><p id="letter" class="invalid">A <b>lowercase</b> letter</p></small>
+                                <small><p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p></small>
+                                <small><p id="number" class="invalid">A <b>number</b></p></small>
+                                <small><p id="length" class="invalid">Minimum <b>8 characters</b></p></small>
+                                <small><p id="special" class="invalid">One special character</p></small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" role="alert" id="signupAlert">
+                            <p style="text-align: center;"></p>
+                        </div><br>
+                        <div class=row>
+                        <div class="col-12">
+                            <input type="submit" name="button" class="btn btn--radius btn--orange cabin text-center text-white mt-2" value="Create an account!" style="background-color:#f87d04!important;width: 100%!important;">
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer cg">
+                <button type="button" class="btn btn-secondary cg" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+  </div>
+</div>   -->
+</body>

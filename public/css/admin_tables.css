@@ -1,9 +1,33 @@
 html{
     height: 100%;
+    width: 100%;
 }
 
 body{
     min-height: 100%;
+}
+
+.table-container{
+    padding: 5%;
+}
+
+table{
+    margin-top: 8%;
+    padding: 2% 0%;
+    border: none!important;
+    table-layout: auto;
+    width: 100%!important;
+}
+
+table td{
+    text-align: center;
+    background-color: #F2EEE5!important;
+}
+
+table td, table th{
+    border-top-color: #F2EEE5!important;
+    border-color: #F2EEE5!important;
+    padding: 20px 0px;
 }
 
 .approved{
@@ -31,25 +55,10 @@ body{
 }
 
 .request-header{
-    background-color: rgb(192,192,192);
+    background-color: #F2EEE5;
 }
 
 .reqicon{
     height: 70px;
     width: 80px;
-}
-
-.lightbox-target:target {
-opacity: 1;
-top: 0;
-bottom: 0;
-}
-
-.lightbox-target:target img {
-max-height: 70%;
-max-width: 70%;
-}
-
-.lightbox-target:target a.lightbox-close {
-top: 9%;
 }

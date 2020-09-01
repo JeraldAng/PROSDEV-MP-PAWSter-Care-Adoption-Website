@@ -75,23 +75,25 @@
 <!-- Navigation -->
 {{> navbar}}
     <script>HighlightTab("profile")</script><br><br><br>
-<div class="container">
-	<div class="col-lg-12 paper-bg" id="source-html">
-    <h1 class="well text-center">Dog Adoption Form</h1>
-    <p><span style="color:red">*</span> - Required fields</p>
-    <img class="clip" src="../img/clip.png"/>
-    <form method="post" action="request" class="needs-validation" novalidate>
-
+<div class="container-fluid">
+	<div class="col-lg-12 request-wrap" id="source-html">    
+        <div class="card-1">
+            <div class="circle-tile">    
+                <div class="circle-tile-heading">
+                    <img src="img/dogbone-collar.png" />
+                </div>
+            </div>
+        <div class = "card-body request-block">    
+            <h1 class="well text-center request-header bubblegumsans">Dog Adoption Form</h1>
+            <form method="post" action="request" class="needs-validation cabin" novalidate>
                         {{!-- NAME --}}
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label>First Name<span style="color:red">*</span></label>
-                                <input type="text" placeholder="First Name" class="form-control" id="reqFirst" name="reqfirst" required>
+                                <input type="text" placeholder="First Name" class="form-control" id="reqFirst" name="reqFirst" required>
                                 <div class="invalid-feedback" id="invalid-fname">You need to fill up this field.</div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label>Last Name<span style="color:red">*</span></label>
-                                <input type="text" placeholder="Last Name" class="form-control" id="reqLast" name="reqlast" required>
+                                <input type="text" placeholder="Last Name" class="form-control" id="reqLast" name="reqLast" required>
                                 <div class="invalid-feedback" id="invalid-lname">You need to fill up this field.</div>
                             </div>
                         </div>
@@ -99,11 +101,10 @@
                         {{!-- CONTACT DETAIL --}}
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label>Mobile Phone Number</label>
-                                <input type="text" placeholder="Phone Number" class="form-control" id="reqNum"  name="reqNum">
+                                <input type="text" placeholder="Phone Number" class="form-control" id="reqNum"  name="reqNum" required>
+								<div class="invalid-feedback" id="invalid-pnum">Please put a valid phone number.</div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label>Email Address<span style="color:red">*</span></label>
                                 <input type="email" placeholder="Email Address" class="form-control" id="reqEmail" name="reqEmail" value="{{email}}" required>
                                 <div class="invalid-feedback" id="invalid-email">Please choose a valid email address.</div>
                             </div>
@@ -112,25 +113,36 @@
                         {{!-- ADDRESS and DOG --}}
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label>Address<span style="color:red">*</span></label>
                                 <textarea placeholder="Address" rows="3" class="form-control" id="reqAddress"  name="reqAddress" required></textarea>
-                                <div class="invalid-feedback">You need to fill up this field.</div>
+                                <div class="invalid-feedback" id="invalid-address">You need to fill up this field.</div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label>Your Pupper</label>
-                                <input type="text" placeholder="Dog Name.." class="form-control" value="{{dog.name}}" id="reqDog" name="reqDog" required readonly="readonly">
+                                <!--<input type="text" placeholder="Dog Name.." class="form-control" value="{dogname}" id="reqDog" name="reqDog" required readonly="readonly">-->
+                                
+						        <select placeholder="Dog Name.." class = "form-control" id="reqDog" name="reqDog" required>
+                                    <option value="" disabled>Select your dog</option>
+                                    <option value="{{currentdog._id}}" selected>{{currentdog.name}}</option>
+                                   {{#each dogs}}    
+                                  <option value="{{_id}}">{{name}}</option>
+                                  {{/each}}    
+                                </select>
+                                
+                                <!--<p><span style="color:red">*</span> - Required fields</p>-->
                             </div>
                         </div>
-                        <hr>
+                        <!--<input type = "hidden" value="{{dog._id}}" name= "reqDogID" id= "reqDogID">-->
+                        <input type = "hidden" value="{{userID}}" name= "reqUserID" id= "reqUserID">
                         <div>
-                            <label>Terms and Conditions</label>
                             <p>By sending this electronically, I agree to the terms and conditions listed under <a href="protocols">Protocols</a>.
                         </div>
-                    &nbsp;
-                    <input type="submit" class="btn btn-lg btn-primary" value="Submit Request">
-                    <a type="button" class="btn btn-lg btn-secondary" value="Cancel Adoption" href="dogs">Cancel Adoption</a>
+                <div class="btn-wrap">
+                    <input type="submit" class="btn btn-lg btn-submit bubblegumsans" value="Submit Request">  
+                    <a type="button" class="btn btn-lg btn-cancel bubblegumsans" value="Cancel Adoption" href="dogs">Cancel Adoption</a>
+                </div>
                 </form> 
+        </div>
 	   </div>
+        </div>
     </div>
     <br><br>
 {{> footer}}

@@ -38,9 +38,90 @@ section .section-title {
 
 #team .card {
     border: none;
-    background: #475E6C;
+    background: #FFFFFF;
     height: 360px;
-    color: #FFFFFF;
+    color: #475E6C;
+}
+
+
+.btn-outline-primary{
+    background-color:#6DAB3C!important;
+    text-decoration: none!important;
+    width: 100%;
+}
+
+.bg-beige{
+  background-color: #F2EEE5;
+}
+
+.bubblegumsans {
+    font-family: "Bubblegum Sans"!important;
+}
+
+.chewy {
+    font-family: "Chewy"!important;
+}
+
+.cabin{
+  font-family: "Cabin"!important;
+}
+
+.delius{
+    font-family: "Delius Regular"!important;
+}
+
+.caveat{
+    font-family: "Caveat"!important;
+}
+
+@font-face {
+    font-family: "Bubblegum Sans";
+    src: url("../vendor/fontawesome-free/webfonts/bubblegumsans.otf");
+}
+
+@font-face {
+    font-family: "Chewy";
+    src: url("../vendor/fontawesome-free/webfonts/chewy.ttf");
+}
+
+@font-face {
+    font-family: "Cabin";
+    src: url("../vendor/fontawesome-free/webfonts/cabin.ttf");
+}
+
+@font-face {
+    font-family: "Caveat";
+    src: url("../vendor/fontawesome-free/webfonts/caveat.ttf");
+}
+
+@font-face {
+    font-family: "Delius Swash Caps";
+    src: url("../vendor/fontawesome-free/webfonts/deliusswashcaps.ttf");
+}
+
+@font-face {
+    font-family: "Delius";
+    src: url("../vendor/fontawesome-free/webfonts/deliusregular.ttf");
+}
+
+.text-black{
+  color: black;
+}
+
+.text-brown{
+  color: #4B1C00;
+}
+
+.text-green{
+  color: #A3AD55;
+}
+
+.text-violet{
+  color: #A36EB9;
+}
+
+.text-blue{
+  color: #79B3CE;
 }
 
 .image-flip:hover .backside,
@@ -95,6 +176,7 @@ section .section-title {
     -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
     -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
     box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    height: 100%;
 }
 
 .frontside,
@@ -117,7 +199,11 @@ section .section-title {
 
 .frontside .card,
 .backside .card {
-    min-height: 312px;
+    min-height: 360px;
+    max-height: 360px;
+    min-width: 360px;
+    max-width: 360px;
+    height: 100%;
     margin: 0 auto;
 }
 
@@ -131,14 +217,15 @@ section .section-title {
 }
 
 .backside .card .card-body img {
-    width: 140px;
-    height: 100px;
+    height: 36%;
+    width: 40%;
     border-radius: 50%;
 }
 
 .frontside .card .card-title,
 .backside .card .card-title {
-    color: #FFFFFF !important;
+    color: #4B1C00 !important;
+    
 }
 
 .frontside .card .card-body img {
@@ -171,7 +258,7 @@ section .section-title {
 }
 
 .delete:hover, .delete:focus{
-     background-color: #d9534f;
+    background-color: #d9534f;
     border-color: #d9534f;
     box-shadow: none;
     outline: none;
@@ -182,8 +269,23 @@ section .section-title {
 }
 
 .filter-container{
-    background-image: url("../img/filterdogs-cover.png");
+    background-image: url("../img/meetthedogsbg.png");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.section-container{
+    background-image: url("../img/meetthedogsbg.png");
+}
+
+img{
+    object-fit: cover; 
+}
+
+#nodogsfound{
+    padding: 30px 30px;
+    text-align: center;
+    font-size: 50px;
+    margin: 0 auto;
 }
 
