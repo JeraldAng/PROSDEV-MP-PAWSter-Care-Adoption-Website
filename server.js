@@ -11,6 +11,7 @@ const {Feedback} = require("./models/feedback.js")
 const {Request} = require("./models/request.js")
 var upload = multer({dest: './public/uploads/'})
 var CryptoJS = require('crypto-js')
+var PORT = process.env.PORT || 3000;
 
 const app = express()
 const urlencoder = bodyparser.urlencoded({
@@ -892,6 +893,6 @@ app.get("*", (req, res) => {
     res.sendFile(__dirname + "/public/error.html")
 });
 
-app.listen(3000, function(){                  // read from this port
+app.listen(PORT, function(){                  // read from this port
     console.log("Now listening at port 3000!");
 })
