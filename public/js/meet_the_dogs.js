@@ -95,16 +95,14 @@ $("#search-form").submit(function(e) {
 $(".filter").on("change",function () {
     var filterName = $(this).data("filter"),
 		filterVal = $(this).val();
-    
-    console.log(filterName, filterVal);
-    
+        
     FilterItems(filtersObject, filterName, filterVal);
 });
 
 $(document).ready(function() {
     $(".filter").change();
+    jQuery.noConflict();
     
-    jQuery.noConflict(); 
     $('#RequestFoundModal').modal('hide');
         
     const urlParams = new URLSearchParams(window.location.search);

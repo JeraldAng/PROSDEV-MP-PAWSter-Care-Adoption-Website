@@ -152,7 +152,7 @@
                                     <div class="card-body text-center">
                                         <img src="../uploads/{{image}}" class="img-responsive img-back" onerror="this.onerror=null;this.src='../img/dog-not-found.png';" alt="card image">
                                         <h4 class="card-title cabin">{{name}}</h4>
-                                        <p class="card-text cabin" style="text-align: justify">{{description}}</p><br>
+                                        <p class="card-text cabin" style="text-align: justify;">{{description}}</p>
                                         <button class="edit btn btn-primary cabin" data-id="{{_id}}" style="background-color: #A3AD55!important;">Check this pup!</button>
                                     </div>
                                 </div>
@@ -164,11 +164,6 @@
             </div>
         </div>
     </section>
-    
-    <script>$(".filter-breed").val("{{selectbreed}}")
-            console.log({{selectbreed}})
-            $(".filter").change();
-    </script>
     
     <div id="RequestFoundModal" class="modal fade">
       <div class="modal-dialog modal-login mt-5" style="margin-top: 120px!important;">
@@ -191,15 +186,13 @@
       </div>
     </div>
     
-    <script>$(".filter-breed").val("{{selectbreed}}")
-            console.log({{selectbreed}})
-            $(".filter").change();
-    </script>
-    
 {{> footer}}
     
-    <script src='http://production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
-    <script src="js/meet_the_dogs.js"></script>
+    <script src="../js/meet_the_dogs.js"></script>
+    <script>
+        $(".filter-breed").val("{{selectbreed}}");                      
+        $(".filter").change();
+    </script>
     
     <form action="check" id="editform">
         <!-- just for the javascript function-->

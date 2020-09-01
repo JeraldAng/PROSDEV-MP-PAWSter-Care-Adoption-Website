@@ -123,7 +123,7 @@ app.get(["/", "/home", "homepage"], (req, res)=>{
 
 app.get("/signout", (req, res)=>{                                                          
         req.session.username = "";
-        res.render("homepage.hbs")
+        res.redirect("/home")
 })
 
 app.get("/dogs", (req, res)=>{
@@ -580,8 +580,11 @@ app.post("/signup", urlencoder, (req, res)=>{
 app.post("/edit_profile", urlencoder, (req, res)=>{
     var comparename = "null"
     var compareemail = "null"
+    var comparepass = "null"
     var currentname = req.session.username
     var currentemail = "null"
+    var currentpass = "null"
+    var changes = "";
         
     User.findOne({
         username: req.session.username
@@ -591,18 +594,22 @@ app.post("/edit_profile", urlencoder, (req, res)=>{
         }
         else{ 
             currentemail = doc.email
+            currentpass = doc.password
     
-            console.log("current name: ", currentname);
-            console.log("current email: ", currentemail);
-
-            // if user did not change email or username, do not compare these to the database
+            // if user did not change username, email, or password, do not compare these to the database
             if (currentname != req.body.uname)
                 comparename = req.body.uname
             if (currentemail != req.body.email)
                 compareemail = req.body.email
-
-            console.log("comapare name: ", comparename);
-            console.log("compare email: ", compareemail);
+            if (currentpass != CryptoJS.MD5(req.body.pass).toString())
+                comparepass = req.body.pass
+            
+            if(comparename != "null")
+                changes += "1"
+            if(compareemail != "null")
+                changes += "2"
+            if(comparepass != "null")
+                changes += "3"
             
             User.findOne({
                 $or: [ 
@@ -614,9 +621,6 @@ app.post("/edit_profile", urlencoder, (req, res)=>{
                         res.send(err)
                     }
                     else if(doc){
-                        console.log(doc.username, " comapare to ", req.body.uname);
-                        console.log(doc.email, " comapare to ", req.body.email);
-
                         if(doc.username == req.body.uname){
                             res.redirect("/editprofile?error=" + encodeURIComponent('username_taken'));
                         }
@@ -636,7 +640,7 @@ app.post("/edit_profile", urlencoder, (req, res)=>{
                                }
                                 else{
                                     req.session.username = req.body.uname
-                                    res.redirect("/profile")
+                                    res.redirect("/profile?changes=" + encodeURIComponent(changes));
                                 }
                             }),(err)=>{
                             res.send(err)
@@ -656,7 +660,7 @@ app.post("/edit_profile", urlencoder, (req, res)=>{
                                }
                                 else{
                                     req.session.username = req.body.uname
-                                    res.redirect("/profile")
+                                    res.redirect("/profile?changes=" + encodeURIComponent(changes));
                                 }
                             }),(err)=>{
                             res.send(err)
