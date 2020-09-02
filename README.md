@@ -1,14 +1,14 @@
 ![PAWSter Care](https://cdn.discordapp.com/attachments/734659959794565223/750706927708799016/header-readme.png)
 > This is the major course requirement for the subject Professional Software Development (PROSDEV). 
 # 🐾PAWSter Care
-PAWSter Care is a dog adoption website that allows users to view at and adopt dogs. Users must register for them to be able to adopt dogs, but are free to view them even without an account. Adopting a dog requires the user answering a form. All pending adoption requests may be viewed in their profile.
+PAWSter Care is a dog adoption website that allows users to browse and adopt dogs. Users must register for them to be able to adopt dogs, but are free to view them even without an account. Adopting a dog requires the user answering a form. All pending adoption requests may be viewed in their profile.
 Users may also fill up feedback forms about the services, as well as about the dog/s that they have adopted/will adopt. Aside from that, they may view and edit their profile.
 <hr>
 
-# Table of Contents
+# 📚Table of Contents
 * [Team Members](#team-members)
 * [Project Demo](#project-demo)
-* [Typers of Users] (#types-of-users)
+* [Types of Users] (#types-of-users)
 * [Requirements] (#requirements)
 
 ## ✨Team Members
@@ -24,8 +24,11 @@ Users may also fill up feedback forms about the services, as well as about the d
 <a name="project-demo"></a>
 ![PAWSter Care Home](https://cdn.discordapp.com/attachments/734659959794565223/750723709609836645/pawsterhome.gif)
 When a user visits the website, he/she is greeted with the homepage, where the user must login or signup if he/she wants to adopt a dog, or simply scroll through the website as a guest if the user just wants to browse the basic features of PAWSter Care.
+![PAWSter Care View](https://cdn.discordapp.com/attachments/734659959794565223/750726895447965786/scroll.gif)
+All our dogs can be viewed from the Meet the Dogs page, where users can make use of the filter/search bar to look for a specific dog in case they have one in mind, or they may simply click on the dog card which will lead to the specific dog page. 
+![PAWSter Care View](https://cdn.discordapp.com/attachments/734659959794565223/750729330086117416/dexter.gif)
 
-### 🕵🏻‍♂️Types of users
+## 🕵🏻‍♂️Types of users
 <a name="types-of-users"></a>
 1. Administrator/Manager
 
@@ -45,6 +48,7 @@ When a user visits the website, he/she is greeted with the homepage, where the u
 
     That is as much as they can do. To access the other user-related features of the website, they must register an account and log in. Guests register with their first and last name, a valid email address, and a password.
 
+## ✏Requirements
 ## Setting Up
 ### Installation 
 1. Run `npm install jest` to install Jest for unit testing.
