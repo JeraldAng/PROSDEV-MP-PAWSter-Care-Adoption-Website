@@ -22,7 +22,7 @@ Users may also fill up feedback forms about the services, as well as about the d
 
 ## 💻Project Demo
 <a name="project-demo"></a>
-###🐶User Side
+### 🐶User Side
 ![PAWSter Care Home](https://cdn.discordapp.com/attachments/734659959794565223/750732658299895859/login.gif)
 When a user visits the website, he/she is greeted with the homepage, where the user must login or signup if he/she wants to adopt a dog, or simply scroll through the website as a guest if the user just wants to browse the basic features of PAWSter Care.
 
@@ -37,7 +37,7 @@ The user may adopt the chosen dog by clicking the "Adopt Now" button on the righ
 PAWSter Care also offers pages that aims to enlighten its guests in case they have any questions or concerns, they may visit the FAQS page, Protocols page, Policies page, About PAWSter Care page, or submit feedback using the Feedback Form page.
 <img src="public/img/faqs.gif?raw=true" width="1000px">
 
-###🙋‍♂️Admin Side
+### 🙋‍♂️Admin Side
 <img src="public/img/admin.gif?raw=true" width="1000px">
 An admin can login to the website with the right credentials, and upon logging in, will be greeted with the admin dashboard. 
 
