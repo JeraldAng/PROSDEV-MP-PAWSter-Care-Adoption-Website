@@ -8,12 +8,12 @@
 
 ## Team Members
 <a name="team-members"></a>
-* 👩PM: Marjorie Lua
-* 👨DEV: Jerald Ang
-* 👩DEV: Dyonne Macalino
-* 👨DEV: Jomari Morales
-* 👩QA: Francine Sia
-* 👨QA: Jeremy Coronia
+* 👩🏻‍🎓PM: Marjorie Lua
+* 👨🏻‍🎓DEV: Jerald Ang
+* 👩🏻‍🎓DEV: Dyonne Macalino
+* 👨🏻‍🎓DEV: Jomari Morales
+* 👩🏻‍🎓QA: Francine Sia
+* 👨🏻‍🎓QA: Jeremy Coronia
 
 ## Group Members
 1. [Project Manager] Marjorie Lua
