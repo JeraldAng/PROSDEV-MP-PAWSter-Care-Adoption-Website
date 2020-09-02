@@ -1,4 +1,4 @@
- /*function previewFile(){
+ function previewFile(){
        var preview = document.getElementById('upload_ID'); //selects the query named img
        var file    = document.querySelector('input[type=file]').files[0]; //sames as here
        var reader  = new FileReader();
@@ -14,7 +14,7 @@
        }
   }
 
-  previewFile();  //calls the function named previewFile()   */
+  previewFile();  //calls the function named previewFile()   
 
 
 // check if Dog's Name is valid
