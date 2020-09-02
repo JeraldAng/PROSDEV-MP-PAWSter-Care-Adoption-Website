@@ -8,7 +8,7 @@
 
 ## Team Members
 <a name="team-members"></a>
-* 👩🏻‍🎓PM: Marjorie Lua
+* 👩🏻‍🎓 <b>PM:</b> Marjorie Lua
 * 👨🏻‍🎓DEV: Jerald Ang
 * 👩🏻‍🎓DEV: Dyonne Macalino
 * 👨🏻‍🎓DEV: Jomari Morales
