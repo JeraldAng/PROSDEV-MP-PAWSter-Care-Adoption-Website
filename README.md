@@ -29,6 +29,12 @@ When a user visits the website, he/she is greeted with the homepage, where the u
 All our dogs can be viewed from the Meet the Dogs page, where users can make use of the filter/search bar to look for a specific dog in case they have one in mind, or they may simply click on the dog card which will lead to the specific dog page. 
 
 ![PAWSter Care Dogs](https://cdn.discordapp.com/attachments/734659959794565223/750731179442962522/unknown.png)
+The user may adopt the chosen dog by clicking the "Adopt Now" button on the right side, or may go back to the meet the dogs page. Choosing the "Adopt Now" option will lead to the Adoption Form page where the user can fill up the form to request for the specific dog. 
+
+![PAWSter Care Adoption](https://cdn.discordapp.com/attachments/734659959794565223/750734641669079080/unknown.png)
+
+PAWSter Care also offers pages that aims to enlighten its guests in case they have any questions or concerns, they may visit the FAQS page, Protocols page, Policies page, About PAWSter Care page, or submit feedback using the Feedback Form page.
+![PAWSter Care FAQs](https://cdn.discordapp.com/attachments/734659959794565223/750734985924706374/faqs.gif)
 
 ## 🕵🏻‍♂️Types of users
 <a name="types-of-users"></a>
@@ -51,7 +57,7 @@ All our dogs can be viewed from the Meet the Dogs page, where users can make use
     That is as much as they can do. To access the other user-related features of the website, they must register an account and log in. Guests register with their first and last name, a valid email address, and a password.
 
 ## ✏Requirements
-## Setting Up
+<a name="requirements"></a>
 ### Installation 
 1. Run `npm install jest` to install Jest for unit testing.
 3. Ensure that you have MongoDB installed and set up on your system. 
