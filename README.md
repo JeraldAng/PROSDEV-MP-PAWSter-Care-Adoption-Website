@@ -34,7 +34,7 @@ The user may adopt the chosen dog by clicking the "Adopt Now" button on the righ
 ![PAWSter Care Adoption](https://cdn.discordapp.com/attachments/734659959794565223/750734641669079080/unknown.png)
 
 PAWSter Care also offers pages that aims to enlighten its guests in case they have any questions or concerns, they may visit the FAQS page, Protocols page, Policies page, About PAWSter Care page, or submit feedback using the Feedback Form page.
-<img src="/public/img/faqs.gif">
+<img src="public/img/faqs.gif">
 
 ## 🕵🏻‍♂️Types of users
 <a name="types-of-users"></a>
