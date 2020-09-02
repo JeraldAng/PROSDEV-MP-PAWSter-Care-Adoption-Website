@@ -54,7 +54,7 @@ function clearFilter() {
 
 function FilterItems(filtersObject, filterName, filterVal){
     $('#nodogsfound').hide();
-    
+    console.log("filter effective")
     if (filterVal == "") {
 		delete filtersObject[filterName];
 	} else {

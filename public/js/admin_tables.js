@@ -3,7 +3,17 @@ jQuery(document).ready(function($) {
     
     $('#DogTable').DataTable();
     
-    $('#FeedbackTable').DataTable();
+    $('#FeedbackTable').DataTable({
+        columnDefs: [ {
+            orderable: false,
+            className: 'select-checkbox'
+        } ],
+        select: {
+            style:    'multi',
+            selector: 'input'
+        },
+        order: [[ 1, 'asc' ]],
+    });
     
     $('#RequestsTable').DataTable( {
         columnDefs: [ {
@@ -11,10 +21,9 @@ jQuery(document).ready(function($) {
             className: 'select-checkbox'
         } ],
         select: {
-            style:    'os',
-            selector: 'td'
+            style:    'multi',
+            selector: 'input'
         },
         order: [[ 1, 'asc' ]],
     } );
-    
 } );

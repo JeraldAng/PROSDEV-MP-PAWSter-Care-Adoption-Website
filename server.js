@@ -9,7 +9,7 @@ const {User} = require("./models/user.js")
 const {Dog} = require("./models/dog.js")
 const {Feedback} = require("./models/feedback.js")
 const {Request} = require("./models/request.js")
-var upload = multer({dest: './public/uploads/'})
+var upload = multer({dest: '../public/uploads/'})
 var CryptoJS = require('crypto-js')
 var PORT = process.env.PORT || 3000;
 var uristring =
@@ -98,9 +98,7 @@ hbs.registerPartials(__dirname + "/views/partials")
 
 app.get(["/", "/home", "/homepage"], (req, res)=>{                                                          
     if (req.session.username == "admin"){
-       res.render("admin_main.hbs", {
-            username: req.session.username
-        })
+       res.redirect("/admin_main")
     }
     else{
         Feedback.aggregate([
@@ -490,7 +488,7 @@ app.get("/admin_dogTable", (req, res)=>{
     }
 })
 
-app.get("/admin_feedbackTable", (req, res)=>{
+app.get("/admin_feedback", (req, res)=>{
     if(req.session.username == "admin"){
         Feedback.find({
 
@@ -499,7 +497,7 @@ app.get("/admin_feedbackTable", (req, res)=>{
                 res.send(err)
             }
             else{                                 
-                res.render("../views/admin_feedbackTable.hbs", {
+                res.render("../views/admin_feedback.hbs", {
                     feedbacks: doc
                 })
             }  
@@ -877,8 +875,8 @@ app.post("/feedbackform", urlencoder, (req, res)=>{
 
 })
 
-app.post("/delete", urlencoder, (req, res)=>{
-    console.log("POST /delete " + req.body.id)
+app.post("/delete-dog", urlencoder, (req, res)=>{
+    console.log("POST /delete-dog " + req.body.id)
     Dog.deleteOne({
         _id: req.body.id
     }, (err, doc)=>{
@@ -887,6 +885,36 @@ app.post("/delete", urlencoder, (req, res)=>{
         }
         else{
 //            res.redirect("/users")
+            console.log(doc)
+            res.send(doc)
+        }
+    })
+})
+
+app.post("/delete-request", urlencoder, (req, res)=>{
+    console.log("POST /delete-request " + req.body.id)
+    Request.deleteOne({
+        _id: req.body.id
+    }, (err, doc)=>{
+        if (err){
+            res.send(err)
+        }
+        else{
+            console.log(doc)
+            res.send(doc)
+        }
+    })
+})
+
+app.post("/delete-feedback", urlencoder, (req, res)=>{
+    console.log("POST /delete-feedback " + req.body.id)
+    Feedback.deleteOne({
+        _id: req.body.id
+    }, (err, doc)=>{
+        if (err){
+            res.send(err)
+        }
+        else{
             console.log(doc)
             res.send(doc)
         }
