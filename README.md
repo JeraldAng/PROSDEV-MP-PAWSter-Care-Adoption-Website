@@ -1,4 +1,4 @@
-# ![PAWSter Care Logo](https://cdn.discordapp.com/attachments/734659959794565223/750610485120073748/logo.png) PAWSter Care
+# ![PAWSter Care Logo](https://cdn.discordapp.com/attachments/734659959794565223/750610952134852648/logo.png) PAWSter Care
 This is the major course requirement for the subject PROSDEV. 
 
 ## Group Members
