@@ -92,7 +92,7 @@ app.use(session({
 
 hbs.registerPartials(__dirname + "/views/partials")
 
-app.get(["/", "/home", "homepage"], (req, res)=>{                                                          
+app.get(["/", "/home", "/homepage"], (req, res)=>{                                                          
     if (req.session.username == "admin"){
        res.render("admin_main.hbs", {
             username: req.session.username
@@ -135,7 +135,7 @@ app.get("/dogs", (req, res)=>{
                 res.send(err)
             }
             else{                                 
-                res.render("meet_the_dogs.hbs", {
+                res.render("../views/meet_the_dogs.hbs", {
                     username: req.session.username,
                     db: doc
                 })
@@ -180,7 +180,7 @@ app.get("/filter", (req, res)=>{
 })
 
 app.get("/policies", (req, res)=>{
-    res.render("policies.hbs", {
+    res.render("../views/policies.hbs", {
         username: req.session.username
     })
 })
