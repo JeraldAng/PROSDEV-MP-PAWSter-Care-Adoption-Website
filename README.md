@@ -8,7 +8,7 @@ Users may also fill up feedback forms about the services, as well as about the d
 # 📚Table of Contents
 * [Team Members](#team-members)
 * [Project Demo](#project-demo)
-* [Types of Users] (#types-of-users)
+* [Types of Users] (#users)
 * [Requirements] (#requirements)
 
 ## ✨Team Members
