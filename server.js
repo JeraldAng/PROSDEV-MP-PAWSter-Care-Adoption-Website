@@ -12,6 +12,10 @@ const {Request} = require("./models/request.js")
 var upload = multer({dest: './public/uploads/'})
 var CryptoJS = require('crypto-js')
 var PORT = process.env.PORT || 3000;
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    "mongodb://localhost:27017/PAWSter_Care_db";
 
 const app = express()
 const urlencoder = bodyparser.urlencoded({
@@ -19,7 +23,7 @@ const urlencoder = bodyparser.urlencoded({
 })
 
 mongoose.Promise = global.Promise
-mongoose.connect("mongodb://localhost:27017/PAWSter_Care_db", {
+mongoose.connect(uristring, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
 }).then(() => {
