@@ -1,5 +1,15 @@
-# ![PAWSter Care Logo](https://cdn.discordapp.com/attachments/734659959794565223/750610952134852648/logo.png) PAWSter Care
-This is the major course requirement for the subject PROSDEV. 
+![PAWSter Care](https://cdn.discordapp.com/attachments/734659959794565223/750706927708799016/header-readme.png)
+# PAWSdev S16
+> This is the major course requirement for the subject PROSDEV. 
+
+* [Team Members] (#team-members)
+<a name="team-members"></a>Team Members
+* PM: Marjorie Lua
+* DEV: Jerald Ang
+* DEV: Dyonne Macalino
+* DEV: Jomari Morales
+* QA: Francine Sia
+* QA: Jeremy Coronia
 
 ## Group Members
 1. [Project Manager] Marjorie Lua
