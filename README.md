@@ -17,7 +17,7 @@ Users may also fill up feedback forms about the services, as well as about the d
 * 👨🏻‍🎓 <b>DEV:</b> Jerald Ang [@JeraldAng](https://github.com/JeraldAng)
 * 👩🏻‍🎓 <b>DEV:</b> Dyonne Macalino [@Dyonne](https://github.com/dyonne-mio)
 * 👨🏻‍🎓 <b>DEV:</b> Jomari Morales [@JomariAlexMP](https://github.com/JomariAlexMP)
-* 👩🏻‍🎓 <b>QA:</b> Francine Sia [@FrancineSia]()
+* 👩🏻‍🎓 <b>QA:</b> Francine Sia [@FrancineSia](https://github.com/siafrancine)
 * 👨🏻‍🎓 <b>QA:</b> Jeremy Coronia [@JeremyCoronia](https://github.com/JeremyCoronia)
 
 ## 💻Project Demo
