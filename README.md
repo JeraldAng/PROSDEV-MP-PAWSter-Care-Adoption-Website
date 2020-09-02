@@ -1,5 +1,5 @@
 # PAWSter Care
-[![Build Status](https://travis-ci.org/doge/wow.svg)](https://travis-ci.org/doge/wow)
+[![Build Status](https://cdn.discordapp.com/attachments/734659959794565223/750609135950626866/passing.JPG)](https://github.com/JeraldAng/PROSDEV-MP)
 [![Dependency Status](http://img.shields.io/gemnasium/doge/wow.svg)](https://gemnasium.com/doge/wow)
 [![Coverage Status](http://img.shields.io/coveralls/doge/wow.svg)](https://coveralls.io/r/doge/wow)
 [![Gem Version](http://img.shields.io/gem/v/suchgem.svg)](https://rubygems.org/gems/suchgem)
