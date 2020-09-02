@@ -22,7 +22,7 @@ Users may also fill up feedback forms about the services, as well as about the d
 
 ## 💻Project Demo
 <a name="project-demo"></a>
-![PAWSter Care Home](https://cdn.discordapp.com/attachments/732102749243703418/750732163262972094/login.gif)
+![PAWSter Care Home](https://cdn.discordapp.com/attachments/734659959794565223/750732658299895859/login.gif)
 When a user visits the website, he/she is greeted with the homepage, where the user must login or signup if he/she wants to adopt a dog, or simply scroll through the website as a guest if the user just wants to browse the basic features of PAWSter Care.
 
 ![PAWSter Care View](https://cdn.discordapp.com/attachments/734659959794565223/750730991173238824/unknown.png)
