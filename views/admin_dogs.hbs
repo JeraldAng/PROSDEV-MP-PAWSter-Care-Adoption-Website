@@ -136,6 +136,21 @@
     <!-- Team -->
     <section id="team" class="pb-5" style="margin-top: -6%;">
         <div class="container">
+            <div class="container mb-5">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="bubblegumsans text-left text-brown mt-5">The Kennel</h1>
+                        </div>
+                        <div class="col mt-5">
+                            <a href="admin_add_dog" class="custom-card">
+                                <button class="btn btn-block btn-primary bubblegumsans text-white" style="background: #6DAB3C!important; width:150px!important;float: right;">Add Dog</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                    </div>
+                </div>
+            
             <div class="row gallery" id="gallery">
                 <!--
             <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
@@ -152,21 +167,8 @@
                 </div>
             </div>
 -->
-                <div class="container mb-5">
-                    <div class="row">
-                        <div class="col">
-                            <h1 class="bubblegumsans text-left text-brown mt-5">The Kennel</h1>
-                        </div>
-                        <div class="col mt-5">
-                            <a href="admin_add_dog" class="custom-card">
-                                <button class="btn btn-block btn-primary bubblegumsans text-white" style="background: #6DAB3C!important; width:150px!important;float: right;">Add Dog</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                    </div>
-                </div>
                 <!-- Team member -->
+                <div id="nodogsfound" class="bubblegumsans"><div><span class="text-orange">Oops!</span> No dogs found!</div></div>
                 {{#each db}}
                 <span data-id="{{_id}}" data-name="{{name}}" data-breed="{{breed}}" data-gender="{{gender}}" data-energy_level="{{energy_level}}" data-ease_of_training="{{ease_of_training}}" class="col-xs-12 col-sm-6 col-md-4  product">
                     <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
@@ -174,7 +176,7 @@
                             <div class="frontside">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <img class="img-fluid" src="../uploads/{{image}}" alt="card image" /><br><br>
+                                        <img class="img-fluid" src="../uploads/{{image}}" onerror="this.onerror=null;this.src='../img/dog-not-found.png';" alt="card image" /><br><br>
                                         <h4 class="bubblegumsans card-title text-brown" style="display: inline">{{name}}</h4>
                                         <img src="../img/{{gender}}.png" style="height:20px; width: 20px; display: inline" />
                                         <p class="bubblegumsans card-text text-brown">the {{breed}}</p>
@@ -185,9 +187,9 @@
                             <div class="backside">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <img src="../uploads/{{image}}" alt="card image" style="height: 36%;">
+                                        <img src="../uploads/{{image}}" alt="card image" onerror="this.onerror=null;this.src='../img/dog-not-found.png';" style="height: 36%;">
                                         <h4 class="card-title">{{name}}</h4>
-                                        <p class="card-text" style="text-align: justify">{{description}}</p><br>
+                                        <p class="card-text" style="text-align: justify">{{description}}</p>
                                         <button class="cabin edit btn btn-primary" data-id="{{_id}}" style="background: #6DAB3C!important;">Edit Dog Info</button>
                                         <button class="btn btn-primary btn-danger delete cabin" data-id="{{_id}}"><span class="fa fa-window-close"></span> Remove me!</button>
                                     </div>
@@ -234,7 +236,7 @@
         <!-- just for the javascript function-->
         <input type="hidden" name="id" id="editid">
     </form>
-    <form action="delete" id="deleteform" method="post">
+    <form action="delete-dog" id="deleteform" method="post">
         <!-- just for the javascript function-->
         <input type="hidden" name="id" id="deleteid">
     </form>

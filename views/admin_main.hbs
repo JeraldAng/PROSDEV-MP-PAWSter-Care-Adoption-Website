@@ -153,7 +153,7 @@
                                     <div class="card-body text-center">
                                         <img src="../uploads/{{image}}" class="img-responsive img-back"  onerror="this.onerror=null;this.src='../img/dog-not-found.png';" alt="card image">
                                         <h4 class="card-title cabin">{{name}}</h4>
-                                        <p class="card-text cabin" style="text-align: justify">{{description}}</p><br>
+                                        <p class="card-text cabin" style="text-align: justify">{{description}}</p>
                                         <button class="cabin edit btn btn-primary" data-id="{{_id}}" style="background: #6DAB3C!important;">Edit Dog Info</button>
                                         <button class="btn btn-primary btn-danger delete cabin" data-id="{{_id}}"><span class="fa fa-window-close"></span> Remove me!</button>
                                     </div>
@@ -180,7 +180,7 @@
         <!-- just for the javascript function-->
         <input type="hidden" name="id" id="editid">
     </form>
-    <form action="delete" id="deleteform" method="post">
+    <form action="delete-dog" id="deleteform" method="post">
         <!-- just for the javascript function-->
         <input type="hidden" name="id" id="deleteid">
     </form>

@@ -26,4 +26,27 @@ $(document).ready(function(){
         tr.style.backgroundColor = "#F2EEE5";
         $("tbody").append(tr);
     }
+    
+    $('#ChangesSavedModal').modal('hide');
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('changes');
+    
+    // myParam determines whether it is username or email that's taken
+    if(myParam != "") {
+        $('#changes-modal-text').append("Your profile has been successfully updated. The system has detected the following changes:<br>"); 
+        if(myParam.includes("1"))
+            $('#changes-modal-text').append("<br>username");
+        if(myParam.includes("2"))
+            $('#changes-modal-text').append("<br>email address");
+        if(myParam.includes("3"))
+            $('#changes-modal-text').append("<br>password");
+        
+        $('#ChangesSavedModal').modal('show');
+    }
+    else{
+        $('#changes-modal-header').html("No changes detected!");
+        $('#changes-modal-text').append("Your profile information is unchanged."); 
+        $('#ChangesSavedModal').modal('show');
+    }
+    
 });

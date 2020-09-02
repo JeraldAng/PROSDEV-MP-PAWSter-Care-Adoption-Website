@@ -9,8 +9,13 @@ const {User} = require("./models/user.js")
 const {Dog} = require("./models/dog.js")
 const {Feedback} = require("./models/feedback.js")
 const {Request} = require("./models/request.js")
-var upload = multer({dest: './public/uploads/'})
+var upload = multer({dest: '../public/uploads/'})
 var CryptoJS = require('crypto-js')
+var PORT = process.env.PORT || 3000;
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    "mongodb://localhost:27017/PAWSter_Care_db";
 
 const app = express()
 const urlencoder = bodyparser.urlencoded({
@@ -18,7 +23,7 @@ const urlencoder = bodyparser.urlencoded({
 })
 
 mongoose.Promise = global.Promise
-mongoose.connect("mongodb://localhost:27017/PAWSter_Care_db", {
+mongoose.connect(uristring, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
 }).then(() => {
@@ -91,11 +96,9 @@ app.use(session({
 
 hbs.registerPartials(__dirname + "/views/partials")
 
-app.get(["/", "/home", "homepage"], (req, res)=>{                                                          
+app.get(["/", "/home", "/homepage"], (req, res)=>{                                                          
     if (req.session.username == "admin"){
-       res.render("admin_main.hbs", {
-            username: req.session.username
-        })
+       res.redirect("/admin_main")
     }
     else{
         Feedback.aggregate([
@@ -106,13 +109,13 @@ app.get(["/", "/home", "homepage"], (req, res)=>{
                 }
                 else{                                 
                     if (req.session.username){
-                        res.render("homepage.hbs", {
+                        res.render("../views/homepage.hbs", {
                             username: req.session.username,
                             feedback: doc
                         })
                     }
                     else{
-                        res.render("homepage.hbs", {
+                        res.render("../views/homepage.hbs", {
                             feedback: doc
                         })
                     }
@@ -123,7 +126,7 @@ app.get(["/", "/home", "homepage"], (req, res)=>{
 
 app.get("/signout", (req, res)=>{                                                          
         req.session.username = "";
-        res.render("homepage.hbs")
+        res.redirect("/home")
 })
 
 app.get("/dogs", (req, res)=>{
@@ -134,7 +137,7 @@ app.get("/dogs", (req, res)=>{
                 res.send(err)
             }
             else{                                 
-                res.render("meet_the_dogs.hbs", {
+                res.render("../views/meet_the_dogs.hbs", {
                     username: req.session.username,
                     db: doc
                 })
@@ -153,7 +156,7 @@ app.get("/check", (req, res)=>{                // just find the user given the i
             res.send(err)
         }
         else{                                 // send all details of the user to edit.hbs
-            res.render("check_dog.hbs", {
+            res.render("../views/check_dog.hbs", {
                 username: req.session.username,
                 dog: doc
             })
@@ -169,7 +172,7 @@ app.get("/filter", (req, res)=>{
                 res.send(err)
             }
             else{                                 
-                res.render("meet_the_dogs.hbs", {
+                res.render("../views/meet_the_dogs.hbs", {
                     username: req.session.username,
                     db: doc,
                     selectbreed: req.query.id
@@ -179,32 +182,32 @@ app.get("/filter", (req, res)=>{
 })
 
 app.get("/policies", (req, res)=>{
-    res.render("policies.hbs", {
+    res.render("../views/policies.hbs", {
         username: req.session.username
     })
 })
 
 app.get("/protocols", (req, res)=>{
-    res.render("protocols.hbs", {
+    res.render("../views/protocols.hbs", {
         username: req.session.username
     })
 })
 
 app.get("/contact", (req, res)=>{
-    res.render("contact.hbs", {
+    res.render("../views/contact.hbs", {
         username: req.session.username
     })
 })
 
 app.get("/feedbackform", (req, res)=>{
-    res.render("feedbackform.hbs", {
+    res.render("../views/feedbackform.hbs", {
         username: req.session.username
     })
 })
 
 app.get("/requestform", (req, res)=>{
     if (req.session.username){
-        res.render("requestform.hbs", {
+        res.render("../views/requestform.hbs", {
             username: req.session.username
         })
     }
@@ -240,7 +243,7 @@ app.get("/profile", (req, res)=>{
                                 res.send(err)
                             }
                             else{  
-                                res.render("profile.hbs", {
+                                res.render("../views/profile.hbs", {
                                     username: req.session.username,
                                     email: email,
                                     reqList: reqList,
@@ -286,7 +289,7 @@ app.get("/request_dog", (req, res)=>{
                                     res.send(err)
                                 }
                                 else{                                 
-                                        res.render("requestform.hbs", {
+                                        res.render("../views/requestform.hbs", {
                                         username: req.session.username,        
                                         currentdog: selected,
                                         email: email,
@@ -306,13 +309,13 @@ app.get("/request_dog", (req, res)=>{
 })
 
 app.get("/faq", (req, res)=>{
-    res.render("faq.hbs", {
+    res.render("../views/faq.hbs", {
         username: req.session.username
     })
 })
 
 app.get("/aboutus", (req, res)=>{
-    res.render("aboutus.hbs", {
+    res.render("../views/aboutus.hbs", {
         username: req.session.username
     })
 })
@@ -326,7 +329,7 @@ app.get("/editprofile", (req, res)=>{
                 res.send(err)
             }
             else{
-                res.render("edit_profile.hbs", {
+                res.render("../views/edit_profile.hbs", {
                     username: req.session.username,        
                     email: doc.email
                 })
@@ -355,7 +358,7 @@ app.get("/admin_main", (req, res)=>{
                         res.send(err)
                     }
                     else{
-                        res.render("admin_main.hbs", {
+                        res.render("../views/admin_main.hbs", {
                             username: req.session.username,
                             dogs: doc,
                             requests: requests
@@ -379,7 +382,7 @@ app.get("/admin_dogs", (req, res)=>{
                 res.send(err)
             }
             else{                                 
-                res.render("admin_dogs.hbs", {
+                res.render("../views/admin_dogs.hbs", {
                     db: doc
                 })
             }
@@ -392,7 +395,7 @@ app.get("/admin_dogs", (req, res)=>{
 
 app.get("/admin_add_dog", (req, res)=>{
     if(req.session.username == "admin"){
-        res.render("admin_add_dog.hbs", {
+        res.render("../views/admin_add_dog.hbs", {
             username: req.session.username
         })
     }
@@ -413,7 +416,7 @@ app.get("/edit", (req, res)=>{                // just find the user given the id
                 res.send(err)
             }
             else{                                 // send all details of the user to edit.hbs
-                res.render("admin_edit_dog.hbs", {
+                res.render("../views/admin_edit_dog.hbs", {
                     dog: doc
                 })
             }
@@ -434,7 +437,7 @@ app.get("/admin_requests", (req, res)=>{
             }
             else{  
 
-                res.render("admin_requests.hbs", {
+                res.render("../views/admin_requests.hbs", {
                     requests: doc
            })
         }
@@ -454,7 +457,7 @@ app.get("/admin_userTable", (req, res)=>{
                 res.send(err)
             }
             else{                                 
-                res.render("admin_userTable.hbs", {
+                res.render("../views/admin_userTable.hbs", {
                     users: doc
                 })
             }  
@@ -474,7 +477,7 @@ app.get("/admin_dogTable", (req, res)=>{
                 res.send(err)
             }
             else{                                 
-                res.render("admin_dogTable.hbs", {
+                res.render("../views/admin_dogTable.hbs", {
                     dogs: doc
                })
             }
@@ -485,7 +488,7 @@ app.get("/admin_dogTable", (req, res)=>{
     }
 })
 
-app.get("/admin_feedbackTable", (req, res)=>{
+app.get("/admin_feedback", (req, res)=>{
     if(req.session.username == "admin"){
         Feedback.find({
 
@@ -494,7 +497,7 @@ app.get("/admin_feedbackTable", (req, res)=>{
                 res.send(err)
             }
             else{                                 
-                res.render("admin_feedbackTable.hbs", {
+                res.render("../views/admin_feedback.hbs", {
                     feedbacks: doc
                 })
             }  
@@ -507,7 +510,7 @@ app.get("/admin_feedbackTable", (req, res)=>{
 
 app.get("/admin_team", (req, res)=>{
     if(req.session.username == "admin"){
-        res.render("admin_team.hbs", {
+        res.render("../views/admin_team.hbs", {
             username: req.session.username
         })
     }
@@ -580,8 +583,11 @@ app.post("/signup", urlencoder, (req, res)=>{
 app.post("/edit_profile", urlencoder, (req, res)=>{
     var comparename = "null"
     var compareemail = "null"
+    var comparepass = "null"
     var currentname = req.session.username
     var currentemail = "null"
+    var currentpass = "null"
+    var changes = "";
         
     User.findOne({
         username: req.session.username
@@ -591,18 +597,22 @@ app.post("/edit_profile", urlencoder, (req, res)=>{
         }
         else{ 
             currentemail = doc.email
+            currentpass = doc.password
     
-            console.log("current name: ", currentname);
-            console.log("current email: ", currentemail);
-
-            // if user did not change email or username, do not compare these to the database
+            // if user did not change username, email, or password, do not compare these to the database
             if (currentname != req.body.uname)
                 comparename = req.body.uname
             if (currentemail != req.body.email)
                 compareemail = req.body.email
-
-            console.log("comapare name: ", comparename);
-            console.log("compare email: ", compareemail);
+            if (currentpass != CryptoJS.MD5(req.body.pass).toString())
+                comparepass = req.body.pass
+            
+            if(comparename != "null")
+                changes += "1"
+            if(compareemail != "null")
+                changes += "2"
+            if(comparepass != "null")
+                changes += "3"
             
             User.findOne({
                 $or: [ 
@@ -614,9 +624,6 @@ app.post("/edit_profile", urlencoder, (req, res)=>{
                         res.send(err)
                     }
                     else if(doc){
-                        console.log(doc.username, " comapare to ", req.body.uname);
-                        console.log(doc.email, " comapare to ", req.body.email);
-
                         if(doc.username == req.body.uname){
                             res.redirect("/editprofile?error=" + encodeURIComponent('username_taken'));
                         }
@@ -636,7 +643,7 @@ app.post("/edit_profile", urlencoder, (req, res)=>{
                                }
                                 else{
                                     req.session.username = req.body.uname
-                                    res.redirect("/profile")
+                                    res.redirect("/profile?changes=" + encodeURIComponent(changes));
                                 }
                             }),(err)=>{
                             res.send(err)
@@ -656,7 +663,7 @@ app.post("/edit_profile", urlencoder, (req, res)=>{
                                }
                                 else{
                                     req.session.username = req.body.uname
-                                    res.redirect("/profile")
+                                    res.redirect("/profile?changes=" + encodeURIComponent(changes));
                                 }
                             }),(err)=>{
                             res.send(err)
@@ -868,8 +875,8 @@ app.post("/feedbackform", urlencoder, (req, res)=>{
 
 })
 
-app.post("/delete", urlencoder, (req, res)=>{
-    console.log("POST /delete " + req.body.id)
+app.post("/delete-dog", urlencoder, (req, res)=>{
+    console.log("POST /delete-dog " + req.body.id)
     Dog.deleteOne({
         _id: req.body.id
     }, (err, doc)=>{
@@ -884,10 +891,40 @@ app.post("/delete", urlencoder, (req, res)=>{
     })
 })
 
+app.post("/delete-request", urlencoder, (req, res)=>{
+    console.log("POST /delete-request " + req.body.id)
+    Request.deleteOne({
+        _id: req.body.id
+    }, (err, doc)=>{
+        if (err){
+            res.send(err)
+        }
+        else{
+            console.log(doc)
+            res.send(doc)
+        }
+    })
+})
+
+app.post("/delete-feedback", urlencoder, (req, res)=>{
+    console.log("POST /delete-feedback " + req.body.id)
+    Feedback.deleteOne({
+        _id: req.body.id
+    }, (err, doc)=>{
+        if (err){
+            res.send(err)
+        }
+        else{
+            console.log(doc)
+            res.send(doc)
+        }
+    })
+})
+
 app.get("*", (req, res) => {
     res.sendFile(__dirname + "/public/error.html")
 });
 
-app.listen(3000, function(){                  // read from this port
+app.listen(PORT, function(){                  // read from this port
     console.log("Now listening at port 3000!");
 })

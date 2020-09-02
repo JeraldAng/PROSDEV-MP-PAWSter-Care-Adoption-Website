@@ -15,7 +15,7 @@ $(document).ready(function(){
                     
                     let id = $(this).attr("data-id")
                      $.ajax({
-                         url: "delete",                 // app.post("/delete")
+                         url: "delete-dog",                 // app.post("/delete")
                          method: "POST",
                          data: {
                             id : $(this).attr("data-id")
