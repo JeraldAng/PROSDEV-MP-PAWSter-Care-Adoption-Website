@@ -44,6 +44,9 @@ An admin can login to the website with the right credentials, and upon logging i
 The Kennel page is where the admin can view the current list of dogs, and can add, edit and delete dogs as they wish. 
 ![The Kennel](https://cdn.discordapp.com/attachments/734659959794565223/750745272174247966/unknown.png)
 
+Other pages in the Admin Side are the Team page, Requests page, and Feedback page. 
+<img src="public/img/team.gif?raw=true" width="1000px">
+
 ## 🕵🏻‍♂️Types of users
 <a name="types-of-users"></a>
 1. Administrator/Manager
