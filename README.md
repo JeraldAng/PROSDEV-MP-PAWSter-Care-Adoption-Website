@@ -8,11 +8,11 @@ Users may also fill up feedback forms about the services, as well as about the d
 # 📚Table of Contents
 * [Team Members](#team-members)
 * [Project Demo](#project-demo)
-* [Types of Users](#users)
-* [Requirements](#requirements)
+* [Types of Users] (#users)
+* [Requirements] (#requirements)
 
-<a name="team-members"/>
 ## ✨Team Members
+<a name="team-members"></a>
 * 👩🏻‍🎓 <b>PM:</b> Marjorie Lua [@MarjorieLua](https://github.com/MarjorieLua)
 * 👨🏻‍🎓 <b>DEV:</b> Jerald Ang [@JeraldAng](https://github.com/JeraldAng)
 * 👩🏻‍🎓 <b>DEV:</b> Dyonne Macalino [@Dyonne](https://github.com/dyonne-mio)
@@ -20,8 +20,8 @@ Users may also fill up feedback forms about the services, as well as about the d
 * 👩🏻‍🎓 <b>QA:</b> Francine Sia [@FrancineSia](https://github.com/siafrancine)
 * 👨🏻‍🎓 <b>QA:</b> Jeremy Coronia [@JeremyCoronia](https://github.com/JeremyCoronia)
 
-<a name="project-demo"/>
 ## 💻Project Demo
+<a name="project-demo"></a>
 ### 🐶User Side
 ![PAWSter Care Home](https://cdn.discordapp.com/attachments/734659959794565223/750732658299895859/login.gif)
 When a user visits the website, he/she is greeted with the homepage, where the user must login or signup if he/she wants to adopt a dog, or simply scroll through the website as a guest if the user just wants to browse the basic features of PAWSter Care.
@@ -41,8 +41,8 @@ PAWSter Care also offers pages that aims to enlighten its guests in case they ha
 <img src="public/img/admin.gif?raw=true" width="1000px">
 An admin can login to the website with the right credentials, and upon logging in, will be greeted with the admin dashboard. 
 
-<a name="users"/>
 ## 🕵🏻‍♂️Types of users
+<a name="users"></a>
 1. Administrator/Manager
 
     The administrator is in charge of managing all information about the dogs. They may add a new dog for adoption, as well as edit an existing dog's information. Admin/s also have access to the info of registered users. 
@@ -61,8 +61,8 @@ An admin can login to the website with the right credentials, and upon logging i
 
     That is as much as they can do. To access the other user-related features of the website, they must register an account and log in. Guests register with their first and last name, a valid email address, and a password.
 
-<a name="requirements"/>
 ## ✏Requirements
+<a name="requirements"></a>
 ### Installation 
 1. Run `npm install jest` to install Jest for unit testing.
 3. Ensure that you have MongoDB installed and set up on your system. 
