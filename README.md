@@ -8,8 +8,8 @@ Users may also fill up feedback forms about the services, as well as about the d
 # 📚Table of Contents
 * [Team Members](#team-members)
 * [Project Demo](#project-demo)
-* [Types of Users] (#users)
-* [Requirements] (#requirements)
+* [Types of Users](#types-of-users)
+* [Requirements](#requirements)
 
 ## ✨Team Members
 <a name="team-members"></a>
@@ -42,7 +42,7 @@ PAWSter Care also offers pages that aims to enlighten its guests in case they ha
 An admin can login to the website with the right credentials, and upon logging in, will be greeted with the admin dashboard. 
 
 ## 🕵🏻‍♂️Types of users
-<a name="users"></a>
+<a name="types-of-users"></a>
 1. Administrator/Manager
 
     The administrator is in charge of managing all information about the dogs. They may add a new dog for adoption, as well as edit an existing dog's information. Admin/s also have access to the info of registered users. 
