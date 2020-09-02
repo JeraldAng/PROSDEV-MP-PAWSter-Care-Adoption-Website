@@ -1,8 +1,12 @@
 ![PAWSter Care](https://cdn.discordapp.com/attachments/734659959794565223/750706927708799016/header-readme.png)
-# PAWSdev S16
-> This is the major course requirement for the subject PROSDEV. 
+> This is the major course requirement for the subject Professional Software Development (PROSDEV). 
+<hr>
 
-* [Team Members] (#team-members)
+# Table of Contents
+* [Team Members](#team-members)
+* [My second title](#my-second-title)
+
+## Team Members
 <a name="team-members"></a>Team Members
 * PM: Marjorie Lua
 * DEV: Jerald Ang
