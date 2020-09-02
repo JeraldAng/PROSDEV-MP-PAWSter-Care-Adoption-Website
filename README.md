@@ -41,6 +41,9 @@ PAWSter Care also offers pages that aims to enlighten its guests in case they ha
 <img src="public/img/admin.gif?raw=true" width="1000px">
 An admin can login to the website with the right credentials, and upon logging in, will be greeted with the admin dashboard. 
 
+The Kennel page is where the admin can view the current list of dogs, and can add, edit and delete dogs as they wish. 
+![The Kennel](https://cdn.discordapp.com/attachments/734659959794565223/750745272174247966/unknown.png)
+
 ## 🕵🏻‍♂️Types of users
 <a name="types-of-users"></a>
 1. Administrator/Manager
