@@ -206,28 +206,6 @@ describe('Dog Height checker', () => {
 	  // Assert
         expect(isValid).toBeFalsy(); 
     })
-	
-    test('Dog Height: valid input (decimal numbers more than 1)', () => {
-	  // Arrange
-      var input = "19.381";   
-        
-	  // Act
-      var isValid = dogFunc.checkHeight(input);
-      
-	  // Assert
-        expect(isValid).toBeTruthy();   
-    })
-	
-	test('Dog Height: invalid input (decimal numbers less than 1)', () => {
-	  // Arrange
-      var input = "-16.0779";   
-        
-	  // Act
-      var isValid = dogFunc.checkHeight(input);
-      
-	  // Assert
-        expect(isValid).toBeFalsy(); 
-    })
 });
 
 describe('Dog Weight checker', () => {
