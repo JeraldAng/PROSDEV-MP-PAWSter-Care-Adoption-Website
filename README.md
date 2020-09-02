@@ -25,10 +25,10 @@ Users may also fill up feedback forms about the services, as well as about the d
 ![PAWSter Care Home](https://cdn.discordapp.com/attachments/734659959794565223/750723709609836645/pawsterhome.gif)
 When a user visits the website, he/she is greeted with the homepage, where the user must login or signup if he/she wants to adopt a dog, or simply scroll through the website as a guest if the user just wants to browse the basic features of PAWSter Care.
 
-![PAWSter Care View](https://cdn.discordapp.com/attachments/734659959794565223/750726895447965786/scroll.gif)
+![PAWSter Care View](https://cdn.discordapp.com/attachments/734659959794565223/750730991173238824/unknown.png)
 All our dogs can be viewed from the Meet the Dogs page, where users can make use of the filter/search bar to look for a specific dog in case they have one in mind, or they may simply click on the dog card which will lead to the specific dog page. 
 
-![PAWSter Care Dogs](https://cdn.discordapp.com/attachments/734659959794565223/750729330086117416/dexter.gif)
+![PAWSter Care Dogs](https://cdn.discordapp.com/attachments/734659959794565223/750731179442962522/unknown.png)
 
 ## 🕵🏻‍♂️Types of users
 <a name="types-of-users"></a>
