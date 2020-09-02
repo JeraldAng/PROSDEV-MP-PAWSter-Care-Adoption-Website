@@ -21,5 +21,9 @@
   },
   "devDependencies": {
     "jest": "^26.2.2"
+  },
+  "engines": {
+    "node": "10.16.0",
+    "npm": "6.9.0"  
   }
 }
