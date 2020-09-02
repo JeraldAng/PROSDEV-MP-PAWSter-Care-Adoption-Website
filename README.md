@@ -22,7 +22,7 @@ Users may also fill up feedback forms about the services, as well as about the d
 
 ## 💻Project Demo
 <a name="project-demo"></a>
-![] (https://cdn.discordapp.com/attachments/734659959794565223/750721787939258398/home.gif)
+! [Home] (https://cdn.discordapp.com/attachments/734659959794565223/750723709609836645/pawsterhome.gif)
 
 ### 🕵🏻‍♂️Types of users
 <a name="types-of-users"></a>
