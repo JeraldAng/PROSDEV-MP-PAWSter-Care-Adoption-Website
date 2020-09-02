@@ -1,32 +1,24 @@
 ![PAWSter Care](https://cdn.discordapp.com/attachments/734659959794565223/750706927708799016/header-readme.png)
 > This is the major course requirement for the subject Professional Software Development (PROSDEV). 
+> PAWSter Care is a dog adoption website that allows users to view at and adopt dogs. Users must register for them to be able to adopt dogs, but are free to view them even without an account. Adopting a dog requires the user answering a form. All pending adoption requests may be viewed in their profile.
+> Users may also fill up feedback forms about the services, as well as about the dog/s that they have adopted/will adopt. Aside from that, they may view and edit their profile.
 <hr>
 
 # Table of Contents
 * [Team Members](#team-members)
 * [Project Demo](#project-demo)
 
-## Team Members
+## ✨Team Members
 <a name="team-members"></a>
 * 👩🏻‍🎓 <b>PM:</b> Marjorie Lua
-* 👨🏻‍🎓DEV: Jerald Ang
-* 👩🏻‍🎓DEV: Dyonne Macalino
-* 👨🏻‍🎓DEV: Jomari Morales
-* 👩🏻‍🎓QA: Francine Sia
-* 👨🏻‍🎓QA: Jeremy Coronia
+* 👨🏻‍🎓 <b>DEV:</b> Jerald Ang
+* 👩🏻‍🎓 <b>DEV:</b> Dyonne Macalino
+* 👨🏻‍🎓 <b>DEV:</b> Jomari Morales
+* 👩🏻‍🎓 <b>QA:</b> Francine Sia
+* 👨🏻‍🎓 <b>QA:</b> Jeremy Coronia
 
-## Group Members
-1. [Project Manager] Marjorie Lua
-2. Jeremy Coronia
-3. Jerald Ang
-4. Dyonne Macalino
-5. Jomari Morales
-6. Francine Sia
-
-## About the Project
-PAWSter Care is a dog adoption website that allows users to view at and adopt dogs. Users must register for them to be able to adopt dogs, but are free to view them even without an account. Adopting a dog requires the user answering a form. All pending adoption requests may be viewed in their profile.
-
-Users may also fill up feedback forms about the services, as well as about the dog/s that they have adopted/will adopt. Aside from that, they may view and edit their profile.
+## Project Demo
+<a name="project-demo"></a>
 
 ### Types of users
 1. Administrator/Manager
