@@ -23,12 +23,12 @@ body{
 }
 
 .cabin {
-    font-family: "Chewy"!important;
+    font-family: "Cabin"!important;
 }
 
 @font-face {
-    font-family: "C";
-    src: url("../vendor/fontawesome-free/webfonts/chewy.ttf");
+    font-family: "Cabin";
+    src: url("../vendor/fontawesome-free/webfonts/cabin.ttf");
 }
 
 .wrapper--w680 {

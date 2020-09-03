@@ -59,7 +59,7 @@
                                 <label class="cabin">&nbsp;&nbsp;Name</label>
                             </div>
                             <div class="col">
-                                <input class="form-control cabin" type="text" name="dog_name" value="{{dog.name}}">
+                                <input class="form-control cabin" type="text" name="dog_name" id="dog_name" pattern='^[a-zA-Z0-9\s\-\.]+$' value="{{dog.name}}" required>
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                                 <label class="cabin">&nbsp;&nbsp;Date of Birth</label>
                             </div>
                             <div class="col">
-                                <input class="form-control cabin" type="text" name="dog_birthday" value="{{dog.birthday}}">
+                                <input class="form-control cabin" type="text" name="dog_birthday" value="{{dog.birthday}}" required>
                             </div>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
                                 <img src="../img/height.png" style="height: 25px;">
                                 <label class="cabin">Height(in)</label>
                             </div>
-                            <input type="number" class="form-control cabin" name="dog_height" value="{{dog.height}}">
+                            <input type="number" class="form-control cabin" name="dog_height" min="1" step="1" id="dog_height" value="{{dog.height}}" required>
                         </div>
                     </div>
                     <div class="col form-group">
@@ -122,7 +122,7 @@
                             <img src="../img/weight.png" style="height: 25px;">
                             <label class="cabin">&nbsp;&nbsp;Weight(lb)</label>
                         </div>
-                        <input type="number" class="form-control cabin" name="dog_weight" value="{{dog.weight}}">
+                        <input type="number" class="form-control cabin" name="dog_weight" min="1" step="1" id="dog_weight" value="{{dog.weight}}" required>
                     </div>
                 </div>
                 <div class="row">
@@ -133,7 +133,7 @@
                                 <label class="cabin">&nbsp;&nbsp;Specific Conditions</label>
                             </div>
                             <div class="col">
-                                <input class="form-control cabin" type="text" name="dog_conditions" value="{{dog.conditions}}">
+                                <input class="form-control cabin" type="text" name="dog_conditions" id="dog_conditions" value="{{dog.conditions}}" required>
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
                         <div class="form-group">
                             <label class="col control-label cabin">Short Description:</label>
                             <div class="col">
-                                <textarea maxlength="135" class="form-control cabin" rows="5" name="dog_description">{{dog.description}}</textarea>
+                                <textarea maxlength="135" class="form-control cabin" rows="5" name="dog_description" id="dog_description" required>{{dog.description}}</textarea>
                             </div>
                         </div>
                     </div>

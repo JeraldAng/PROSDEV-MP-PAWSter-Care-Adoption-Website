@@ -36,7 +36,7 @@
             <!-- left column -->
             <div class="col-md-4">
                 <div class="text-center">
-                    <img id="upload_ID" style="max-height: 350px; max-width: 350px" src="../img/adopt me pug.png" class="avatar img-circle" alt="avatar"><br><br>
+                    <img id="upload_ID" style="max-height: 350px; max-width: 350px" src="https://cdn.discordapp.com/attachments/734659959794565223/750919299022979082/adopt_me_pug.PNG" class="avatar img-circle" alt="avatar"><br><br>
                     <h6>Upload a different photo...</h6>
                     <form method="post" action="admin_add_dog" class="form-horizontal" role="form" enctype="multipart/form-data">
                         <input type="file" onchange="previewFile()" id="avatar" class="form-control" accept="image/jpg, image/png" name="dog_image" required>
@@ -59,7 +59,10 @@
                                     <label>&nbsp;&nbsp;Name</label>
                                 </div>
                                 <div class="col cabin">
-                                    <input class="form-control" type="text" name="dog_name" placeholder="Enter Dog's Name">
+                                    <input class="form-control className" type="text" name="dog_name" id = "dog_name" placeholder="Enter Dog's Name" pattern='^[a-zA-Z0-9\s\-\.]+$' required> 
+									{{! accepts letters & whitespace: ^[a-zA-Z ]+$ }}
+									{{! accepts letters only: [A-Za-z\\s]* }}
+									{{! alphanumeric w/ spaces: ^[a-zA-Z0-9\s]+$ pattern='^[a-zA-Z0-9\s]+$'}}
                                 </div>
                             </div>
                         </div>
@@ -91,7 +94,7 @@
                                     <label>&nbsp;&nbsp;Date of Birth</label>
                                 </div>
                                 <div class="col cabin">
-                                    <input class="form-control" type="date" name="dog_birthday">
+                                    <input class="form-control" type="date" name="dog_birthday" required>
                                 </div>
                             </div>
                         </div>
@@ -114,14 +117,14 @@
                             <div class="form-group cabin">
                                 <img src="../img/height.png" style="height: 25px;">
                                 <label>&nbsp;Height (in)</label>
-                                <input type="number" class="form-control" name="dog_height" placeholder="0">
+                                <input type="number" class="form-control" name="dog_height" placeholder="0" min="1" step="1" id="dog_height" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group cabin">
                                 <img src="../img/weight.png" style="height: 25px;">
                                 <label>&nbsp;&nbsp;Weight (lb)</label>
-                                <input type="number" class="form-control cabin" name="dog_weight" placeholder="0">
+                                <input type="number" class="form-control cabin" name="dog_weight" placeholder="0" min="1" step="1" id="dog_weight" required>
                             </div>
                         </div>
                     </div>
@@ -135,7 +138,7 @@
                                     <label>&nbsp;&nbsp;Special Conditions:</label>
                                 </div>
                                 <div class="col cabin">
-                                    <input class="form-control" type="text" name="dog_conditions" placeholder="i.e. none">
+                                    <input class="form-control" type="text" name="dog_conditions" placeholder="i.e. none" id="dog_conditions" required>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +146,7 @@
                             <div class="form-group cabin">
                                 <label class="col control-label">Short Description:</label>
                                 <div class="col">
-                                    <textarea maxlength="135" class="form-control" rows="5" name="dog_description" placeholder="Enter Dog's information here"></textarea>
+                                    <textarea maxlength="135" class="form-control" rows="5" name="dog_description" placeholder="Enter Dog's information here" id="dog_description" required></textarea>
                                 </div>
                             </div>
                         </div>
