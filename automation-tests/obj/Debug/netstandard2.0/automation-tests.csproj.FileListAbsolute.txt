@@ -1,0 +1,13 @@
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netstandard2.0\automation-tests.deps.json
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netstandard2.0\automation-tests.dll
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netstandard2.0\automation-tests.pdb
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netstandard2.0\automation-tests.csprojAssemblyReference.cache
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netstandard2.0\automation-tests.csproj.CoreCompileInputs.cache
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netstandard2.0\automation-tests.AssemblyInfoInputs.cache
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netstandard2.0\automation-tests.AssemblyInfo.cs
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netstandard2.0\automation-tests.dll
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netstandard2.0\automation-tests.pdb
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netstandard2.0\xunit.runner.visualstudio.testadapter.dll
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netstandard2.0\xunit.runner.reporters.net452.dll
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netstandard2.0\xunit.runner.utility.net452.dll
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netstandard2.0\xunit.abstractions.dll

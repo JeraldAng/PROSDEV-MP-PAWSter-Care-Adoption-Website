@@ -17,13 +17,14 @@
     "express-session": "^1.17.1",
     "hbs": "^4.1.1",
     "mongoose": "^5.9.27",
-    "multer": "^1.4.2"
+    "multer": "^1.4.2",
+    "selenium-webdriver": "^4.0.0-alpha.7"
   },
   "devDependencies": {
     "jest": "^26.2.2"
   },
   "engines": {
     "node": "10.16.0",
-    "npm": "6.9.0"  
+    "npm": "6.9.0"
   }
 }

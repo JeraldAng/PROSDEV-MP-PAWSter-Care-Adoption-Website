@@ -1,0 +1,16 @@
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\testhost.exe
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\testhost.dll
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\automation-tests.deps.json
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\automation-tests.runtimeconfig.json
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\automation-tests.runtimeconfig.dev.json
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\automation-tests.dll
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\automation-tests.pdb
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netcoreapp2.1\automation-tests.csprojAssemblyReference.cache
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netcoreapp2.1\automation-tests.csproj.CoreCompileInputs.cache
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netcoreapp2.1\automation-tests.AssemblyInfoInputs.cache
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netcoreapp2.1\automation-tests.AssemblyInfo.cs
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netcoreapp2.1\automation-tests.dll
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netcoreapp2.1\automation-tests.pdb
