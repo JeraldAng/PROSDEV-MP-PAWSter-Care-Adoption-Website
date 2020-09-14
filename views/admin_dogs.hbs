@@ -175,8 +175,12 @@
                         <div class="mainflip">
                             <div class="frontside">
                                 <div class="card">
-                                    <div class="card-body text-center">
-                                        <img class="img-fluid" src="../uploads/{{image}}" onerror="this.onerror=null;this.src='../img/dog-not-found.png';" alt="card image" /><br><br>
+                                    <div class="card-body text-center {{status}}">
+                                        <img class="img-fluid" src="../uploads/{{image}}" onerror="this.onerror=null;this.src='../img/dog-not-found.png';" alt="card image" />
+                                        {{#ifCond status "==" "adopted"}}
+                                            <img class="adopted-badge" src="../img/adoptedBone.png">
+                                        {{/ifCond}}
+                                        <br><br>
                                         <h4 class="bubblegumsans card-title text-brown" style="display: inline">{{name}}</h4>
                                         <img src="../img/{{gender}}.png" style="height:20px; width: 20px; display: inline" />
                                         <p class="bubblegumsans card-text text-brown">the {{breed}}</p>
@@ -186,8 +190,11 @@
                             </div>
                             <div class="backside">
                                 <div class="card">
-                                    <div class="card-body text-center">
+                                    <div class="card-body text-center {{status}}">
                                         <img src="../uploads/{{image}}" alt="card image" onerror="this.onerror=null;this.src='../img/dog-not-found.png';" style="height: 36%;">
+                                        {{#ifCond status "==" "adopted"}}
+                                            <img class="adopted-badge" src="../img/adoptedBone.png">
+                                        {{/ifCond}}
                                         <h4 class="card-title">{{name}}</h4>
                                         <p class="card-text" style="text-align: justify">{{description}}</p>
                                         <button class="cabin edit btn btn-primary" data-id="{{_id}}" style="background: #6DAB3C!important;">Edit Dog Info</button>

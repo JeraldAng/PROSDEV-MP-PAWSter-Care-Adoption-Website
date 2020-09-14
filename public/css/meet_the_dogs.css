@@ -289,3 +289,13 @@ img{
     margin: 0 auto;
 }
 
+.adopted-badge{
+    height: auto!important;
+    width: 40%!important;
+    border-radius: 0!important;
+    position: absolute;
+    right:-15px;
+    top:-30px;
+    text-align: center;
+}
+

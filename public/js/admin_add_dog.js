@@ -115,8 +115,8 @@ $(document).ready(function(){
   dog_description.onkeyup = function() { 
 	var inputName = document.getElementById("dog_description"); 
 	  
-	if(inputName.value.length > 50){
-		document.getElementById('dog_description').setCustomValidity("Maximum of 50 characters.");
+	if(inputName.value.length > 135){
+		document.getElementById('dog_description').setCustomValidity("Maximum of 135 characters.");
 	}
 	else if(/^\s/.test(inputName.value)){
     	inputName.value = '';
