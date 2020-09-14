@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 
 var Dog = mongoose.model("dog", {             
     name: String,
+    status: String,
     breed: String,
     height: Number,
     weight: Number,

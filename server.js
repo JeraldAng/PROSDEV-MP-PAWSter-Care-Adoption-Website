@@ -31,6 +31,7 @@ console.log("Connected to Database");
 }).catch((err) => {
 console.log("Not Connected to Database ERROR! ", err);
 });
+mongoose.set('useFindAndModify', false);
 
 hbs.registerHelper('ifCond', function (v1, operator, v2, options) {
     switch (operator) {
@@ -131,7 +132,7 @@ app.get("/signout", (req, res)=>{
 
 app.get("/dogs", (req, res)=>{
         Dog.find({
-        
+            status: "unadopted"
         }, (err, doc)=>{
             if(err){
                 res.send(err)
@@ -741,7 +742,7 @@ app.post("/request", urlencoder, (req, res)=>{
 app.post("/approve", urlencoder, (req, res)=>{
 
     console.log(req.body.reqid)
-    Request.update({                              
+    Request.findOneAndUpdate({                              
        _id: req.body.reqid 
     }, {                                       
         reqStatus: "approved"
@@ -750,7 +751,19 @@ app.post("/approve", urlencoder, (req, res)=>{
            res.send(err)
        }
         else{
-            res.redirect("/admin_requests")
+            id = doc.reqDogID
+            Dog.update({
+                _id: id 
+            }, {
+                status: "adopted"
+            }, (err, doc)=>{
+                if(err){
+                    res.send(err)
+                }
+                else{                                 
+                    res.redirect("/admin_requests")
+                }
+            })
         }
     }) 
 })
@@ -758,7 +771,7 @@ app.post("/approve", urlencoder, (req, res)=>{
 app.post("/reject", urlencoder, (req, res)=>{
 
     console.log(req.body.reqid)
-    Request.update({                              
+    Request.updateOne({                              
        _id: req.body.reqid 
     }, {                                       
         reqStatus: "rejected"
@@ -777,6 +790,7 @@ app.post("/reject", urlencoder, (req, res)=>{
 app.post('/admin_add_dog', upload.single('dog_image'), function (req, res, next) {
     if(req.file != undefined){
     var name = req.body.dog_name
+    var status = "unadopted"
     var breed = req.body.dog_breed
     var birthday = req.body.dog_birthday
     var gender = req.body.dog_gender
@@ -791,7 +805,7 @@ app.post('/admin_add_dog', upload.single('dog_image'), function (req, res, next)
     var image = req.file.filename
     
     let dog = new Dog({
-        name, breed, birthday, gender, height, weight, conditions, description, energy_level, ease_of_training, grooming_requirements, affection_needs, image
+        name, status, breed, birthday, gender, height, weight, conditions, description, energy_level, ease_of_training, grooming_requirements, affection_needs, image
     })
     
     dog.save().then((doc)=>{
@@ -810,6 +824,7 @@ app.post('/admin_edit_dog', upload.single('dog_image'), function (req, res, next
        _id: req.body.id 
     }, {                                       // new info that you want to add
         name: req.body.dog_name,
+        status: req.body.dog_status, 
         breed: req.body.dog_breed,
         birthday: req.body.dog_birthday,
         gender: req.body.dog_gender,
@@ -836,6 +851,7 @@ app.post('/admin_edit_dog', upload.single('dog_image'), function (req, res, next
        _id: req.body.id 
     }, {                                       // new info that you want to add
         name: req.body.dog_name,
+        status: req.body.dog_status,   
         breed: req.body.dog_breed,
         birthday: req.body.dog_birthday,
         gender: req.body.dog_gender,
