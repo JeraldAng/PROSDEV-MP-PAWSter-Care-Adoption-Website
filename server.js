@@ -275,8 +275,18 @@ app.get("/request_dog", (req, res)=>{
             else{
                     userID = doc._id
                     email = doc.email
-                    Dog.findOne({
-                        _id: req.query.id                     
+                
+                Request.findOne({
+                reqUserID: userID,
+                reqDogID: req.query.id,
+                reqStatus: "pending"
+                }, (err, doc)=>{
+                if(err){
+                    res.send(err)
+                }
+                else if (!doc){   
+                Dog.findOne({
+                     _id: req.query.id
                     }, (err, doc)=>{
                         if(err){
                             res.send(err)
@@ -284,7 +294,8 @@ app.get("/request_dog", (req, res)=>{
                         else{
                             selected = doc
                             Dog.find({
-                                '_id': { $ne: doc._id}
+                                _id: { $ne: doc._id},
+                                status: { $ne: "adopted" }
                             }, (err, doc)=>{
                                 if(err){
                                     res.send(err)
@@ -299,8 +310,13 @@ app.get("/request_dog", (req, res)=>{
                                     })
                                 }
                             })
-                        }
-                    })
+                      }
+                    }) 
+                }
+                    else{
+                        res.redirect("/dogs?error=" + encodeURIComponent('pendingrequest_found'));
+                    }
+                }) 
             }
         })
     }
