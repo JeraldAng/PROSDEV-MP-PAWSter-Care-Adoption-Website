@@ -146,7 +146,7 @@ $(document).ready(function(){
 
     // When the user starts to type something inside the email field
     email.onkeyup = function(){
-            var isValid = checkEmail(document.getElementById("inputEmail").value);
+        var isValid = checkEmail(document.getElementById("inputEmail").value);
         if(isValid){
              document.getElementById('inputEmail').setCustomValidity("");     
         }
