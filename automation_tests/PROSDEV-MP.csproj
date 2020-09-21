@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>PROSDEV_MP</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3"/>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1"/>
+    <PackageReference Include="xunit" Version="2.4.1"/>
+    <PackageReference Include="Selenium.Support" Version="3.141.0"/>
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="85.0.0"/>
+  </ItemGroup>
+</Project>
