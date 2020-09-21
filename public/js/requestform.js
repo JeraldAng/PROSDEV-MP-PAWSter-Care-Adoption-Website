@@ -58,11 +58,11 @@ function checkEmail(inputEmail){
 function checkNum(inputNum){
     var numFormat = /^[\d]+$/;
     
-    if(inputNum.match(numFormat) && !/\s/.test(inputNum) && inputNum.length <= 11){
+    if(inputNum.match(numFormat) && /^09/.test(inputNum) && !/\s/.test(inputNum) && inputNum.length == 11){
         return true;
     }
     else{
-        $('#invalid-pnum').html("Invalid phone number.").css('color', 'red');
+        $('#invalid-pnum').html("Phone number must follow the format: 09XXXXXXXXX.").css('color', 'red');
         return false;
     }
 }
@@ -91,16 +91,16 @@ $(document).ready(function(){
 	// /^(?:\+?\d{2}[ -]?\d{3}[ -]?\d{5}|\d{4})$/
 	
   reqNum.onkeyup = function() { 
-	var inputName = document.getElementById("reqNum");
+	var inputNum = reqNum.value;
 	var ph = /^[\d\-\(\)\+}]+$/;
-	  
-	if(!ph.test(inputName.value)  || /\s/.test(inputName.value) || inputName.value.length > 11){
-		document.getElementById('reqNum').setCustomValidity("Invalid field.");
-		$('#invalid-pnum').html("Please enter a valid phone number.").css('color', 'red');
-	}
-	else{
-		document.getElementById('reqNum').setCustomValidity("");
-	}   
+      
+    var isValid = checkNum(inputNum);
+        if(isValid){
+            document.getElementById('reqNum').setCustomValidity("");
+        }
+        else{
+            document.getElementById('reqNum').setCustomValidity("Invalid field.");    
+        }  
   }
   
   reqAddress.onkeyup = function() { 
@@ -117,9 +117,13 @@ $(document).ready(function(){
 } 
 
   email.onkeyup = function(){
-      if(!email.checkValidity()){
-          $('#invalid-email').html("Email must follow the format: name@site.com").css('color', 'red');  
-      }
+      var isValid = checkEmail(email.value);
+        if(isValid){
+             document.getElementById('reqEmail').setCustomValidity("");     
+        }
+        else{
+            document.getElementById('reqEmail').setCustomValidity("Invalid field.");
+        }
   }
   
   reqFirst.onkeyup = function() {   
