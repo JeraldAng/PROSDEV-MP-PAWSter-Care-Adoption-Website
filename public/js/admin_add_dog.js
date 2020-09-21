@@ -14,9 +14,6 @@
        }
   }
 
-  previewFile();  //calls the function named previewFile()   
-
-
 // check if Dog's Name is valid
 function checkName(inputName){
     var nameFormat = /^[a-zA-Z0-9\s\-\.]+$/;

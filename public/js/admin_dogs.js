@@ -1,3 +1,8 @@
+function deleteDog(id){
+    var selectedDog = document.querySelector("span[data-id='"+ id +"']")
+    selectedDog.parentNode.removeChild(selectedDog);
+}
+
 $(document).ready(function(){
                 // TODO: Put script for update
                 $("button.edit").click(function(){      // local disk, fat arrow is a global disk
@@ -9,10 +14,6 @@ $(document).ready(function(){
                 
                 // TODO: Put script for delete
                 $("button.delete").click(function(){
-//                    console.log("button.delete" + $(this).attr("data-id"))
-//                    $("#deleteid").val($(this).attr("data-id"))
-//                    $("#deleteform").submit()
-                    
                     let id = $(this).attr("data-id")
                      $.ajax({
                          url: "delete-dog",                 // app.post("/delete")
@@ -25,13 +26,15 @@ $(document).ready(function(){
                                 alertify.set('notifier','position', 'bottom-left'); 
                                 alertify.success('Deleted Successfully');
                                  // remove the actual row
-                                 $("span[data-id='"+id+"']").remove()
+                                 deleteDog(id)
                              }
                              else
                                  alert("something went wrong")
-                            console.log(result)
                          }
                      })
                 })
+                })
     
-            })
+    
+// export functions for testing
+module.exports = {deleteDog};    
