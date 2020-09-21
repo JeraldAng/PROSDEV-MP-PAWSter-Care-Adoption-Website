@@ -11,7 +11,8 @@ document.body.innerHTML =
         '<p id="capital" class="invalid">' + '</p>' +
         '<p id="number" class="invalid">' + '</p>' +
         '<p id="length" class="invalid">' + '</p>' +
-        '<p id="special" class="invalid">' + '</p>';
+        '<p id="special" class="invalid">' + '</p>'+ 
+        '<img id="upload_ID"/>' + '<input type="file">';
 
 describe('Dog Name checker', () => {
     test('Dog Name: null input', () => {
