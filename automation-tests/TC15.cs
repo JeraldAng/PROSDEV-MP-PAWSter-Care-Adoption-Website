@@ -57,15 +57,21 @@ namespace automation_tests
             IWebElement mtg_element_numb = driver.FindElement(By.Id("reqNum"));
             IWebElement mtg_element_addr = driver.FindElement(By.Id("reqAddress"));
             
-            mtg_element_fname.SendKeys("AutoTest First Name");
-            mtg_element_lname.SendKeys("AutoTest Last Name");
-            mtg_element_numb.SendKeys("09399185203");
-            mtg_element_addr.SendKeys("AutoTest Address");
+            mtg_element_fname.SendKeys("John");
+            mtg_element_lname.SendKeys("Doe");
+            mtg_element_numb.SendKeys("09111111111");
+            mtg_element_addr.SendKeys("Test Address in request for adoption form");
 
             // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             // driver.Quit();
         }
     }
+
+    //tc16 - no Fname
+    //tc17 - no Lname
+    //tc18 - no num
+    //tc19 - no addr
+    //tc20 - wrong num format
 }
 
 
