@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\siafr\\Desktop\\Francine\\3rd Year\\3rd Term\\PROSDEV\\PROSDEV-MP\\automation_tests\\PROSDEV-MP.csproj": {}
+    "C:\\Users\\siafr\\Desktop\\Francine\\3rd Year\\3rd Term\\PROSDEV\\PROSDEV-MP\\automation_tests\\PROSDEV-MP.csproj": {}
   },
   "projects": {
-    "c:\\Users\\siafr\\Desktop\\Francine\\3rd Year\\3rd Term\\PROSDEV\\PROSDEV-MP\\automation_tests\\PROSDEV-MP.csproj": {
+    "C:\\Users\\siafr\\Desktop\\Francine\\3rd Year\\3rd Term\\PROSDEV\\PROSDEV-MP\\automation_tests\\PROSDEV-MP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\siafr\\Desktop\\Francine\\3rd Year\\3rd Term\\PROSDEV\\PROSDEV-MP\\automation_tests\\PROSDEV-MP.csproj",
+        "projectUniqueName": "C:\\Users\\siafr\\Desktop\\Francine\\3rd Year\\3rd Term\\PROSDEV\\PROSDEV-MP\\automation_tests\\PROSDEV-MP.csproj",
         "projectName": "PROSDEV-MP",
-        "projectPath": "c:\\Users\\siafr\\Desktop\\Francine\\3rd Year\\3rd Term\\PROSDEV\\PROSDEV-MP\\automation_tests\\PROSDEV-MP.csproj",
+        "projectPath": "C:\\Users\\siafr\\Desktop\\Francine\\3rd Year\\3rd Term\\PROSDEV\\PROSDEV-MP\\automation_tests\\PROSDEV-MP.csproj",
         "packagesPath": "C:\\Users\\siafr\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\siafr\\Desktop\\Francine\\3rd Year\\3rd Term\\PROSDEV\\PROSDEV-MP\\automation_tests\\obj\\",
+        "outputPath": "C:\\Users\\siafr\\Desktop\\Francine\\3rd Year\\3rd Term\\PROSDEV\\PROSDEV-MP\\automation_tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\siafr\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -95,3 +95,5 @@ C:\Users\siafr\Desktop\Francine\3rd Year\3rd Term\PROSDEV\PROSDEV-MP\automation_
 C:\Users\siafr\Desktop\Francine\3rd Year\3rd Term\PROSDEV\PROSDEV-MP\automation_tests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 C:\Users\siafr\Desktop\Francine\3rd Year\3rd Term\PROSDEV\PROSDEV-MP\automation_tests\obj\Debug\netcoreapp3.1\PROSDEV-MP.csproj.CopyComplete
 C:\Users\siafr\Desktop\Francine\3rd Year\3rd Term\PROSDEV\PROSDEV-MP\automation_tests\obj\Debug\netcoreapp3.1\PROSDEV-MP.genruntimeconfig.cache
+c:\Users\siafr\Desktop\Francine\3rd Year\3rd Term\PROSDEV\PROSDEV-MP\automation_tests\bin\Debug\netcoreapp3.1\WebDriver.Support.dll
+c:\Users\siafr\Desktop\Francine\3rd Year\3rd Term\PROSDEV\PROSDEV-MP\automation_tests\bin\Debug\netcoreapp3.1\WebDriver.dll
