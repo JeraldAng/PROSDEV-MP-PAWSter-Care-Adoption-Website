@@ -14,7 +14,7 @@
             </div>
             <div class="modal-body">
                 <form id="login-form">
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3" name="username">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <span class="fa fa-user-circle"></span>
@@ -22,7 +22,7 @@
                         </div>
                         <input type="text" id="username" name="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3" name="password">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <span class="fa fa-lock"></span>
@@ -41,7 +41,7 @@
                 </form>
             </div>
             <div class="modal-footer cg">
-                <input type="submit" name="button" class="btn btn--radius btn--orange login_btn" value="LOGIN">
+                <input type="submit" name="button" id="login_btn" class="btn btn--radius btn--orange login_btn" value="LOGIN">
                 <button type="button" class="btn btn-secondary cg" data-dismiss="modal">Close</button>
             </div>
         </div>
