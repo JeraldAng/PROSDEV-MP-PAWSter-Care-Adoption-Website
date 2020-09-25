@@ -14,3 +14,8 @@ J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netcoreapp2.1\automati
 J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netcoreapp2.1\automation-tests.AssemblyInfo.cs
 J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netcoreapp2.1\automation-tests.dll
 J:\Documents\GitHub\PROSDEV-MP\automation-tests\obj\Debug\netcoreapp2.1\automation-tests.pdb
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\nunit.engine.dll
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\nunit.engine.api.dll
+J:\Documents\GitHub\PROSDEV-MP\automation-tests\bin\Debug\netcoreapp2.1\nunit.engine.core.dll
