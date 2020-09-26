@@ -5,7 +5,9 @@ PAWSter Care is a dog adoption website that allows users to browse and adopt dog
 Users may also fill up feedback forms about the services, as well as about the dog/s that they have adopted/will adopt. Aside from that, they may view and edit their profile.
 <hr>
 
-[![Heroku Deploy Actions Status](https://github.com/JeraldAng/PROSDEV-MP/workflows/Heroku Deploy/badge.svg)](https://github.com/JeraldAng/PROSDEV-MP/actions)
+[![Heroku-Deploy Actions Status](https://github.com/JeraldAng/PROSDEV-MP/.github/workflows/Heroku-Deploy/badge.svg)](https://github.com/JeraldAng/PROSDEV-MP/actions)
+
+[![server.js-CI Actions Status](https://github.com/JeraldAng/PROSDEV-MP/.github/workflows/server.js-CI/badge.svg)](https://github.com/JeraldAng/PROSDEV-MP/actions)
 
 # 📚Table of Contents
 * [Team Members](#team-members)
