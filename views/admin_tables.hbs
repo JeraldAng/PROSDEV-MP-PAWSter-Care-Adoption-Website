@@ -2,132 +2,109 @@
 <html lang="en">
 
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-<!--  title details    -->
-  <title>PAWSter Care Admin</title>
-  <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png" />
-    
-  <!-- BootstrapCDN -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-  <!-- Custom fonts for this template -->
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
-  <!-- data tables -->    
-  <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-  <script src="https:////cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
-
-  <!-- custom CSS -->
-  <link href="../css/PAWSter%20Care.css" rel="stylesheet">
-    
-  <!-- custom js -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--  title details    -->
+    <title>PAWSter Care Admin</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/logo.png" />
+    <!-- BootstrapCDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Custom fonts for this template -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- data tables -->
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="https:////cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <!-- custom CSS -->
+    <link href="../css/PAWSter%20Care.css" rel="stylesheet">
+    <!-- custom js -->
     <script src="../js/PAWSter%20Care.js" type="text/javascript"></script>
     <script src="../js/admin_tables.js" type="text/javascript"></script>
-
 </head>
 
 <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-admin fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand" href="admin_main.hbs"><img src = "../img/logo.png" style = "height: 25px"/>   PAWSter Care Admin</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fa fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mr-5">
-            <span class="nav-link">Welcome admin!</span>
-          </li>
-            
-          <li class="nav-item ml-1">
-            <a class="nav-link" href="admin_main.hbs">Home</a>
-          </li>
-            
-          <li class="nav-item ml-1">
-            <a class="nav-link" href="admin_dogs.hbs">Dogs Data</a>
-          </li>    
-            
-            <li class="nav-item ml-1">
-            <a class="nav-link" href= "admin_requests.hbs">Requests</a>
-          </li>
-            
-            <li class="nav-item ml-1">
-            <a class="nav-link active" href="admin_tables.hbs">Tables</a>
-          </li>
-            
-            <li class="nav-item ml-1">
-            <a class="nav-link" href="index.html">Sign out</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav><br><br><br>
-    
-         <table id = "UserTable" class="display" style="width=100%">
-             <thead>
-                <tr>
-                    <td>username</td> 
-                    <td>encrypted password</td> 
-                </tr>
-             </thead>
-             <tbody>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-admin fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="admin_main.hbs"><img src="../img/logo.png" style="height: 25px" /> PAWSter Care Admin</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mr-5">
+                        <span class="nav-link">Welcome admin!</span>
+                    </li>
+                    <li class="nav-item ml-1">
+                        <a class="nav-link" href="admin_main.hbs">Home</a>
+                    </li>
+                    <li class="nav-item ml-1">
+                        <a class="nav-link" href="admin_dogs.hbs">Dogs Data</a>
+                    </li>
+                    <li class="nav-item ml-1">
+                        <a class="nav-link" href="admin_requests.hbs">Requests</a>
+                    </li>
+                    <li class="nav-item ml-1">
+                        <a class="nav-link active" href="admin_tables.hbs">Tables</a>
+                    </li>
+                    <li class="nav-item ml-1">
+                        <a class="nav-link" href="index.html">Sign out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav><br><br><br>
+    <table id="UserTable" class="display" style="width=100%">
+        <thead>
+            <tr>
+                <td>username</td>
+                <td>encrypted password</td>
+            </tr>
+        </thead>
+        <tbody>
             {{#each users}}
-                <tr data-id="{{_id}}">
-                    <td>{{username}}</td>
-                    <td>{{password}}</td>       <!-- for demo purposes only-->
-                </tr>
+            <tr data-id="{{_id}}">
+                <td>{{username}}</td>
+                <td>{{password}}</td> <!-- for demo purposes only-->
+            </tr>
             {{/each}}
-            </tbody>
-        
-        </table>
-        <br><hr><br>
-    
-        <table id = "DogTable" class="display" style="width=100%">
-             <thead>
-                <tr>
-                    <td>dog name</td> 
-                    <td>breed</td> 
-                    <td>gender</td> 
-                    <td>birthday</td> 
-                    <td>current height</td> 
-                    <td>current weight</td> 
-                    <td>special conditions</td> 
-                </tr>
-             </thead>
-             <tbody>
+        </tbody>
+    </table>
+    <br>
+    <hr><br>
+    <table id="DogTable" class="display" style="width=100%">
+        <thead>
+            <tr>
+                <td>dog name</td>
+                <td>breed</td>
+                <td>gender</td>
+                <td>birthday</td>
+                <td>current height</td>
+                <td>current weight</td>
+                <td>special conditions</td>
+            </tr>
+        </thead>
+        <tbody>
             {{#each dogs}}
-                <tr data-id="{{_id}}">
-                    <td>{{name}}</td>
-                    <td>{{breed}}</td>       
-                    <td>{{gender}}</td>       
-                    <td>{{birthday}}</td>       
-                    <td>{{height}} inches</td>       
-                    <td>{{weight}} lbs</td>       
-                    <td>{{conditions}}</td>       
-                </tr>
+            <tr data-id="{{_id}}">
+                <td>{{name}}</td>
+                <td>{{breed}}</td>
+                <td>{{gender}}</td>
+                <td>{{birthday}}</td>
+                <td>{{height}} inches</td>
+                <td>{{weight}} lbs</td>
+                <td>{{conditions}}</td>
+            </tr>
             {{/each}}
-            </tbody>
-        
-        </table> 
-    
-
+        </tbody>
+    </table>
 </body>
 
 </html>
-
-
-
-
