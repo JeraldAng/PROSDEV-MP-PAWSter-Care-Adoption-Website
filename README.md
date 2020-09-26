@@ -7,7 +7,7 @@ Users may also fill up feedback forms about the services, as well as about the d
 <hr>
 
 [![Heroku-Deploy Actions Status](https://github.com/JeraldAng/PROSDEV-MP/workflows/Heroku-Deploy/badge.svg)](https://github.com/JeraldAng/PROSDEV-MP/actions)
-[![Actions Status](https://github.com/JeraldAng/PROSDEV-MP/workflows/Heroku Deploy/badge.svg)](https://github.com/JeraldAng/PROSDEV-MP/actions)
+
 
 # 📚Table of Contents
 * [Team Members](#team-members)
