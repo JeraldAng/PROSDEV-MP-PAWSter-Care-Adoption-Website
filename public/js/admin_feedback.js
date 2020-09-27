@@ -1,4 +1,7 @@
 jQuery(document).ready(function($){
+    $("#FeedbackTable_info").text("");
+    $('#deleteRow').attr("disabled", true);
+
     var NoDuplicates = false;
     var checkboxes = "";
 

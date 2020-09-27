@@ -1,4 +1,7 @@
 jQuery(document).ready(function($){
+    $("#RequestsTable_info").text("");
+    $('#deleteRow').attr("disabled", true);
+    
     var checkboxes = document.getElementsByName("checkBox");
     var NoDuplicates = false;
 
@@ -45,7 +48,6 @@ jQuery(document).ready(function($){
              }
           }
         })
-    
 })
 
                 
